@@ -29,8 +29,8 @@ export class SigninComponent implements OnInit {
   initForm(){
     this.role=false
     this.formGroup= new FormGroup({
-      userName: new FormControl("", [Validators.required]),
-      password: new FormControl("",[ Validators.required])
+      tenDangNhap: new FormControl("", [Validators.required]),
+      matKhau: new FormControl("",[ Validators.required])
     }); 
 
   }
@@ -54,7 +54,7 @@ export class SigninComponent implements OnInit {
             localStorage.setItem('currentUser',JSON.stringify( {token:this.data.data.token}) );
             localStorage.setItem('role',this.role );
  
-            this.router.navigate(['/alluser']);
+            this.router.navigate(['/allstaff']);
            }
            if(result.message=="Login Success!" && this.role=="USER")
            {

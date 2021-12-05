@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { FormControl, Validators } from '@angular/forms';
 
 import { FormGroup } from '@angular/forms';
@@ -23,25 +23,36 @@ export class SignupComponent implements OnInit {
   initForm() {
 
     this.formGroup = new FormGroup({
-      userName: new FormControl("", [Validators.required]),
-      password: new FormControl("", [Validators.required]),
-      confirmpassword: new FormControl("", [Validators.required]),
-      fullName: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required]),
-      address: new FormControl("", [Validators.required]),
-      phoneNumber: new FormControl("", [Validators.required])
+      tenDangNhap: new FormControl("", [Validators.required]),
+      tenNguoiDung: new FormControl("", [Validators.required]),
+      diaChi: new FormControl("", [Validators.required]),
+      sDT: new FormControl("", [Validators.required]),
+      matKhau: new FormControl("", [Validators.required]),
+      xacNhanMatKhau: new FormControl("", [Validators.required])
     });
 
   }
   register(data): Observable<any> {
-     return this.http.post(this.api.apiuser+`register`, data);
+    const httpOptions = {
+      headers: new HttpHeaders({ 
+        'Access-Control-Allow-Origin':'*',
+        
+      })
+    };
+    // let headers = new HttpHeaders();
+    // headers = headers.set('Access-Control-Allow-Origin', '*').set('Content-Type', 'application/json')
+    console.log(data)
+     return this.http.post(this.api.apiuser+`dangky`, data, httpOptions);
+     
   }
   registerProces() {
 
 
 
-    const password = this.formGroup.controls['password'].value;
-    const confirmPassword = this.formGroup.controls['confirmpassword'].value;
+    const password = this.formGroup.controls['matKhau'].value;
+    
+    const confirmPassword = this.formGroup.controls['xacNhanMatKhau'].value;
 
 
     if (password != confirmPassword || password == "" || confirmPassword == "") {

@@ -6,11 +6,11 @@ import { Router } from '@angular/router'
 import Swal from 'sweetalert2';
 import * as XLSX from 'xlsx';
 @Component({
-  selector: 'app-scheduleadmin',
-  templateUrl: './scheduleadmin.component.html',
-  styleUrls: ['./scheduleadmin.component.css']
+  selector: 'app-orderadmin',
+  templateUrl: './orderadmin.component.html',
+  styleUrls: ['./orderadmin.component.css']
 })
-export class ScheduleadminComponent implements OnInit {
+export class OrderadminComponent implements OnInit {
   data: any
   array: any = []
   @ViewChild('TABLE') TABLE: ElementRef;

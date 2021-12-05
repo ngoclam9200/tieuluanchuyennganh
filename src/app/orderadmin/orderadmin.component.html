@@ -1,0 +1,37 @@
+<app-layoutadmin></app-layoutadmin>
+<div style="margin-left: 300px;font-size: 30px;">List order</div><br>
+<button (click)="ExportTOExcel()" style="margin-left: 300px;background-color: #82C0E7;">Download xlsx</button> <br>
+<br>
+<button (click)="ExportTOExcel()" style="margin-left: 300px;background-color: #82C0E7;">Wait for confirming </button>
+<button (click)="ExportTOExcel()" style="margin-left: 200px;background-color: #82C0E7;">Delivering </button>
+<button (click)="ExportTOExcel()" style="margin-left: 200px;background-color: #82C0E7;">Delivered </button>
+<button (click)="ExportTOExcel()" style="margin-left: 200px;background-color: #82C0E7;">Cancelled </button>
+<table border="1" class="styled-table" #TABLE #table>
+    <thead>
+        <tr>
+            <th>Total money</th>
+            <th>Date of creating bill</th>
+            <th>Delivery address</th>
+            <th>Paid</th>
+            <th>Id user</th>
+            <th>Status</th>
+            
+            <th>Delete</th>
+            <th>Cancle</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of array">
+            <td>{{data.userName}}</td>
+            <td>{{data.phoneNumber}}</td>
+            <td>{{data.carName}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.time}}</td>
+            <td>{{data.Delete}}</td>
+            <td><button (click)="deleteschedule(data._id)">Delete</button></td>
+            <td><button >Cancle</button></td>
+        </tr>
+
+    </tbody>
+</table>

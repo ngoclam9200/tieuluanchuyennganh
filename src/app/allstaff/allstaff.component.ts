@@ -1,20 +1,23 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient, HttpHeaders, } from '@angular/common/http';
 import { } from '@angular/common'
-
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router'
 
 import * as XLSX from 'xlsx';
 import { ApiService } from 'src/services/api.service';
 @Component({
-  selector: 'app-alluser',
-  templateUrl: './alluser.component.html',
-  styleUrls: ['./alluser.component.css']
+  selector: 'app-allstaff',
+  templateUrl: './allstaff.component.html',
+  styleUrls: ['./allstaff.component.css']
 })
-export class AlluserComponent implements OnInit {
+export class AllstaffComponent implements OnInit {
   array: any = []
   data: any
   arrayalluser: any = []
+  checkfillImage; checkfillcarName; checkfillCarInformation; checkfillairBag; checkfillbody; checkfillcarLife; checkfillcolour; checkfillcompanyName; checkfillengineType; checkfillfrontBrake; checkfillfuelConsumption; checkfillgear; checkfilllongs; checkfillnumberOfSeats; checkfillorigin; checkfilloverallSize; checkfillprice; checkfillseat; checkfillstatus; checkfilltireParameters; checkfilltopSpeed; checkfillwattage; checkfillyearOfManufacture: boolean = false
+
+  formGroup: FormGroup
   @ViewChild('TABLE') TABLE: ElementRef;
   ExportTOExcel() {
     const timeElapsed = Date.now();

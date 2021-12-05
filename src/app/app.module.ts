@@ -20,16 +20,16 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { ProfileuserComponent } from './profileuser/profileuser.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { LayoutadminComponent } from './layoutadmin/layoutadmin.component';
-import { AlluserComponent } from './alluser/alluser.component';
+import { AllstaffComponent } from './allstaff/allstaff.component';
 import { EditaboutComponent } from './editabout/editabout.component';
-import { ListcarComponent } from './listcar/listcar.component';
+import { ListproductComponent } from './listproduct/listproduct.component';
 import { CardetailComponent } from './cardetail/cardetail.component';
 import { ProductadminComponent } from './productadmin/productadmin.component';
 import { CompanycarComponent } from './companycar/companycar.component';
 import { ListcompanycarComponent } from './listcompanycar/listcompanycar.component';
 import { SearchcarComponent } from './searchcar/searchcar.component';
 import { CarcomparisonComponent } from './carcomparison/carcomparison.component';
-import { ScheduleadminComponent } from './scheduleadmin/scheduleadmin.component';
+import { OrderadminComponent } from './orderadmin/orderadmin.component';
 import { ScheduleuserComponent } from './scheduleuser/scheduleuser.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { ListbookinguserComponent } from './listbookinguser/listbookinguser.component';
@@ -48,16 +48,16 @@ import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
     ProfileuserComponent,
     ResetpasswordComponent,
     LayoutadminComponent,
-    AlluserComponent,
+    AllstaffComponent,
     EditaboutComponent,
-    ListcarComponent,
+    ListproductComponent,
     CardetailComponent,
     ProductadminComponent,
     CompanycarComponent,
     ListcompanycarComponent,
     SearchcarComponent,
     CarcomparisonComponent,
-    ScheduleadminComponent,
+    OrderadminComponent,
     ScheduleuserComponent,
     StatisticsComponent,
     ListbookinguserComponent,
@@ -80,7 +80,7 @@ import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
       { path: 'home', component: HomeComponent },
       { path: 'aboutus', component: AboutusComponent },
       { path: 'editabout', component: EditaboutComponent },
-      { path: 'alluser', component: AlluserComponent },
+      { path: 'allstaff', component: AllstaffComponent },
       { path: 'productadmin', component: ProductadminComponent },
       { path: 'companycar', component: CompanycarComponent },
       { path: 'listcompanycar', component: ListcompanycarComponent },
@@ -90,10 +90,10 @@ import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
       { path: 'resetpassword', component: ResetpasswordComponent },
       { path: 'searchcar', component: SearchcarComponent },
       { path: 'listbookinguser', component: ListbookinguserComponent },
-      { path: 'listcar', component: ListcarComponent },
+      { path: 'listproduct', component: ListproductComponent },
       { path: 'cardetail', component: CardetailComponent },
       { path: 'carcomparison', component: CarcomparisonComponent },
-      { path: 'scheduleadmin', component: ScheduleadminComponent },
+      { path: 'orderadmin', component: OrderadminComponent },
       { path: 'scheduleuser', component: ScheduleuserComponent },
       { path: 'statistics', component: StatisticsComponent },
       { path: 'layout', component: LayoutComponent },

@@ -14,7 +14,7 @@ export class ApiService {
  
  
   apiabout="https://carshop985.herokuapp.com/api/about/"
-  apiuser="https://carshop985.herokuapp.com/api/user/"
+  apiuser="https://localhost:44371/api/Users/"
   apicar="https://carshop985.herokuapp.com/api/car/"
   apicompany="https://carshop985.herokuapp.com/api/company/"
   apischedule="https://carshop985.herokuapp.com/api/schedule/"

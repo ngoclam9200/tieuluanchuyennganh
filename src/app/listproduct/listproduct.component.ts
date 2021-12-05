@@ -8,11 +8,11 @@ import { FormGroup } from '@angular/forms';
 import { ApiService } from 'src/services/api.service';
 import Swal from 'sweetalert2';
 @Component({
-  selector: 'app-listcar',
-  templateUrl: './listcar.component.html',
-  styleUrls: ['./listcar.component.css'],
+  selector: 'app-listproduct',
+  templateUrl: './listproduct.component.html',
+  styleUrls: ['./listproduct.component.css'],
 })
-export class ListcarComponent implements OnInit {
+export class ListproductComponent implements OnInit {
   array: any = []
   data: any
   dataCompany: any
@@ -29,6 +29,7 @@ export class ListcarComponent implements OnInit {
     if (localStorage.getItem('currentUser') == null) this.isLogin = false
     else this.isLogin = true
     this.getcar()
+   
     this.getlistcompanyname()
     this.formGroupSearch = this.formBuider.group(
       {
@@ -36,6 +37,7 @@ export class ListcarComponent implements OnInit {
       }
     )
   }
+ 
   getcar() {
 
 
@@ -50,9 +52,11 @@ export class ListcarComponent implements OnInit {
 
 
     this.http.get(this.api.apicar+`all`, { headers: headers }).subscribe(res => {
+      console.log(res)
        this.data = res
 
       this.array = this.data.data
+      
  
 
 
