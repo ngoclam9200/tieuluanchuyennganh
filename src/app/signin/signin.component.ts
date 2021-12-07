@@ -5,6 +5,8 @@ import{FormGroup} from'@angular/forms';
 import {Observable} from 'rxjs';
 import { ApiService } from 'src/services/api.service';
 import {Router} from '@angular/router';
+
+import jwt_decode from 'jwt-decode';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -13,6 +15,7 @@ import {Router} from '@angular/router';
 export class SigninComponent implements OnInit {
  data;role:any
   formGroup : FormGroup;
+
  
   constructor(private http:HttpClient,
     private router:Router, private api:ApiService) { }
@@ -22,9 +25,17 @@ export class SigninComponent implements OnInit {
     this.initForm();
     
   }
+  getDecodedAccessToken(token: string): any {
+    try{
+        return jwt_decode(token);
+    }
+    catch(Error){
+        return null;
+    }
+  }
   login(data):Observable<any>{
     
-    return this.http.post(this.api.apiuser+`login`, data);
+    return this.http.post(this.api.apiuser+`dangnhap`, data);
   }
   initForm(){
     this.role=false
@@ -40,33 +51,41 @@ export class SigninComponent implements OnInit {
       
       
       this.login(this.formGroup.value).subscribe((result) =>{
+
          this.data=result
-        this.role=this.data.data.role
-        
+         console.log(this.data)
+    
+         this.role=this.getDecodedAccessToken(this.data.data)
+         
+      
           
          
             
    
-           if(result.message=="Login Success!" && this.role=="ADMIN")
+           if(result.message=="Đăng nhập thành công" && this.role.vaiTro=="customer")
            {
-            localStorage.setItem('userName',this.formGroup.controls['userName'].value)
+            localStorage.setItem('userName',this.formGroup.controls['tenDangNhap'].value)
 
-            localStorage.setItem('currentUser',JSON.stringify( {token:this.data.data.token}) );
-            localStorage.setItem('role',this.role );
+            localStorage.setItem('currentUser',JSON.stringify( {token:this.data.data}) );
+            localStorage.setItem('role',this.role.vaiTro );
+ 
+            this.router.navigate(['/listproduct']);
+           }
+           if(result.message=="Đăng nhập thành công" && this.role.vaiTro=="admin")
+           {
+            localStorage.setItem('userName',this.formGroup.controls['tenDangNhap'].value)
+
+            localStorage.setItem('currentUser',JSON.stringify( {token:this.data.data}) );
+            localStorage.setItem('role',this.role.vaiTro );
  
             this.router.navigate(['/allstaff']);
-           }
-           if(result.message=="Login Success!" && this.role=="USER")
-           {
-            localStorage.setItem('userName',this.formGroup.controls['userName'].value)
-            localStorage.setItem('currentUser',JSON.stringify( {token:this.data.data.token}) );
-             this.router.navigate(['/listcar']);
            }
 
             
           
 
-      }, error=>{
+      }
+      , error=>{
         
         if( error.error.data == null)
         {

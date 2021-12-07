@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<app-layout></app-layout>
+<html>
+
+<head>
+
+	<title>Shopping Cart</title>
+
+	
+
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+
+
+<div class="container">
+
+	<h1>Shopping Cart</h1>
+
+	<div class="cart">
+
+		<div  class="products">
+
+			<div *ngFor="let data of data" class="product">
+
+				<img style="width:200px"  src="{{data.hinhAnh}} " >
+
+				<div class="product-info">
+
+					<h3 class="product-name">{{data.tenSp}} nó bị null</h3>
+
+					<h4  class="product-price">Price:     {{data.giaTien}}$</h4>
+
+					<h4 class="product-offer">Discount:-{{data.giamGia}}%</h4>
+
+					<p class="product-quantity">Qnt: <input disabled value="{{data.soLuongTrongGio}}" name="">
+
+					<p class="product-remove">
+
+						<i class="fa fa-trash" aria-hidden="true"></i>
+
+						<span class="remove">Remove</span>
+
+					</p>
+
+				</div>
+
+			</div>
+
+			
+
+		</div>
+
+		<div class="cart-total">
+            <p>
+
+				<span>Number of Items</span>
+
+				<span>{{soLuongSP}}</span>
+
+			</p>
+
+			<p>
+
+				<span>Total Price</span>
+
+				<span>₹ {{Tongtien}}</span>
+
+			</p>
+
+		
+
+			<p>
+
+				<span>You Save</span>
+
+				<span>₹ {{moneysave}}</span>
+
+			</p>
+
+			<a href="#">Proceed to Checkout</a>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+</body>
+
+
+</html>

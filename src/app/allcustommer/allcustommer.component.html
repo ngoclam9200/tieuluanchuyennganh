@@ -1,5 +1,5 @@
 <app-layoutadmin></app-layoutadmin>
-<div style="margin-left: 300px;font-size: 30px;">List all staff</div><br>
+<div style="margin-left: 300px;font-size: 30px;">List all custommer</div><br>
 <button (click)="ExportTOExcel()" style="margin-left: 300px;background-color: #82C0E7;width: 200px;">Download xlsx</button>
 <button onclick="document.getElementById('id01').style.display='block'" style="margin-left: 30px;background-color: #82C0E7;width: 200px;">Create staff </button>
 
@@ -12,7 +12,7 @@
       <th style="text-align: center">Phone Number</th>
       <th style="text-align: center">Address</th>
       <th style="text-align: center">Sex</th>
-      <th style="text-align: center">Address</th>
+      
       <th style="text-align: center">Status</th>
       <th style="text-align: center">Edit</th>
       <th style="text-align: center">Delete</th>
@@ -26,14 +26,14 @@
     <tr *ngFor="let data of array ">
 
       <td> {{data.email}}</td>
-      <td> {{data.userName}}</td>
-      <td> {{data.fullName}}</td>
-      <td> {{data.phoneNumber}}</td>
+      <td> {{data.tenDangNhap}}</td>
+      <td> {{data.tenNguoiDung}}</td>
+      <td> {{data.sDT}}</td>
 
-      <td> {{data.address}}</td>
-      <td> {{data.address}}</td>
-      <td> {{data.address}}</td>
-      <td> </td>
+      <td> {{data.diaChi}}</td>
+      <td> {{data.gioiTinh}}</td>
+      <td> {{data.conHoatDong}}</td>
+    
       <td> <button onclick="document.getElementById('id02').style.display='block'" 
         style="width:auto;">Edit</button></td>
       <td> <button style="background-color: red;"  >Delete</button></td>

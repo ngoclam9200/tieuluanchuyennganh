@@ -21,19 +21,20 @@ import { ProfileuserComponent } from './profileuser/profileuser.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { LayoutadminComponent } from './layoutadmin/layoutadmin.component';
 import { AllstaffComponent } from './allstaff/allstaff.component';
-import { EditaboutComponent } from './editabout/editabout.component';
+
 import { ListproductComponent } from './listproduct/listproduct.component';
-import { CardetailComponent } from './cardetail/cardetail.component';
+import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { ProductadminComponent } from './productadmin/productadmin.component';
-import { CompanycarComponent } from './companycar/companycar.component';
-import { ListcompanycarComponent } from './listcompanycar/listcompanycar.component';
-import { SearchcarComponent } from './searchcar/searchcar.component';
-import { CarcomparisonComponent } from './carcomparison/carcomparison.component';
+import { ProducttypeadminComponent } from './producttypeadmin/producttypeadmin.component';
+import { ListproducttypeComponent } from './listproducttype/listproducttype.component';
+import { SearchproductComponent } from './searchproduct/searchproduct.component';
+
 import { OrderadminComponent } from './orderadmin/orderadmin.component';
 import { ScheduleuserComponent } from './scheduleuser/scheduleuser.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { ListbookinguserComponent } from './listbookinguser/listbookinguser.component';
+import {CartuserComponent } from './cartuser/cartuser.component';
 import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
+import { AllcustommerComponent } from './allcustommer/allcustommer.component';
 
 
 @NgModule({
@@ -49,19 +50,20 @@ import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
     ResetpasswordComponent,
     LayoutadminComponent,
     AllstaffComponent,
-    EditaboutComponent,
+
     ListproductComponent,
-    CardetailComponent,
+    ProductdetailComponent,
     ProductadminComponent,
-    CompanycarComponent,
-    ListcompanycarComponent,
-    SearchcarComponent,
-    CarcomparisonComponent,
+    ProducttypeadminComponent,
+    ListproducttypeComponent,
+    SearchproductComponent,
+   
     OrderadminComponent,
     ScheduleuserComponent,
     StatisticsComponent,
-    ListbookinguserComponent,
+    CartuserComponent,
     NotfoundpageComponent,
+    AllcustommerComponent,
 
 
   ],
@@ -79,20 +81,21 @@ import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
       { path: 'aboutus', component: AboutusComponent },
-      { path: 'editabout', component: EditaboutComponent },
+     
       { path: 'allstaff', component: AllstaffComponent },
+      { path: 'allcustommer', component: AllcustommerComponent },
       { path: 'productadmin', component: ProductadminComponent },
-      { path: 'companycar', component: CompanycarComponent },
-      { path: 'listcompanycar', component: ListcompanycarComponent },
+      { path: 'producttypeadmin', component: ProducttypeadminComponent },
+      { path: 'listproducttype', component: ListproducttypeComponent },
       { path: 'contactus', component: ContactusComponent },
       { path: 'profileuser', component: ProfileuserComponent },
       { path: 'layoutadmin', component: LayoutadminComponent },
       { path: 'resetpassword', component: ResetpasswordComponent },
-      { path: 'searchcar', component: SearchcarComponent },
-      { path: 'listbookinguser', component: ListbookinguserComponent },
+      { path: 'searchproduct', component: SearchproductComponent },
+      { path: 'cartuser', component: CartuserComponent },
       { path: 'listproduct', component: ListproductComponent },
-      { path: 'cardetail', component: CardetailComponent },
-      { path: 'carcomparison', component: CarcomparisonComponent },
+      { path: 'productdetail', component: ProductdetailComponent },
+      
       { path: 'orderadmin', component: OrderadminComponent },
       { path: 'scheduleuser', component: ScheduleuserComponent },
       { path: 'statistics', component: StatisticsComponent },

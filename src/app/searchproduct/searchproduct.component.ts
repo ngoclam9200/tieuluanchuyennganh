@@ -6,26 +6,27 @@ import { Router } from '@angular/router'
 import { ApiService } from 'src/services/api.service';
 import Swal from 'sweetalert2';
 @Component({
-  selector: 'app-searchcar',
-  templateUrl: './searchcar.component.html',
-  styleUrls: ['./searchcar.component.css']
+  selector: 'app-searchproduct',
+  templateUrl: './searchproduct.component.html',
+  styleUrls: ['./searchproduct.component.css']
 })
-export class SearchcarComponent implements OnInit {
+export class SearchproductComponent implements OnInit {
   data: any
   array: any = []
-  dataCompany: any
-  arrayCompany: any = []
+  dataproducttype: any
+  arrayproducttype: any = []
   nameCompany; nameCar: any
   idcar: any
   arrayid: any = []
   arraybooking: any = []
   nocar: boolean = false
+  idproducttype:any
   constructor(private http: HttpClient, private router: Router, private api:ApiService) { }
   isLogin: boolean
   ngOnInit(): void {
     if (localStorage.getItem('currentUser') == null) this.isLogin = false
     else this.isLogin = true
-    this.getcar()
+    this.getproduct()
     this.getlistcompanyname()
   }
   getlistcompanyname() {
@@ -35,11 +36,11 @@ export class SearchcarComponent implements OnInit {
  
 
 
-    this.http.get(this.api.apicompany+`all`, { headers: headers }).subscribe(res => {
-       this.dataCompany = res
+    this.http.get(this.api.apiproducttype+`laydanhsachLoaiSP`, { headers: headers }).subscribe(res => {
+       this.dataproducttype = res
 
-      this.arrayCompany = this.dataCompany.data
- 
+      this.arrayproducttype = this.dataproducttype.data
+
 
 
 
@@ -49,7 +50,7 @@ export class SearchcarComponent implements OnInit {
 
 
   }
-  getcar() {
+  getproduct() {
 
 
 
@@ -60,14 +61,17 @@ export class SearchcarComponent implements OnInit {
     var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     var token = currentUser.token; // your token
  
-    if (localStorage.getItem('iscompany') == "true") {
+    if (localStorage.getItem('isproducttype') == "true") {
 
 
-      this.nameCompany = localStorage.getItem('nameCompany');
-       this.http.get(this.api.apicar+`company?search=` + this.nameCompany, { headers: headers }).subscribe(res => {
+      this.idproducttype = localStorage.getItem('idproducttype');
+      console.log(this.idproducttype)
+       this.http.get(this.api.apiproduct+`laysptheoLoaisanpham/` + this.idproducttype, { headers: headers }).subscribe(res => {
+        
          this.data = res
 
         this.array = this.data.data
+        console.log(this.array)
          if (this.array.length == 0) this.nocar = true
 
 
@@ -76,35 +80,35 @@ export class SearchcarComponent implements OnInit {
 
 
     }
-    if (localStorage.getItem('iscar') == "true") {
+    // if (localStorage.getItem('iscar') == "true") {
 
 
-      this.nameCar = localStorage.getItem('nameCar');
-       this.http.get(this.api.apicar+`car_name?search=` + this.nameCar, { headers: headers }).subscribe(res => {
-         this.data = res
+    //   this.nameCar = localStorage.getItem('nameCar');
+    //    this.http.get(this.api.apicar+`car_name?search=` + this.nameCar, { headers: headers }).subscribe(res => {
+    //      this.data = res
 
-        this.array = this.data.data
-         if (this.array.length == 0) this.nocar = true
-
-
-
-      });
+    //     this.array = this.data.data
+    //      if (this.array.length == 0) this.nocar = true
 
 
-    }
+
+    //   });
+
+
+    // }
 
 
   }
-  currentcar(id) {
+  currentproduct(id) {
  
-    localStorage.setItem('idcar', id)
-    this.router.navigate(['/cardetail']);
+    localStorage.setItem('idproduct', id)
+    this.router.navigate(['/productdetail']);
 
   }
-  searchcarbycompany(nameCompany) {
-    localStorage.setItem('nameCompany', nameCompany)
-    localStorage.setItem('iscompany', 'true')
-    localStorage.setItem('iscar', 'false')
+  searchproductbyid(id) {
+    localStorage.setItem('idproducttype', id)
+    localStorage.setItem('isproducttype', 'true')
+    localStorage.setItem('isproduct', 'false')
     window.location.reload()
   }
 

@@ -54,7 +54,7 @@
   <thead>
     <tr>
       <th style="text-align: center">Image</th>
-      <th style="text-align: center">Name car</th>
+      <th style="text-align: center">Name product type</th>
       <th style="text-align: center">Delete</th>
 
 
@@ -65,9 +65,9 @@
   <tbody>
     <tr *ngFor="let data of array ">
 
-      <td> <img src="{{data.logoCompany}}" width="100px" height="100px" alt=""> </td>
-      <td> {{data.carCompanyName}}</td>
-      <td><button style="text-align: center;;" class="cancelbtn" (click)="deleteCompany(data._id)"> Delete</button>
+      <td> <img src="{{data.hinhAnh}}" width="100px" height="100px" alt=""> </td>
+      <td> {{data.tenLoaiSP}}</td>
+      <td><button style="text-align: center;;" class="cancelbtn" (click)="deleteproducttype(data.loaiSanPhamId)"> Delete</button>
       </td>
 
 

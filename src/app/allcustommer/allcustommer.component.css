@@ -176,7 +176,7 @@ button:hover {
 
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signupbtn {
-  float: left;
+  float: center;
   width: 50%;
 }
 
@@ -242,3 +242,90 @@ hr {
      width: 100%;
   }
 }
+
+.contain{
+    position: absolute;
+    width: 800px;
+    height: 300px;
+    left: 300px;
+    top: 140px;
+    text-align: center;
+  }
+ .newproduct{
+    position: absolute;
+    width: 800px;
+    height: 300px;
+    left: 300px;
+    top: 50px;
+    text-align: left;
+ }
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 120px;
+    opacity: 0.9;
+      color: black;
+      font-size: 15px;
+  
+   
+  }
+  .newproduct{
+    position: absolute;
+    width: 800px;
+    height: 10px;
+    left: 300px;
+    top: 50px;
+    text-align: left;
+ }
+
+ 
+.contain{
+    position: absolute;
+    width: 1200px;
+    height: 300px;
+    left: 300px;
+    top: 100px;
+    text-align: center;
+  }
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 300px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    width: 1100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+   
+}
+.styled-table thead tr {
+    background-color: #82C0E7;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 2px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr{
+    border-bottom: 2px solid #82C0E7 ;
+    border: 2px solid #82C0E7 ;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+ 

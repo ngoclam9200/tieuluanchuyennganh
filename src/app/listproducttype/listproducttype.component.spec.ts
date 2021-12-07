@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditaboutComponent } from './editabout.component';
+import { ListproducttypeComponent } from './listproducttype.component';
 
-describe('EditaboutComponent', () => {
-  let component: EditaboutComponent;
-  let fixture: ComponentFixture<EditaboutComponent>;
+describe('ListcompanycarComponent', () => {
+  let component: ListproducttypeComponent;
+  let fixture: ComponentFixture<ListproducttypeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditaboutComponent ]
+      declarations: [ ListproducttypeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditaboutComponent);
+    fixture = TestBed.createComponent(ListproducttypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

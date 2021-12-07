@@ -33,7 +33,7 @@ usenum:any=[]
   
   
   
-      this.http.get(this.api.apicar+`all`, { headers: headers }).subscribe(res => {
+      this.http.get(this.api.apiproduct+`laydanhsachSP`, { headers: headers }).subscribe(res => {
        
         this.data=res
 

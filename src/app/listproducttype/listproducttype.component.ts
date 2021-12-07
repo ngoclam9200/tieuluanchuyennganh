@@ -7,21 +7,22 @@ import { Router } from '@angular/router'
 import { ApiService } from 'src/services/api.service';
 
 @Component({
-  selector: 'app-listcompanycar',
-  templateUrl: './listcompanycar.component.html',
-  styleUrls: ['./listcompanycar.component.css']
+  selector: 'app-listproducttype',
+  templateUrl: './listproducttype.component.html',
+  styleUrls: ['./listproducttype.component.css']
 })
-export class ListcompanycarComponent implements OnInit {
+export class ListproducttypeComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router, private api:ApiService) { }
   data: any
   array: any = []
-
+isLogin=false
   ngOnInit(): void {
-    this.getcompany()
+    this.getproducttype()
+    if(localStorage.getItem('currentUser')!=null) this.isLogin=true
   }
 
-  getcompany() {
+  getproducttype() {
     let headers = new HttpHeaders();
     var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     var token = currentUser.token; // your token
@@ -29,12 +30,13 @@ export class ListcompanycarComponent implements OnInit {
 
 
 
-    this.http.get(this.api.apicompany+`all`, { headers: headers }).subscribe(res => {
+    this.http.get(this.api.apiproducttype+`laydanhsachLoaiSP`, { headers: headers }).subscribe(res => {
        this.data = res
+      
 
       this.array = this.data.data
  
-
+      console.log(this.array)
 
 
 
@@ -43,11 +45,11 @@ export class ListcompanycarComponent implements OnInit {
 
 
   }
-  searchcarbycompany(name) {
-    localStorage.setItem('nameCompany', name)
-    localStorage.setItem('iscompany', 'true')
-    localStorage.setItem('iscar', 'false')
-    this.router.navigate(['/searchcar']);
+  searchproductbyid(id) {
+    localStorage.setItem('idproducttype', id)
+    localStorage.setItem('isproducttype', 'true')
+    localStorage.setItem('isproduct', 'false')
+    this.router.navigate(['/searchproduct']);
 
   }
 

@@ -16,18 +16,29 @@ export class ApiService {
   apiabout="https://carshop985.herokuapp.com/api/about/"
   apiuser="https://localhost:44371/api/Users/"
   apicar="https://carshop985.herokuapp.com/api/car/"
+  apiproduct="https://localhost:44371/api/SanPham/"
+  apiproducttype="https://localhost:44371/api/LoaiSanPham/"
   apicompany="https://carshop985.herokuapp.com/api/company/"
   apischedule="https://carshop985.herokuapp.com/api/schedule/"
+  apiorder="https://localhost:44371/api/GioHang/"
 
-
-  getuser() {
+  getstaff() {
     
     let headers = new HttpHeaders();
     var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     var token = currentUser.token; // your token
     console.log(token)
     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
-    return this.http.get(this.apiuser+`all`, { headers: headers })
+    return this.http.get(this.apiuser+`laydanhsachNhanVien`, { headers: headers })
+  }
+  getcustommer() {
+    
+    let headers = new HttpHeaders();
+    var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    var token = currentUser.token; // your token
+    console.log(token)
+    headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
+    return this.http.get(this.apiuser+`laydanhsachKhachHang`, { headers: headers })
   }
   checkRole()
   {

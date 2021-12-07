@@ -21,7 +21,7 @@
   <button (click)="searchCar()" class="btnsearch">Search</button>
 </div>
 <div>
-  <button *ngIf="isSearch" class="btnallcar" (click)="getcar()">All car</button>
+  <button *ngIf="isSearch" class="btnallcar" (click)="getproduct()">All car</button>
 </div>
 
 <body>
@@ -31,7 +31,7 @@
       <h3 style="color:white;">Create New Product </h3>
     </div>
     <app-layoutadmin></app-layoutadmin>
-    <form [formGroup]="formGroupCar">
+    <form [formGroup]="formGroupProduct">
       <div class="modal-content">
         <div class="container">
           <a (click)="cancleupdate()" style="margin-left:550px;color: red;font-size: 30px;cursor: pointer;"
@@ -39,63 +39,58 @@
 
           <label for="psw"><b>Name product</b></label>
           <small style="color: red;"
-            *ngIf="(formGroupCar.controls['carName'].invalid && formGroupCar.controls['carName'].touched)  || checkfillcarName  ">
+            *ngIf="(formGroupProduct.controls['tenSP'].invalid && formGroupProduct.controls['tenSP'].touched)  || checkfilltenSP  ">
             *Name product is required</small>
-          <input formControlName="carName" type="text" required>
+          <input formControlName="tenSP" type="text" required>
 
           <label for="psw"><b>Product type</b></label>
 
-          <select formControlName="companyName" style="width: 100%;
+          <select formControlName="loaiSanPhamId" style="width: 100%;
            padding: 15px;
            margin: 5px 0 22px 0;
            display: inline-block;
            border: none;
            background: #f1f1f1;" required>
-            <option *ngFor="let data of arraycompany" [ngValue]="data.carCompanyName">{{data.carCompanyName}}</option>
+            <option *ngFor="let data of arrayproducttype" [ngValue]="data.loaiSanPhamId">{{data.loaiSanPhamId}}</option>
 
 
 
           </select>
           <label for="psw-repeat"><b>Price</b></label>
           <small style="color: red;"
-            *ngIf="(formGroupCar.controls['colour'].invalid && formGroupCar.controls['colour'].touched) || checkfillcolour  ">
+            *ngIf="(formGroupProduct.controls['giaTien'].invalid && formGroupProduct.controls['giaTien'].touched) || checkfillgiaTien  ">
             *Price is required</small>
 
-          <input formControlName="colour" type="text" value="" name="psw-repeat" required>
-          <label for="psw-repeat"><b>Price</b></label>
-          <small style="color: red;"
-            *ngIf="(formGroupCar.controls['carLife'].invalid && formGroupCar.controls['carLife'].touched) || checkfillcarLife  ">
-            *Price is required</small>
-
-          <input formControlName="carLife" type="text" value="" name="psw-repeat" required>
+          <input formControlName="giaTien" type="number" value="" name="psw-repeat" required>
+         
           <label for="email"><b>Discount</b></label>
           <small style="color: red;"
-            *ngIf="(formGroupCar.controls['origin'].invalid && formGroupCar.controls['origin'].touched ) || checkfillorigin ">
+            *ngIf="(formGroupProduct.controls['giamGia'].invalid && formGroupProduct.controls['giamGia'].touched ) || checkfillgiamGia ">
             *Discount is required</small>
 
-          <input formControlName="origin" type="text" value="" name="email" required>
+          <input formControlName="giamGia" type="number" value="" name="email" required>
         
 
          
           <label for="psw"><b>Number of product</b></label>
           <small style="color: red;"
-            *ngIf="(formGroupCar.controls['numberOfSeats'].invalid && formGroupCar.controls['numberOfSeats'].touched) || checkfillnumberOfSeats  ">
+            *ngIf="(formGroupProduct.controls['soLuongConLai'].invalid && formGroupProduct.controls['soLuongConLai'].touched) || checkfillsoLuongConLai ">
             *Number of product is required</small>
 
-          <input type="text" formControlName="numberOfSeats" value="" name="psw" required>
+          <input type="number" formControlName="soLuongConLai" value="" name="psw" required>
           
           <label for="psw"><b>Image</b></label>
-          <small style="color: red;" *ngIf=" checkfillImage"> *Image is required</small>
+          <small style="color: red;" *ngIf=" checkfillhinhAnh"> *Image is required</small>
 
           <input type="file" (change)="onFileSelected($event)" name="psw" required> <br> <br>
 
 
           <label for="email"><b>Product Information</b></label> <br>
           <small style="color: red;"
-            *ngIf="(formGroupCar.controls['CarInformation'].invalid && formGroupCar.controls['CarInformation'].touched ) || checkfillCarInformation ">
+            *ngIf="(formGroupProduct.controls['moTa'].invalid && formGroupProduct.controls['moTa'].touched ) || checkfillmoTa ">
             *Product information is required</small>
 
-          <textarea ng-model="myTextarea" formControlName="CarInformation" type="text" value=""
+          <textarea ng-model="myTextarea" formControlName="moTa" type="text" value=""
             placeholder="" style="width:580px;height:200px" required> </textarea>
 
           <div class="clearfix">
@@ -135,63 +130,58 @@
 
     </div>
     <app-layoutadmin></app-layoutadmin>
-    <form [formGroup]="formGroupCar">
+    <form [formGroup]="formGroupProduct">
       <div class="modal-content">
         <div class="container">
           <a (click)="cancleupdate()" style="margin-left:450px;color: red;font-size: 30px;cursor: pointer;"
             for="psw"><b>X</b> </a> <br>
             <label for="psw"><b>Name product</b></label>
             <small style="color: red;"
-              *ngIf="(formGroupCar.controls['carName'].invalid && formGroupCar.controls['carName'].touched)  || checkfillcarName  ">
+              *ngIf="(formGroupProduct.controls['tenSP'].invalid && formGroupProduct.controls['tenSP'].touched)  || checkfilltenSP  ">
               *Name product is required</small>
-            <input formControlName="carName" type="text" required>
+            <input formControlName="tenSP" type="text" required>
   
             <label for="psw"><b>Product type</b></label>
   
-            <select formControlName="companyName" style="width: 100%;
+            <select formControlName="loaiSanPhamId" style="width: 100%;
              padding: 15px;
              margin: 5px 0 22px 0;
              display: inline-block;
              border: none;
              background: #f1f1f1;" required>
-              <option *ngFor="let data of arraycompany" [ngValue]="data.carCompanyName">{{data.carCompanyName}}</option>
+              <option *ngFor="let data of arrayproducttype" [ngValue]="data.loaiSanPhamId">{{data.tenLoaiSP}}</option>
   
   
   
             </select>
             <label for="psw-repeat"><b>Price</b></label>
             <small style="color: red;"
-              *ngIf="(formGroupCar.controls['colour'].invalid && formGroupCar.controls['colour'].touched) || checkfillcolour  ">
+              *ngIf="(formGroupProduct.controls['giaTien'].invalid && formGroupProduct.controls['giaTien'].touched) || checkfillgiaTien  ">
               *Price is required</small>
   
-            <input formControlName="colour" type="text" value="" name="psw-repeat" required>
-            <label for="psw-repeat"><b>Price</b></label>
-            <small style="color: red;"
-              *ngIf="(formGroupCar.controls['carLife'].invalid && formGroupCar.controls['carLife'].touched) || checkfillcarLife  ">
-              *Price is required</small>
-  
-            <input formControlName="carLife" type="text" value="" name="psw-repeat" required>
+            <input formControlName="giaTien" type="text" value="" name="psw-repeat" required>
+           
             <label for="email"><b>Discount</b></label>
             <small style="color: red;"
-              *ngIf="(formGroupCar.controls['origin'].invalid && formGroupCar.controls['origin'].touched ) || checkfillorigin ">
+              *ngIf="(formGroupProduct.controls['giamGia'].invalid && formGroupProduct.controls['giamGia'].touched ) || checkfillgiamGia ">
               *Discount is required</small>
   
-            <input formControlName="origin" type="text" value="" name="email" required>
+            <input formControlName="giamGia" type="text" value="" name="email" required>
           
   
            
             <label for="psw"><b>Number of product</b></label>
             <small style="color: red;"
-              *ngIf="(formGroupCar.controls['numberOfSeats'].invalid && formGroupCar.controls['numberOfSeats'].touched) || checkfillnumberOfSeats  ">
+              *ngIf="(formGroupProduct.controls['soLuongConLai'].invalid && formGroupProduct.controls['soLuongConLai'].touched) || checkfillsoLuongConLai  ">
               *Number of product is required</small>
   
-            <input type="text" formControlName="numberOfSeats" value="" name="psw" required>
+            <input type="text" formControlName="soLuongConLai" value="" name="psw" required>
             
           
   
           <label for="psw"><b>Image current </b></label>
           <br>
-          <small style="color: red;" *ngIf=" checkfillImage"> *Image is required</small>
+          <small style="color: red;" *ngIf=" checkfillhinhAnh"> *Image is required</small>
           <img *ngIf="!newimage" src="{{Image}}" width="100px" height="100px" alt=""> <br>
           <img *ngIf="newimage" src="{{imagePreview}}" width="100px" height="100px" alt=""> <br>
           <button class="updateimg" id="files" (click)="changenewimage()"
@@ -204,18 +194,18 @@
           <br> <br>
 
 
-          <label for="email"><b>Car Information</b></label> <br>
+          <label for="email"><b>Product Information</b></label> <br>
           <small style="color: red;"
-            *ngIf="(formGroupCar.controls['CarInformation'].invalid && formGroupCar.controls['CarInformation'].touched ) || checkfillCarInformation ">
+            *ngIf="(formGroupProduct.controls['moTa'].invalid && formGroupProduct.controls['moTa'].touched ) || checkfillmoTa ">
             * is required</small>
 
-          <textarea ng-model="myTextarea" formControlName="CarInformation" type="text" value=""
+          <textarea ng-model="myTextarea" formControlName="moTa" type="text" value=""
             placeholder="Enter Email" style="width:580px;height:100px" required> </textarea>
 
           <div class="clearfix">
             <button type="button" onclick="document.getElementById('id02').style.display='none' "
               class="cancelbtn">Cancel</button>
-            <button type="submit" (click)="Updatecar()" class="signupbtn">Change</button>
+            <button type="submit" (click)="Updateproduct()" class="signupbtn">Change</button>
           </div>
         </div>
       </div>
@@ -248,7 +238,7 @@
       <th style="text-align: center">Discount</th>
   
       <th style="text-align: center">Number of product</th>
-      <th style="text-align: center">Product type</th>
+      
       <th style="text-align: center">Details&Edit</th>
       <th style="text-align: center">Delete</th>
 
@@ -258,15 +248,15 @@
   <tbody>
     <tr *ngFor="let data of array">
 
-      <td> <img src="{{data.Image}}" width="100px" height="100px" alt=""> </td>
-      <td> {{data.carName}}</td>
-      <td> {{data.colour}}</td>
-      <td> {{data.numberOfSeats}}</td>
-      <td> {{data.numberOfSeats}}</td>
-      <td> {{data.companyName}}</td>
-      <td> <button onclick="document.getElementById('id02').style.display='block'" (click)="currentcar(data._id)"
+      <td> <img src="{{data.hinhAnh}}" width="100px" height="100px" alt=""> </td>
+      <td> {{data.tenSP}}</td>
+      <td> {{data.giaTien}}</td>
+      <td> {{data.giamGia}}</td>
+      <td> {{data.soLuongConLai}}</td>
+     
+      <td> <button onclick="document.getElementById('id02').style.display='block'" (click)="currentcar(data.sanPhamId)"
           style="width:auto;">Details&Edit</button> </td>
-      <td> <button (click)="deleteCar(data._id)" class="cancelbtn">Delete</button> </td>
+      <td> <button (click)="deleteproduct(data.sanPhamId)" class="cancelbtn">Delete</button> </td>
 
 
 

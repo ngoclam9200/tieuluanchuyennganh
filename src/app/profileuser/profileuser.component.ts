@@ -5,6 +5,7 @@ import { FormGroup } from '@angular/forms';
 import { Observable, } from 'rxjs';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/services/api.service';
+import jwt_decode from 'jwt-decode';
 @Component({
   selector: 'app-profileuser',
   templateUrl: './profileuser.component.html',
@@ -19,9 +20,17 @@ export class ProfileuserComponent implements OnInit {
   formGroup; formGroupchangepass: FormGroup;
 
   ngOnInit(): void {
-
-    this.currentData()
     this.initForm()
+    this.currentData()
+   
+  }
+  getDecodedAccessToken(token: string): any {
+    try{
+        return jwt_decode(token);
+    }
+    catch(Error){
+        return null;
+    }
   }
   initForm() {
 
@@ -38,8 +47,9 @@ export class ProfileuserComponent implements OnInit {
     this.formGroupchangepass = new FormGroup({
 
 
-      oldPassword: new FormControl("", [Validators.required]),
-      newPassword: new FormControl("", [Validators.required]),
+      matKhauHienTai: new FormControl("", [Validators.required]),
+      matKhauMoi: new FormControl("", [Validators.required]),
+      xacNhanMatKhauMoi: new FormControl("", [Validators.required]),
 
     });
 
@@ -53,25 +63,22 @@ export class ProfileuserComponent implements OnInit {
     let headers = new HttpHeaders();
     var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     var token = currentUser.token; // your token
-     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
-
-
-
-    this.http.get(this.api.apiuser+`user`, { headers: headers }).subscribe(res => {
-       this.data = res
-      this.address = this.data.data.address
-      this.fullName = this.data.data.fullName
-      this.phoneNumber = this.data.data.phoneNumber
-      this.email = this.data.data.email
+    this.data=jwt_decode(token)
+    console.log(this.data)
+      this.address = this.data.diaChi
+      this.fullName = this.data.tenNguoiDung
+      this.phoneNumber = this.data.sDT
+      this.email = this.data.email
       this.formGroup = new FormGroup({
 
 
-        fullName: new FormControl(this.data.data.fullName),
-        address: new FormControl(this.data.data.address),
-        phoneNumber: new FormControl(this.data.data.phoneNumber),
-        email: new FormControl(this.data.data.email),
+        fullName: new FormControl(this.data.tenNguoiDung),
+        address: new FormControl(this.data.diaChi),
+        phoneNumber: new FormControl(this.data.sDT),
+        email: new FormControl(this.data.email),
 
       })
+      console.log(this.formGroup.value)
 
 
 
@@ -80,10 +87,7 @@ export class ProfileuserComponent implements OnInit {
 
 
 
-
-
-
-    });
+   
 
 
   }
@@ -120,7 +124,19 @@ export class ProfileuserComponent implements OnInit {
     return this.http.put(this.api.apiuser+`user`, data, { headers: headers });
   }
   Changepassword() {
+    
+   
     if (this.formGroupchangepass.valid) {
+      // if(this.formGroupchangepass.controls['matKhauMoi'].value.length<8 || this.formGroupchangepass.controls['xacNhanMatKhauMoi'].value.length<8 )
+      // {
+      //   alert(" mật khẩu mới tối thiểu 8 kí tự");
+      // }
+    
+      if(this.formGroupchangepass.controls['matKhauMoi'].value!=this.formGroupchangepass.controls['xacNhanMatKhauMoi'].value)
+    {
+      alert(" Newpassword and confirm new pasword not match");
+      return
+    }
        this.changepw(this.formGroupchangepass.value).subscribe((result) => {
  
 
@@ -130,7 +146,15 @@ export class ProfileuserComponent implements OnInit {
         window.location.reload();
         alert(" thành công");
 
-      });
+       },error =>{
+         console.log(error.error.message)
+         
+        if(error.error.message=="Mật khẩu mới tối thiểu 8 ký tự")
+        alert("Mật khẩu mới tối thiểu 8 ký tự")
+        if(error.error.message=="Mật khẩu hiện tại không đúng!")
+        alert("Mật khẩu hiện tại không đúng!")
+      }
+      );
 
     }
 
@@ -146,7 +170,7 @@ export class ProfileuserComponent implements OnInit {
      headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
 
 
-    return this.http.put(this.api.apiuser+`change_password`, data, { headers: headers });
+    return this.http.post(this.api.apiuser+`doimatkhau`, data, { headers: headers });
   }
 
 

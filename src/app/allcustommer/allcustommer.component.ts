@@ -6,12 +6,14 @@ import { Router } from '@angular/router'
 
 import * as XLSX from 'xlsx';
 import { ApiService } from 'src/services/api.service';
+
 @Component({
-  selector: 'app-allstaff',
-  templateUrl: './allstaff.component.html',
-  styleUrls: ['./allstaff.component.css']
+  selector: 'app-allcustommer',
+  templateUrl: './allcustommer.component.html',
+  styleUrls: ['./allcustommer.component.css']
 })
-export class AllstaffComponent implements OnInit {
+export class AllcustommerComponent implements OnInit {
+
   array: any = []
   data: any
   arrayalluser: any = []
@@ -36,7 +38,7 @@ export class AllstaffComponent implements OnInit {
   }
   getstaff() {
     
-  this.api.getstaff().subscribe(res=>{
+  this.api.getcustommer().subscribe(res=>{
     console.log(res)
        this.data = res
 
@@ -53,5 +55,6 @@ export class AllstaffComponent implements OnInit {
   
 
   }
+
 
 }

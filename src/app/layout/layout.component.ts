@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ApiService } from 'src/services/api.service';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -8,9 +10,12 @@ import {Router} from '@angular/router';
 export class LayoutComponent implements OnInit {
   isLogin=false
   username:any
-  constructor( private router:Router) { }
+  data:any
+  soLuongSanPham:any
+  constructor( private router:Router, private http:HttpClient, private api:ApiService) { }
 
   ngOnInit(): void {
+    this.currentnumberproductcart()
   
    
   
@@ -28,6 +33,34 @@ export class LayoutComponent implements OnInit {
     localStorage.clear()
     this.router.navigate(['/signin']);
     return this.isLogin=false
+  }
+  currentnumberproductcart() {
+
+
+
+
+
+    let headers = new HttpHeaders();
+    var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    var token = currentUser.token; // your token
+     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
+
+
+
+    this.http.get(this.api.apiorder+`xemgiohang`, { headers: headers }).subscribe(res => {
+       this.data = res
+       this.data=this.data.data
+       this.data=this.data[0]
+      
+       this.soLuongSanPham=this.data.length
+    
+
+    
+
+
+    });
+
+
   }
 
 }

@@ -9,12 +9,12 @@ import { Observable, } from 'rxjs';
 import Swal from 'sweetalert2';
 import { ApiService } from 'src/services/api.service';
 @Component({
-  selector: 'app-companycar',
-  templateUrl: './companycar.component.html',
-  styleUrls: ['./companycar.component.css']
+  selector: 'app-producttypeadmin',
+  templateUrl: './producttypeadmin.component.html',
+  styleUrls: ['./producttypeadmin.component.css']
 })
 
-export class CompanycarComponent implements OnInit {
+export class ProducttypeadminComponent implements OnInit {
   data: any
   array: any = []
   selectedFile: File;
@@ -34,7 +34,7 @@ export class CompanycarComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.checkRole()
-      this.getcompany()
+      this.getproducttype()
       this.initForm()
     
     
@@ -52,7 +52,7 @@ export class CompanycarComponent implements OnInit {
     });
 
   }
-  getcompany() {
+  getproducttype() {
     let headers = new HttpHeaders();
     var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     var token = currentUser.token; // your token
@@ -60,7 +60,7 @@ export class CompanycarComponent implements OnInit {
 
 
 
-    this.http.get(this.api.apicompany+`all`, { headers: headers }).subscribe(res => {
+    this.http.get(this.api.apiproducttype+`laydanhsachLoaiSP`, { headers: headers }).subscribe(res => {
      
       this.data = res
 
@@ -145,7 +145,7 @@ export class CompanycarComponent implements OnInit {
     }
 
   }
-  deleteCompany(id) {
+  deleteproducttype(id) {
 
 
 
@@ -164,7 +164,7 @@ export class CompanycarComponent implements OnInit {
       confirmButtonText: 'Yes,delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete(this.api.apicompany+`?deleteId=` + id, { headers: headers }).subscribe(res => {
+        this.http.delete(this.api.apiproducttype+`deleteLoaiSP/` + id, { headers: headers }).subscribe(res => {
  
         });
         Swal.fire(
