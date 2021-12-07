@@ -391,6 +391,7 @@ export class ProductdetailComponent implements OnInit {
         this.http.post(this.api.apiorder+`themspvaogiohang`,this.formGroup.value, { headers: headers }).subscribe(res => {
 
           console.log(res)
+         window.location.reload()
          
          
         
