@@ -87,11 +87,12 @@ export class SigninComponent implements OnInit {
       }
       , error=>{
         
-        if( error.error.data == null)
+        if( error.error.message == null)
         {
        
         alert("Sai tài khoản hoặc mật khẩu");
         }
+        else alert(error.error.message)
         
       });
      

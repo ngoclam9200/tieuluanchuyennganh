@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {MatDialog, MatDialogModule,} from '@angular/material/dialog'
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,6 +36,9 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import {CartuserComponent } from './cartuser/cartuser.component';
 import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
 import { AllcustommerComponent } from './allcustommer/allcustommer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreatebillComponent } from './createbill/createbill.component';
+import { BillComponent } from './bill/bill.component';
 
 
 @NgModule({
@@ -50,6 +54,7 @@ import { AllcustommerComponent } from './allcustommer/allcustommer.component';
     ResetpasswordComponent,
     LayoutadminComponent,
     AllstaffComponent,
+    CreatebillComponent,
 
     ListproductComponent,
     ProductdetailComponent,
@@ -64,16 +69,22 @@ import { AllcustommerComponent } from './allcustommer/allcustommer.component';
     CartuserComponent,
     NotfoundpageComponent,
     AllcustommerComponent,
+    BillComponent,
 
 
   ],
   imports: [
     BrowserModule,
+    
     AppRoutingModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    MatDialogModule,
+    
+    
     ReactiveFormsModule,
+    
     RouterModule.forRoot([
       { path: 'signin', component: SigninComponent },
 
@@ -101,7 +112,9 @@ import { AllcustommerComponent } from './allcustommer/allcustommer.component';
       { path: 'statistics', component: StatisticsComponent },
       { path: 'layout', component: LayoutComponent },
       {path:'notfoundpage', component:NotfoundpageComponent}
-    ])
+    ]),
+    
+    BrowserAnimationsModule
 
 
   ],

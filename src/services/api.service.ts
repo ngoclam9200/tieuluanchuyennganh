@@ -21,6 +21,7 @@ export class ApiService {
   apicompany="https://carshop985.herokuapp.com/api/company/"
   apischedule="https://carshop985.herokuapp.com/api/schedule/"
   apiorder="https://localhost:44371/api/GioHang/"
+  apibill="https://localhost:44371/api/HoaDon/"
 
   getstaff() {
     
