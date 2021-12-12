@@ -20,6 +20,7 @@
 <div class="container">
 
 	<h1>Shopping Cart</h1>
+	<h2  *ngIf="noproduct" style="margin-left: 600px;">No product in cart</h2>
 
 	<div class="cart">
 
@@ -55,7 +56,7 @@
 
 		</div>
 
-		<div class="cart-total">
+		<div *ngIf="!noproduct" class="cart-total">
             <p>
 
 				<span>Number of Items</span>

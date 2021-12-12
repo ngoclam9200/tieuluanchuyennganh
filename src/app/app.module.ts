@@ -111,7 +111,9 @@ import { BillComponent } from './bill/bill.component';
       { path: 'scheduleuser', component: ScheduleuserComponent },
       { path: 'statistics', component: StatisticsComponent },
       { path: 'layout', component: LayoutComponent },
-      {path:'notfoundpage', component:NotfoundpageComponent}
+      {path:'notfoundpage', component:NotfoundpageComponent},
+      {path:'bill', component:BillComponent},
+
     ]),
     
     BrowserAnimationsModule

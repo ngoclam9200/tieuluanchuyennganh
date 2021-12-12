@@ -24,6 +24,7 @@ export class CartuserComponent implements OnInit {
   Tongtien:any
   moneysave:any
   formGroup: FormGroup;
+  noproduct=true
   constructor(private http: HttpClient, private router: Router, private api:ApiService, private dialog : MatDialog) { }
 
   ngOnInit(): void {
@@ -50,6 +51,9 @@ export class CartuserComponent implements OnInit {
        this.soLuongSP=this.data.length
        var totalmoney=0
        var savemoney=0
+       if(this.data,length==0) this.noproduct=true
+       else 
+       {this.noproduct=false
        for(let i=0; i<this.data.length;i++)
      
        { 
@@ -61,6 +65,7 @@ export class CartuserComponent implements OnInit {
        }
        this.Tongtien=totalmoney.toString()
       this.moneysave=savemoney.toString()
+       }
 
 
 
@@ -96,13 +101,8 @@ export class CartuserComponent implements OnInit {
   }
   taohoadon()
   {
-    this.array=[]
-    this.formGroup = new FormGroup({
-      danhSachDat: new FormArray(this.array,[Validators.required]),
-      diaChiGiaoHang: new FormControl("", [Validators.required]),
-      sdtNguoiNhan: new FormControl("", [Validators.required]),
-      thanhToanOnline: new FormControl(false, [Validators.required]),
-    });
+    
+    
    
 
     const dialogConfig = new MatDialogConfig();

@@ -48,6 +48,23 @@ formArray:FormArray
 
       }
       
+      if (this.formGroup.valid)
+      {
+       this.http.post(this.api.apibill+`taohoadon` ,this.formGroup.value, { headers: headers }).subscribe(res => {
+         console.log(res)
+         this.tmp=res
+         alert(this.tmp.message)
+         
+        
+     
+   
+      });
+      setTimeout(() => {
+        window.location.reload()
+      }, 3000);
+      }
+      else 
+      alert("ádasdsad")
     
     });
       console.log(this.array)
@@ -68,20 +85,7 @@ formArray:FormArray
       // var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
       // var token = currentUser.token; // your token
       //  headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
-       if (this.formGroup.valid)
-       {
-        this.http.post(this.api.apibill+`taohoadon` ,this.formGroup.value, { headers: headers }).subscribe(res => {
-          console.log(res)
-          this.tmp=res
-          alert(this.tmp.message)
-          
-         
       
-    
-       });
-       }
-       else 
-       alert("ádasdsad")
       
 
 
