@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <app-layout></app-layout>
 <html>
-
+	
 <head>
 
 	<title>Shopping Cart</title>
 	
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -20,15 +21,15 @@
 <div class="container">
 	<div style="margin-top: 50px;"></div>
 
-	<button (click)="allbill()" >All bill</button> 
-	<button (click)="waitforconfirm()" class="buttonstatus">Wait for confirming</button>
-	<button class="buttonstatus">Delevering</button>
-	<button class="buttonstatus">Receivered</button>
-	<button class="buttonstatus">Cancel</button>
+	<button (click)="allbill()" id="color" click="changecolor()" >All bill</button> 
+	<button id="color1" (click)="statusorder(1)" class="buttonstatus">Wait for confirming</button>
+	<button (click)="statusorder(3)" class="buttonstatus">Delevering</button>
+	<button  (click)="statusorder(4)" class="buttonstatus">Receivered</button>
+	<button (click)="statusorder(5)" class="buttonstatus">Canceled</button>
 
-	<h2  *ngIf="!nobill" style="margin-left: 600px;">No product in cart</h2>
+	<h2  *ngIf="nobill" style="margin-left: 600px;">No bill </h2>
 
-	<div class="cart">
+	<div *ngIf="!nobill" class="cart">
 
 		<div  class="products">
 
@@ -48,7 +49,7 @@
 
 					
 
-					<p *ngIf="!remove" class="product-remove">
+					<p *ngIf="remove" class="product-remove">
 
 						<i class="fa fa-trash" aria-hidden="true"></i>
 
@@ -68,10 +69,20 @@
 	</div>
 
 </div>
-
+<script>
+	function changecolor()
+	{
+		document.getElementById('color').style.backgroundColor='green';
+		 document.getElementById('color1').style.backgroundColor='red';
+	
+	}
+		
+	</script>
 
 
 </body>
+
+
 
 
 </html>

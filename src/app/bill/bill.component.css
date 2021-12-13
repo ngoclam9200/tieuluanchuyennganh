@@ -9,6 +9,15 @@ button{
 	width: 150px;
 	height: 30px;
 	border-radius: 10px;
+	
+}
+
+/* button:focus{
+	background-color:green;
+  } */
+.changecolor{
+	background-color: green;
+
 }
 *{
 
