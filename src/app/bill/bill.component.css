@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+.buttonstatus{
+	margin-left: 50px;
+	margin-bottom: 50px;
 
+}
+button{
+	background-color: #007bff;
+	width: 150px;
+	height: 30px;
+	border-radius: 10px;
+}
 *{
 
 	font-family: 'Comfortaa', cursive;
@@ -42,7 +52,7 @@
 
 	display: flex;
 
-	width: 100%;
+	width: 110%;
 
 	height: 250px;
 
