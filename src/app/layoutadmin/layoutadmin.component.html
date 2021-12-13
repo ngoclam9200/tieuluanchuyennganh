@@ -14,48 +14,54 @@
   <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
 
   <ul class="nav flex-column bg-white mb-0">
-    <li class="nav-item">
+    <li *ngIf="!staff" class="nav-item">
       <a [routerLink]='["/allstaff"]' class="nav-link text-dark font-italic bg-light">
 
         All staff
       </a>
-    </li> <br>
-    <li class="nav-item">
+    </li> 
+    <li *ngIf="!staff"  class="nav-item">
       <a [routerLink]='["/allcustommer"]' class="nav-link text-dark font-italic bg-light">
 
         All customer
       </a>
-    </li> <br>
+    </li> 
     
 
-    <li class="nav-item">
+    <li *ngIf="!staff" class="nav-item">
       <a [routerLink]='["/productadmin"]' class="nav-link text-dark font-italic bg-light">
 
         Product
       </a>
     </li>
-    <br>
-    <li class="nav-item">
+   
+    <li *ngIf="!staff" class="nav-item">
       <a [routerLink]='["/producttypeadmin"]' class="nav-link text-dark font-italic bg-light">
 
         Product type
       </a>
     </li>
-    <br>
+   
     <li class="nav-item">
       <a [routerLink]='["/orderadmin"]' class="nav-link text-dark font-italic bg-light">
 
         Order
       </a>
     </li>
-    <br>
-    <li class="nav-item">
+    
+    <li *ngIf="!staff" class="nav-item">
       <a [routerLink]='["/statistics"]' class="nav-link text-dark font-italic bg-light">
 
-        Statistics
+        Statistical chart
       </a>
     </li>
-    <br>
+   
+    <li *ngIf="!staff" class="nav-item">
+      <a [routerLink]='["/turnover"]' class="nav-link text-dark font-italic bg-light">
+        Revenue statistics
+      </a>
+    </li>
+   
     <li class="nav-item">
       <a (click)="logout()" class="nav-link text-dark font-italic bg-light">
 

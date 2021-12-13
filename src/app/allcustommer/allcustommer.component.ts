@@ -34,9 +34,10 @@ export class AllcustommerComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.checkRole()
-    this.getstaff()
+    this.api.checkstaff()
+    this.getcustommer()
   }
-  getstaff() {
+  getcustommer() {
     
   this.api.getcustommer().subscribe(res=>{
     console.log(res)

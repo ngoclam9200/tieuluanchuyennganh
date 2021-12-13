@@ -6,6 +6,14 @@ import { Router } from '@angular/router'
 
 import * as XLSX from 'xlsx';
 import { ApiService } from 'src/services/api.service';
+
+import { FormControl, Validators } from '@angular/forms';
+
+
+import { Observable } from 'rxjs';
+
+
+
 @Component({
   selector: 'app-allstaff',
   templateUrl: './allstaff.component.html',
@@ -33,6 +41,7 @@ export class AllstaffComponent implements OnInit {
   ngOnInit(): void {
     this.api.checkRole()
     this.getstaff()
+    this.initForm()
   }
   getstaff() {
     
@@ -44,14 +53,82 @@ export class AllstaffComponent implements OnInit {
       console.log(this.array)
    
 
-      // for (let i = 0; i < this.array.length; i++) {
-      //   if (this.array[i].role == "USER")
-      //     this.arrayalluser.push(this.array[i])
-      // }
+      
   })
  
   
 
   }
+  initForm() {
+
+    this.formGroup = new FormGroup({
+      email: new FormControl("", [Validators.required]),
+      tenDangNhap: new FormControl("", [Validators.required]),
+      tenNguoiDung: new FormControl("", [Validators.required]),
+      diaChi: new FormControl("", [Validators.required]),
+      sDT: new FormControl("", [Validators.required]),
+      matKhau: new FormControl("", [Validators.required]),
+      xacNhanMatKhau: new FormControl("", [Validators.required])
+    });
+
+  }
+  register(data): Observable<any> {
+   
+    let headers = new HttpHeaders();
+    var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    var token = currentUser.token; // your token
+     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
+    console.log(data)
+     return this.http.post(this.api.apiuser+`dangkyNhanVien`, data, {headers:headers});
+     
+  }
+  registerProces() {
+
+
+
+    const password = this.formGroup.controls['matKhau'].value;
+    
+    const confirmPassword = this.formGroup.controls['xacNhanMatKhau'].value;
+
+
+    if (password != confirmPassword || password == "" || confirmPassword == "") {
+      alert("Password not match");
+      return;
+    }
+
+
+    else {
+      if (this.formGroup.valid) {
+        this.register(this.formGroup.value).subscribe((result) => {
+
+          if (result)
+           alert("Đăng kí thành công");
+          window.location.reload()
+
+
+
+
+        }, error => {
+          console.log(error)
+
+          
+            alert(error.error.message
+            );
+          
+        });
+
+
+
+      }
+
+      else alert("Bạn chưa nhập đầy đủ thông tin");
+
+    }
+
+
+
+  }
+  
+ 
 
 }

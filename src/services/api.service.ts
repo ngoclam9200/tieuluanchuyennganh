@@ -50,5 +50,11 @@ export class ApiService {
     }
      if(localStorage.getItem('role')==null)
     this.router.navigate(['/notfoundpage']);
+    
+  }
+  checkstaff()
+  {
+    if(localStorage.getItem('role')=="staff")
+    this.router.navigate(['/notfoundpage']);
   }
 }

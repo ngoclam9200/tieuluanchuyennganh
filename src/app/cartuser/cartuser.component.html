@@ -34,7 +34,7 @@
 
 					<h3 class="product-name">{{data.tenSP}} </h3>
 
-					<h4  class="product-price">Price:     {{data.giaTien}}$</h4>
+					<h4  class="product-price">Price:     {{data.giaTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</h4>
 
 					<h4 class="product-offer">Discount:-{{data.giamGia}}%</h4>
 
@@ -56,7 +56,7 @@
 
 		</div>
 
-		<div *ngIf="!noproduct" class="cart-total">
+		<div  class="cart-total">
             <p>
 
 				<span>Number of Items</span>
@@ -69,7 +69,7 @@
 
 				<span>Total Price</span>
 
-				<span>₹ {{Tongtien}}</span>
+				<span> {{Tongtien}}</span>
 
 			</p>
 
@@ -79,7 +79,7 @@
 
 				<span>You Save</span>
 
-				<span>₹ {{moneysave}}</span>
+				<span> {{moneysave}} VND</span>
 
 			</p>
 

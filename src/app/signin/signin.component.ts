@@ -80,6 +80,15 @@ export class SigninComponent implements OnInit {
  
             this.router.navigate(['/allstaff']);
            }
+           if(result.message=="Đăng nhập thành công" && this.role.vaiTro=="staff")
+           {
+            localStorage.setItem('userName',this.formGroup.controls['tenDangNhap'].value)
+
+            localStorage.setItem('currentUser',JSON.stringify( {token:this.data.data}) );
+            localStorage.setItem('role',this.role.vaiTro );
+ 
+            this.router.navigate(['/orderadmin']);
+           }
 
             
           

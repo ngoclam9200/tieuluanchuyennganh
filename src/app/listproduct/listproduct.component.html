@@ -41,7 +41,7 @@
                         <h1 style="text-align:left "><span style="color:cadetblue" class="rupees">  Residual amount
                                 :{{data.soLuongConLai}}</span> </h1> <br />
 
-                        <p><span class="rupees"> Giá : {{data.giaTien}} </span></p>
+                        <p><span class="rupees"> Giá : {{data.giaTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}} </span></p>
 
 
                     </div>

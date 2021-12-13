@@ -34,6 +34,7 @@ export class ProducttypeadminComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.checkRole()
+    this.api.checkstaff()
       this.getproducttype()
       this.initForm()
     
@@ -46,8 +47,8 @@ export class ProducttypeadminComponent implements OnInit {
   initForm() {
 
     this.formGroup = new FormGroup({
-      carCompanyName: new FormControl("", [Validators.required]),
-      logoCompany: new FormControl("", [Validators.required]),
+      tenLoaiSP: new FormControl("", [Validators.required]),
+      hinhAnh: new FormControl("", [Validators.required]),
 
     });
 
@@ -82,21 +83,23 @@ export class ProducttypeadminComponent implements OnInit {
     var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     var token = currentUser.token; // your token
      headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
-    return this.http.post(this.api.apicompany+`create`, data, { headers: headers });
+    return this.http.post(this.api.apiproducttype+`themloaiSp`, data, { headers: headers });
   }
-  createCompany() {
+  createProducttype() {
 
 
 
 
-
-    const carCompanyName = this.formGroup.controls['carCompanyName'].value;
-    if (carCompanyName != "" || this.imagePreview != null) {
+const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
+    console.log(tenLoaiSP)
+    if (this.imagePreview != null) {
       this.formGroup.setValue({
-        logoCompany: this.imagePreview,
-        carCompanyName: carCompanyName,
+        hinhAnh: this.imagePreview,
+        tenLoaiSP: tenLoaiSP
+        
       });
     }
+    console.log(this.formGroup.value)
      if (this.formGroup.valid) {
       Swal.fire({
         title: 'Are you sure?',

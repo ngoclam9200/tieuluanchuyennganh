@@ -12,13 +12,14 @@ button{
 	
 }
 
-/* button:focus{
-	background-color:green;
-  } */
+
 .changecolor{
 	background-color: green;
 
 }
+button:active{
+	background-color:green;
+  }
 *{
 
 	font-family: 'Comfortaa', cursive;
@@ -122,6 +123,25 @@ button{
 	bottom: 20px;
 
 	right: 20px;
+
+	padding: 10px 25px;
+
+	background-color: green;
+
+	color: white;
+
+	cursor: pointer;
+
+	border-radius: 5px;
+
+}
+.product-detail{
+
+	position: absolute;
+
+	bottom: 20px;
+
+	right: 150px;
 
 	padding: 10px 25px;
 

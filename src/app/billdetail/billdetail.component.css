@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+.buttonstatus{
+	margin-left: 50px;
+	margin-bottom: 50px;
 
+}
+
+button{
+	background-color: #007bff;
+	width: 150px;
+	height: 30px;
+	border-radius: 10px;
+	
+}
+
+
+
+button:active{
+	background-color:green;
+  }
 *{
 
 	font-family: 'Comfortaa', cursive;
@@ -42,9 +60,9 @@
 
 	display: flex;
 
-	width: 100%;
+	width: 130%;
 
-	height: 200px;
+	height: 180px;
 
 	overflow: hidden;
 
@@ -66,9 +84,9 @@
 
 .product > img{
 
-	width: 300px;
+	width: 200px;
 
-	height: 200px;
+	height: 150px;
 
 	object-fit: cover;
 
@@ -149,8 +167,6 @@
 	flex: 0.25;
 
 	margin-left: 20px;
-		
-	
 
 	padding: 20px;
 
@@ -208,7 +224,7 @@
 
 	.product{
 
-		height: 150px;
+		height: 60px;
 
 	}
 

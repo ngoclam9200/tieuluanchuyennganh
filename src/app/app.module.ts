@@ -39,6 +39,9 @@ import { AllcustommerComponent } from './allcustommer/allcustommer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreatebillComponent } from './createbill/createbill.component';
 import { BillComponent } from './bill/bill.component';
+import { BilldetailComponent } from './billdetail/billdetail.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { TurnoverComponent } from './turnover/turnover.component';
 
 
 @NgModule({
@@ -70,6 +73,8 @@ import { BillComponent } from './bill/bill.component';
     NotfoundpageComponent,
     AllcustommerComponent,
     BillComponent,
+    BilldetailComponent,
+    TurnoverComponent,
 
 
   ],
@@ -81,6 +86,7 @@ import { BillComponent } from './bill/bill.component';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
+    NgxPaginationModule,
     
     
     ReactiveFormsModule,
@@ -113,6 +119,7 @@ import { BillComponent } from './bill/bill.component';
       { path: 'layout', component: LayoutComponent },
       {path:'notfoundpage', component:NotfoundpageComponent},
       {path:'bill', component:BillComponent},
+      {path:'turnover', component:TurnoverComponent},
 
     ]),
     

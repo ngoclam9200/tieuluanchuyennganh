@@ -47,7 +47,7 @@ export class ProductadminComponent implements OnInit {
   ngOnInit(): void {
     this.api.checkRole()
 
-
+    this.api.checkstaff()
     this.getproduct()
     this.getproducttype()
 
@@ -450,7 +450,7 @@ export class ProductadminComponent implements OnInit {
     const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(templateToExcel);
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    XLSX.writeFile(wb, "All car" + ".xlsx");
+    XLSX.writeFile(wb, "All product" + ".xlsx");
   }
   cancleupdate() {
     window.location.reload()
