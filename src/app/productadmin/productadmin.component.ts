@@ -478,7 +478,7 @@ export class ProductadminComponent implements OnInit {
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width='500px';
+    dialogConfig.width='700px';
     // dialogConfig.height='800px';
     dialogConfig.maxHeight='1000px'
     dialogConfig.disableClose = false;
