@@ -34,17 +34,17 @@
 
 					<h3 class="product-name">{{data.tenSP}} </h3>
 
-					<h4  class="product-price">Price:     {{data.giaTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</h4>
+					<h4 style="color: red;"  class="product-price">Price:     {{data.giaTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</h4>
 
 					<h4 class="product-offer">Discount:-{{data.giamGia}}%</h4>
 
 					<p class="product-quantity">Qnt: <input disabled value="{{data.soLuongTrongGio}}" name="">
 
-					<p class="product-remove">
+					<p (click)="deleteproduct(data.sanPhamId)"  class="product-remove">
 
 						<i class="fa fa-trash" aria-hidden="true"></i>
 
-						<span (click)="deleteproduct(data.sanPhamId)" class="remove">Remove</span>
+						<span class="remove">Remove</span>
 
 					</p>
 
@@ -56,7 +56,7 @@
 
 		</div>
 
-		<div  class="cart-total">
+		<div *ngIf="!noproduct" class="cart-total">
             <p>
 
 				<span>Number of Items</span>
@@ -83,7 +83,7 @@
 
 			</p>
 
-			<a (click)="taohoadon()">Proceed to Checkout</a>
+			<a    (click)="taohoadon()">Proceed to Checkout</a>
 
 		</div>
 

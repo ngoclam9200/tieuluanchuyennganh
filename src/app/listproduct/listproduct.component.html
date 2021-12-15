@@ -27,7 +27,7 @@
 
     <div class="section group">
 
-        <div *ngFor="let data of array">
+        <div *ngFor="let data of array | paginate: { itemsPerPage: 6, currentPage: p }">
             <div class="grid_1_of_4 images_1_of_4">
                 <a (click)="currentproduct(data.sanPhamId)"><img src="{{data.hinhAnh}}" alt="" width="264" height="175" /></a>
                 <br>
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-
+      
 
 
 
@@ -69,4 +69,7 @@
     </div>
 
 
+</div>
+<div style="margin-left: 600px;">
+    <pagination-controls   (pageChange)="p = $event"></pagination-controls>
 </div>

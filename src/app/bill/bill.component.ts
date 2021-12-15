@@ -19,6 +19,7 @@ export class BillComponent implements OnInit {
 data:any=[]
 nobill=true
 remove=false
+p:number=1
   constructor(private http:HttpClient, private api:ApiService, private dialog : MatDialog) { }
 
 

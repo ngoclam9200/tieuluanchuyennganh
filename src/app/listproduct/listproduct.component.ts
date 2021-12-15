@@ -23,6 +23,7 @@ export class ListproductComponent implements OnInit {
   idcar: any
   arrayid: any = []
   arraybooking:any=[]
+  p: number = 1;
   constructor(private http: HttpClient, private router: Router, private formBuider: FormBuilder, private api:ApiService) { }
 
   ngOnInit(): void {
