@@ -90,38 +90,7 @@ export class CartuserComponent implements OnInit {
     var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     var token = currentUser.token; // your token
      headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
-     Swal.fire({
-      title: 'Are you sure?',
-      text: "Remove  product in cart",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes,remove it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.http.delete(this.api.apiorder+`xoasanphamtronggiohang/` + id, { headers: headers }).subscribe(res => {
-          console.log(res)
-          this.Tongtien=0
-          this.moneysave=0
-          
-         
-      
-    
-       });
-        Swal.fire(
-          'Success!',
-          '',
-          'success'
-          
-
-        )
-        this.currentData()
-       
-      }
-
-
-    })
+   
 
      
 

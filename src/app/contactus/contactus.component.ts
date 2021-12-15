@@ -74,7 +74,7 @@ postcontact()
       
 
     }, error=>{
-      
+      console.log( error)
       if( error.error.data == null)
       {
      

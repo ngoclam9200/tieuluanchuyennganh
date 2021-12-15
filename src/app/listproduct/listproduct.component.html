@@ -17,8 +17,9 @@
     </div>
  
 
-
+  
     <form [formGroup]="formGroupSearch">
+        <button (click)="allproduct()" style="margin-left: 50px; width: 80px; height: 30px; background-color: #007bff;border-radius: 8px ;">All product</button>
         <input formControlName="textSearch" style="margin-left: 400px; width: 500px; height: 30px;" type="text">
         <button (click)="searchproduct()"
             style="height: 35px; background-color: #007bff;margin: 10px;border-radius: 8px ;cursor: pointer;">Search</button>

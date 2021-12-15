@@ -144,7 +144,7 @@ export class ProductadminComponent implements OnInit {
     if (this.formGroupProduct.valid) {
       Swal.fire({
         title: 'Are you sure?',
-        text: "",
+        text: "Create new product",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -156,25 +156,6 @@ export class ProductadminComponent implements OnInit {
           this.create(this.formGroupProduct.value).subscribe((result) => {
 
             if (result) {
-              console.log(result)
- 
-            }
-           
-          }, error=>{
-           
-        
-            if( error.error.message == "Nhập giảm giá >= 0 và <= 100 ")
-            {
-             
-           Swal.fire(
-             'Fail',
-             'Nhập giảm giá >= 0 và <= 100 ',
-             'error'
-           )
-             
-            }
-            else
-            {
               Swal.fire(
                 'Success!',
                 '',
@@ -184,7 +165,22 @@ export class ProductadminComponent implements OnInit {
               setTimeout(() => {
             window.location.reload()
           }, 2000);
+ 
             }
+           
+          }, error=>{
+           
+        
+            
+             
+           Swal.fire(
+             'Fail',
+             error.error.message,
+             'error'
+           )
+             
+            
+           
 
           }); 
          
@@ -238,7 +234,7 @@ export class ProductadminComponent implements OnInit {
  
     Swal.fire({
       title: 'Are you sure?',
-      text: "",
+      text: "Delete this product",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -315,7 +311,7 @@ export class ProductadminComponent implements OnInit {
      if (this.formGroupProduct.valid) {
       Swal.fire({
         title: 'Are you sure?',
-        text: "",
+        text: "Update product information",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -323,28 +319,45 @@ export class ProductadminComponent implements OnInit {
         confirmButtonText: 'Yes,update it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          console.log(this.formGroupProduct.value)
+         
           this.update(this.formGroupProduct.value).subscribe((result) => {
  
 
             if (result)
-              console.log(result);
+            {
+              Swal.fire(
+                'Success!',
+                '',
+                'success'
+    
+              )
+                setTimeout(() => {
+                  window.location.reload()
+                }, 3000);
+            }
+              
 
 
 
 
 
+          }, error => {
+            console.log(error)
+  
+            
+             
+              Swal.fire(
+                'Fail!',
+                error.error.message,
+                'error'
+                
+      
+              )
+            
           });
 
-          Swal.fire(
-            'Success!',
-            '',
-            'success'
-
-          )
-          setTimeout(() => {
-            window.location.reload()
-          }, 2000);
+         
+        
         }
 
       })

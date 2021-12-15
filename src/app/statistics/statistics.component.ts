@@ -6,7 +6,7 @@ import Chart from 'chart.js/auto';
 import { ApiService } from 'src/services/api.service';
 import { FormGroup } from '@angular/forms';
 import { FormControl, Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
@@ -51,7 +51,14 @@ export class StatisticsComponent implements OnInit {
     }
    
     
-    else alert("You have not selected the year")
+    else 
+      
+    Swal.fire(
+      'Fail!',
+      'You have not selected the year',
+      'warning'
+
+    )
   }
 
 

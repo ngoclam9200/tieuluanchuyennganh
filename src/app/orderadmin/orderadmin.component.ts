@@ -160,7 +160,7 @@ export class OrderadminComponent implements OnInit {
    headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
    Swal.fire({
     title: 'Are you sure?',
-    text: text,
+    text: text+ " this bill",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',

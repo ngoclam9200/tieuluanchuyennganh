@@ -74,13 +74,13 @@
 
 				<div class="product-info">
 
-					<h3 class="product-name">{{data.hoaDonId}}  </h3>
+					<h3 class="product-name">Bill ID: {{data.hoaDonId}}  </h3>
 
-					<h4  class="product-price">Order date:     {{data.ngayXuatDon}}</h4>
+					<h4  class="product-price">Order date:{{data.ngayXuatDon}}</h4>
 
-					<h4 class="product-offer">Address:{{data.diaChiGiaoHang}}</h4>
-                    <h4 class="product-offer">Phone number receiver:{{data.sdtNguoiNhan}}</h4>
-                    <h4 class="product-offer">Total: {{data.tongHoaDon.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</h4>
+					<h4 class="product-offer">Address: {{data.diaChiGiaoHang}}</h4>
+                    <h4 class="product-offer">Phone number receiver: {{data.sdtNguoiNhan}}</h4>
+                    <h4 class="product-offer" style="color: red;">Total: {{data.tongHoaDon.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</h4>
 
 					
 

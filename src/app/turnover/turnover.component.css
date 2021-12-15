@@ -12372,7 +12372,7 @@
     width: 100%;
     min-height: calc(100vh - 70px);
     padding-top: 70px;
-    margin-left: 300px;
+    margin-left: 100px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;

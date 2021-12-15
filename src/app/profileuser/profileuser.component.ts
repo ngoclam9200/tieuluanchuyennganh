@@ -15,7 +15,7 @@ export class ProfileuserComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router, private api:ApiService) { }
   data: any
-  fullName; address; phoneNumber; email: any
+  tenNguoiDung; diaChi; sDT; email: any
 
   formGroup; formGroupchangepass: FormGroup;
 
@@ -36,13 +36,11 @@ export class ProfileuserComponent implements OnInit {
 
     this.formGroup = new FormGroup({
 
-      fullName: new FormControl("", [Validators.required]),
-      address: new FormControl("", [Validators.required]),
-      phoneNumber: new FormControl("", [Validators.required]),
+      tenNguoiDung: new FormControl("", [Validators.required]),
+      diaChi: new FormControl("", [Validators.required]),
+      sDT: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required]),
-      oldPassword: new FormControl("", [Validators.required]),
-      newPassword: new FormControl("", [Validators.required]),
-      confirmpassword: new FormControl("", [Validators.required]),
+     
     });
     this.formGroupchangepass = new FormGroup({
 
@@ -63,22 +61,37 @@ export class ProfileuserComponent implements OnInit {
     let headers = new HttpHeaders();
     var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     var token = currentUser.token; // your token
-    this.data=jwt_decode(token)
-    console.log(this.data)
-      this.address = this.data.diaChi
-      this.fullName = this.data.tenNguoiDung
-      this.phoneNumber = this.data.sDT
-      this.email = this.data.email
-      this.formGroup = new FormGroup({
+    headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
+    this.http.get(this.api.apiuser+`xemthongtinnguoidung`, { headers: headers }).subscribe(res=>{
+      console.log(res)
+         this.data = res
+  
+        this.data = this.data.data
+    
+       this.diaChi = this.data[0].diaChi
+      this.tenNguoiDung = this.data[0].tenNguoiDung
+      this.sDT = this.data[0].sDT
+      this.email = this.data[0].email
+        this.formGroup = new FormGroup({
 
 
-        fullName: new FormControl(this.data.tenNguoiDung),
-        address: new FormControl(this.data.diaChi),
-        phoneNumber: new FormControl(this.data.sDT),
-        email: new FormControl(this.data.email),
+        tenNguoiDung: new FormControl(this.tenNguoiDung),
+        diaChi: new FormControl(this.diaChi),
+        sDT: new FormControl(this.sDT),
+        email: new FormControl(this.email),
 
       })
-      console.log(this.formGroup.value)
+  
+        // for (let i = 0; i < this.array.length; i++) {
+        //   if (this.array[i].role == "USER")
+        //     this.arrayalluser.push(this.array[i])
+        // }
+    });
+    console.log(this.formGroup.value)
+   
+    
+    
+      
 
 
 
@@ -92,7 +105,9 @@ export class ProfileuserComponent implements OnInit {
 
   }
   UpdateUser() {
+   
     this.currentData()
+   
 
     if (this.formGroup.valid) {
        this.update(this.formGroup.value).subscribe((result) => {
@@ -121,7 +136,7 @@ export class ProfileuserComponent implements OnInit {
      headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
 
 
-    return this.http.put(this.api.apiuser+`user`, data, { headers: headers });
+    return this.http.put(this.api.apiuser+`khachhangcapnhatthongtin`, data, { headers: headers });
   }
   Changepassword() {
     

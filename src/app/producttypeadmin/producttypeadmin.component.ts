@@ -103,7 +103,7 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
      if (this.formGroup.valid) {
       Swal.fire({
         title: 'Are you sure?',
-        text: "",
+        text: " Create new product type",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -114,19 +114,34 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
           this.create(this.formGroup.value).subscribe((result) => {
 
             if (result) {
+              Swal.fire(
+                'Success!',
+                '',
+                'success'
+    
+              )
+              setTimeout(() => {
+                window.location.reload()
+              }, 2000);
+
  
             }
 
+          }, error => {
+            console.log(error)
+  
+            
+             
+              Swal.fire(
+                'Fail!',
+                error.error.message,
+                'error'
+                
+      
+              )
+            
           });
-          Swal.fire(
-            'Success!',
-            '',
-            'success'
-
-          )
-          setTimeout(() => {
-            window.location.reload()
-          }, 2000);
+          
         }
 
 
@@ -159,7 +174,7 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
  
     Swal.fire({
       title: 'Are you sure?',
-      text: "",
+      text: "Delete this product type",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

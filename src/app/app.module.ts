@@ -44,6 +44,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { TurnoverComponent } from './turnover/turnover.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +76,7 @@ import { TurnoverComponent } from './turnover/turnover.component';
     BillComponent,
     BilldetailComponent,
     TurnoverComponent,
+
 
 
   ],
