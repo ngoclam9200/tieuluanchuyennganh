@@ -8,6 +8,8 @@ import { Observable, } from 'rxjs';
 import Swal from 'sweetalert2';
 import { ApiService } from 'src/services/api.service';
 import * as XLSX from 'xlsx';
+import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
+import { ImagecomponentComponent } from '../imagecomponent/imagecomponent.component';
 
 import { Router } from '@angular/router';
 @Component({
@@ -42,7 +44,7 @@ export class ProductadminComponent implements OnInit {
   }
   formGroupProduct: FormGroup
   formGroupSearch: FormGroup
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, private api:ApiService, private router:Router) { }
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private api:ApiService, private router:Router, private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.api.checkRole()
@@ -467,5 +469,31 @@ export class ProductadminComponent implements OnInit {
   }
   cancleupdate() {
     window.location.reload()
+  }
+  openimage(image)
+  {
+    
+    localStorage.setItem('image',image)
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width='500px';
+    // dialogConfig.height='800px';
+    dialogConfig.maxHeight='1000px'
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    
+      
+
+    this.dialog.open(ImagecomponentComponent, dialogConfig);
+
+  
+      
+   
+   
+
+
+  
   }
 }

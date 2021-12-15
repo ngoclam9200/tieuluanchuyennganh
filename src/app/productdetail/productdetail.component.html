@@ -27,7 +27,7 @@
                             <div id="products">
                                 <div class="slides_container">
                                     <br><br>
-                                    <a href="#" target="_blank"><img src="{{hinhAnh}}" alt=" " /></a>
+                                    <a (click)="openimage(hinhAnh)" target="_blank"><img src="{{hinhAnh}}" alt=" " /></a>
 
                                 </div>
 
@@ -37,17 +37,17 @@
                 </div>
                 <div class="desc span_3_of_2">
                     <h1> {{tenSP}} </h1>
-                    <p style="font-size: 15px"> Discount :{{giamGia}}</p>
+                    <p style="font-size: 15px"> Discount :{{giamGia}}%</p>
                     <p style="font-size: 15px;">Number products: {{soLuongConLai}}</p>
                     <div class="price">
                        
-                        <p style="font-size: 15px;">Price: <span style="font-size: 35px;" >{{giaTien}}$</span></p>
+                        <p style="font-size: 15px;">Price: <span style="font-size: 35px;" >{{giaTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</span></p>
                         <p style="font-size: 15px;">Quantity: <span> <br> 
                              
                              <form [formGroup]="formGroup">
-                                <button (click)="decreasing()" class="soluong"> -</button>
-                              <input   formControlName="soLuong" class="soluong" type="number" value="1" style="margin-left: 20px;">
-                              <button (click)="increasing()" class="soluong" style="margin-left: 20px;"> +</button>
+                                <button (click)="decreasing()" style="border-radius:100px;background-color:#007bff;color: white;" class="soluong"> -</button>
+                              <input   formControlName="soLuong" class="soluong" type="number" value="1" style="margin-left: 20px;text-align: center;">
+                              <button (click)="increasing()" class="soluong" style="margin-left: 20px;border-radius: 100px;background-color:#007bff;color: white;"> +</button>
                             </form>
                              
                             </span></p>
@@ -61,20 +61,16 @@
                         </div>
 
                         <div *ngIf="isLogin" class="button">
-                            <h4><a (click)="order()">Order</a></h4>
+                            <h4><a style="border-radius:20px;background-color:#007bff" (click)="order()">Order</a></h4>
 
                         </div>
                         <div class="clear"></div>
                     </div>
-                    <div class="wish-list">
-                        <ul>
-                            <li class="wish"><a>Thêm vào yêu thích</a></li>
-                            <li class="compare"><a >So sánh</a></li>
-                        </ul>
-                    </div>
+                    
                 </div>
                 <div class="clear"></div>
             </div>
+            <br>
             <div class="product_desc">
                 <div id="horizontalTab">
 
@@ -87,7 +83,7 @@
 
 
                         </h4>
-                        <h5> <br /> {{moTa}} <br /></h5>
+                        <p> <br /> {{moTa}} <br /></p>
          
                     </div>
                 </div>
@@ -95,7 +91,7 @@
 
             <div class="content_bottom">
                 <div class="heading">
-                    <h3>Sản phẩm liên quan đến {{tenSP}}</h3>
+                    <h2>Sản phẩm liên quan đến {{tenSP}}</h2>
                 </div>
                 <div class="see">
                     <p><a (click)="getallrelate()">Xem tất cả</a></p>
@@ -113,8 +109,8 @@
 
                         <div class="price-number">
 
-                            <h5><span> {{data.tenSP}} </span></h5>
-                            <h5><span style="color:red" class="rupees"> Giá : {{data.giaTien}} </span></h5>
+                            <h5><span style="font-size: 15px;"> {{data.tenSP}} </span></h5>
+                            <h5><span style="color:red" class="rupees"> Price : {{data.giaTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}} </span></h5>
                         </div>
 
 

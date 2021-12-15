@@ -248,7 +248,7 @@
   <tbody>
     <tr *ngFor="let data of array">
 
-      <td> <img src="{{data.hinhAnh}}" width="100px" height="100px" alt=""> </td>
+      <td> <img (click)="openimage(data.hinhAnh)" src="{{data.hinhAnh}}" width="100px" height="100px" alt=""> </td>
       <td> {{data.tenSP}}</td>
       <td> {{data.giaTien}}</td>
       <td> {{data.giamGia}}</td>

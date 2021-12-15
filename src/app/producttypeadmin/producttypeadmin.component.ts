@@ -8,6 +8,8 @@ import { FormGroup } from '@angular/forms';
 import { Observable, } from 'rxjs';
 import Swal from 'sweetalert2';
 import { ApiService } from 'src/services/api.service';
+import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
+import { ImagecomponentComponent } from '../imagecomponent/imagecomponent.component';
 @Component({
   selector: 'app-producttypeadmin',
   templateUrl: './producttypeadmin.component.html',
@@ -30,7 +32,7 @@ export class ProducttypeadminComponent implements OnInit {
      };
     reader.readAsDataURL(this.selectedFile);
   }
-  constructor(private http: HttpClient, private router: Router, private api:ApiService) { }
+  constructor(private http: HttpClient, private router: Router, private api:ApiService, private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.api.checkRole()
@@ -206,6 +208,32 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
 
 
 
+  }
+  openimage(image)
+  {
+    
+    localStorage.setItem('image',image)
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width='600px';
+    // dialogConfig.height='800px';
+    dialogConfig.maxHeight='1000px'
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    
+      
+
+    this.dialog.open(ImagecomponentComponent, dialogConfig);
+
+  
+      
+   
+   
+
+
+  
   }
 
 }

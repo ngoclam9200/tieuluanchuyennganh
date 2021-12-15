@@ -8,6 +8,8 @@ import { Router } from '@angular/router'
 import Swal from 'sweetalert2';
 import { ApiService } from 'src/services/api.service';
 import { FormGroup } from '@angular/forms';
+import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
+import { ImagecomponentComponent } from '../imagecomponent/imagecomponent.component';
 @Component({
   selector: 'app-productdetail',
   templateUrl: './productdetail.component.html',
@@ -28,7 +30,7 @@ export class ProductdetailComponent implements OnInit {
   _id; hinhAnh; tenSP; moTa; giaTien; giamGia ;soLuongConLai  : any
 
   formGroup:FormGroup
-  constructor(private http: HttpClient, private router: Router, private api:ApiService) { }
+  constructor(private http: HttpClient, private router: Router, private api:ApiService, private dialog:MatDialog) { }
   isLogin: boolean = false
   ngOnInit(): void {
 
@@ -433,5 +435,31 @@ export class ProductdetailComponent implements OnInit {
   
 
 
+  }
+  openimage(image)
+  {
+    
+    localStorage.setItem('image',image)
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width='500px';
+    // dialogConfig.height='800px';
+    dialogConfig.maxHeight='1000px'
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    
+      
+
+    this.dialog.open(ImagecomponentComponent, dialogConfig);
+
+  
+      
+   
+   
+
+
+  
   }
 }

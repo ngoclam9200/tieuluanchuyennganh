@@ -42,6 +42,8 @@ import { BillComponent } from './bill/bill.component';
 import { BilldetailComponent } from './billdetail/billdetail.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TurnoverComponent } from './turnover/turnover.component';
+import { ImagecomponentComponent } from './imagecomponent/imagecomponent.component';
+
 
 
 
@@ -76,6 +78,8 @@ import { TurnoverComponent } from './turnover/turnover.component';
     BillComponent,
     BilldetailComponent,
     TurnoverComponent,
+    ImagecomponentComponent,
+   
 
 
 
