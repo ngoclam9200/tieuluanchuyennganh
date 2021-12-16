@@ -54,9 +54,24 @@ export class OrderadminComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getrole()
+    this.api.checkuser()
+    // this.api.checkstaff()
     this.api.checkRole()
     this.bill(1)
     
+    }
+    getrole()
+    {
+    
+     
+      var str=this.constructor.name
+      str=str.toLowerCase()
+      var a=str.search('component')
+      str=str.slice(0,a)
+      if(localStorage.getItem('role')=="customer") localStorage.setItem('currentpage2',str)
+      else
+      localStorage.setItem('currentpage1',str)
     }
     bill(id) {
       localStorage.setItem("trangThaiGiaoHangId",id)

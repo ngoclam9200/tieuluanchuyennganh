@@ -25,12 +25,26 @@ data:any=[]
 countproductsold:any
 countbillcancle:any
   ngOnInit(): void {
+    this.getrole()
+    this.api.checkuser()
     this.allturnover()
     this.api.checkRole()
     this.api.checkstaff()
     this.getcountcustommer()
     this.allcountbillcancle()
     this.gettopproduct()
+  }
+  getrole()
+  {
+  
+   
+    var str=this.constructor.name
+    str=str.toLowerCase()
+    var a=str.search('component')
+    str=str.slice(0,a)
+    if(localStorage.getItem('role')=="customer" || localStorage.getItem('role')=="staff") localStorage.setItem('currentpage2',str)
+    else
+    localStorage.setItem('currentpage1',str)
   }
   allturnover()
   {

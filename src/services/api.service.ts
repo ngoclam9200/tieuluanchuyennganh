@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class ApiService {
   array: any = []
   data: any
+  tmp:any
   arrayalluser: any = []
   constructor(private http:HttpClient, private router:Router) { }
  
@@ -49,12 +50,42 @@ export class ApiService {
 
     }
      if(localStorage.getItem('role')==null)
-    this.router.navigate(['/notfoundpage']);
+     {
+      this.router.navigate(['/signin']);
+      return
+     }
+     
+   
+
     
   }
   checkstaff()
   {
     if(localStorage.getItem('role')=="staff")
+    {
     this.router.navigate(['/notfoundpage']);
+   
+    }
   }
+    checkadmin()
+  {
+  
+    if(localStorage.getItem('role')=="admin")
+   
+     {//localStorage.setItem('tmp', this.tmp)
+     //  localStorage.removeItem('currentUser')
+    this.router.navigate(['/notfoundpage']);
+
+     }
+  }
+  checkuser()
+  {
+    if(localStorage.getItem('role')=="customer")
+     {
+      //  localStorage.removeItem('currentUser')
+    this.router.navigate(['/notfoundpage']);
+   
+     }
+  }
+
 }

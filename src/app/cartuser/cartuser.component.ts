@@ -28,7 +28,21 @@ export class CartuserComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, private api:ApiService, private dialog : MatDialog) { }
 
   ngOnInit(): void {
+    this.getrole()
+    this.api.checkadmin()
+    this.api.checkRole()
     this.currentData()
+  }
+  getrole()
+  {
+    
+    var str=this.constructor.name
+    str=str.toLowerCase()
+    var a=str.search('component')
+    str=str.slice(0,a)
+    if(localStorage.getItem('role')=="admin" || localStorage.getItem('role')=="staff") localStorage.setItem('currentpage2',str)
+    else
+    localStorage.setItem('currentpage1',str)
   }
   currentData() {
 

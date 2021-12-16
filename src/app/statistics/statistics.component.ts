@@ -29,8 +29,10 @@ export class StatisticsComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router, private api: ApiService) { }
   ngOnInit(): void {
+    this.getrole()
+    this.api.checkuser()
     this.api.checkRole()
-    this.api.checkstaff()
+    // this.api.checkstaff()
    
     this.statisticsorder()
     this.statisticsbill()
@@ -41,6 +43,18 @@ export class StatisticsComponent implements OnInit {
     }); 
     
 
+  }
+  getrole()
+  {
+  
+   
+    var str=this.constructor.name
+    str=str.toLowerCase()
+    var a=str.search('component')
+    str=str.slice(0,a)
+    if(localStorage.getItem('role')=="customer" || localStorage.getItem('role')=="staff") localStorage.setItem('currentpage2',str)
+    else
+    localStorage.setItem('currentpage1',str)
   }
   changeyearstatictis()
   {

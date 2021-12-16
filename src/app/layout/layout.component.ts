@@ -15,6 +15,8 @@ export class LayoutComponent implements OnInit {
   constructor( private router:Router, private http:HttpClient, private api:ApiService) { }
 
   ngOnInit(): void {
+    this.api.checkadmin()
+    this.api.checkstaff()
     this.currentnumberproductcart()
   
    

@@ -47,6 +47,8 @@ export class ProductadminComponent implements OnInit {
   constructor(private http: HttpClient, private formBuilder: FormBuilder, private api:ApiService, private router:Router, private dialog:MatDialog) { }
 
   ngOnInit(): void {
+    this.getrole()
+    this.api.checkuser()
     this.api.checkRole()
 
     this.api.checkstaff()
@@ -71,6 +73,18 @@ export class ProductadminComponent implements OnInit {
     })
   
 
+  }
+  getrole()
+  {
+  
+   
+    var str=this.constructor.name
+    str=str.toLowerCase()
+    var a=str.search('component')
+    str=str.slice(0,a)
+    if(localStorage.getItem('role')=="customer" || localStorage.getItem('role')=="staff") localStorage.setItem('currentpage2',str)
+    else
+    localStorage.setItem('currentpage1',str)
   }
   getproducttype() {
     let headers = new HttpHeaders();

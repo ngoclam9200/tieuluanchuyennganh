@@ -27,6 +27,9 @@ export class ListproductComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, private formBuider: FormBuilder, private api:ApiService) { }
 
   ngOnInit(): void {
+    this.getrole()
+    this.api.checkadmin()
+    // this.api.checkstaff()
     if (localStorage.getItem('currentUser') == null) this.isLogin = false
     else this.isLogin = true
     this.getproduct()
@@ -38,7 +41,17 @@ export class ListproductComponent implements OnInit {
       }
     )
   }
- 
+  getrole()
+  {
+    
+    var str=this.constructor.name
+    str=str.toLowerCase()
+    var a=str.search('component')
+    str=str.slice(0,a)
+    if(localStorage.getItem('role')=="admin" || localStorage.getItem('role')=="staff") localStorage.setItem('currentpage2',str)
+    else
+    localStorage.setItem('currentpage1',str)
+  }
   getproduct() {
 
 

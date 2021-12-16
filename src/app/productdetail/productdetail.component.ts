@@ -33,8 +33,10 @@ export class ProductdetailComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, private api:ApiService, private dialog:MatDialog) { }
   isLogin: boolean = false
   ngOnInit(): void {
-
-
+this.getrole()
+    this.api.checkadmin()
+    // this.api.checkstaff()
+    
     this.currentproduct()
     this.getlistproducttype()
     this.getcarrelate()
@@ -43,6 +45,17 @@ export class ProductdetailComponent implements OnInit {
     if (localStorage.getItem('currentUser') == null) this.isLogin = false
     else this.isLogin = true
 
+  }
+  getrole()
+  {
+    
+    var str=this.constructor.name
+    str=str.toLowerCase()
+    var a=str.search('component')
+    str=str.slice(0,a)
+    if(localStorage.getItem('role')=="admin" || localStorage.getItem('role')=="staff") localStorage.setItem('currentpage2',str)
+    else
+    localStorage.setItem('currentpage1',str)
   }
   currentproduct() {
 

@@ -18,6 +18,8 @@ export class SignupComponent implements OnInit {
     private router: Router, private api:ApiService) { }
 
   ngOnInit(): void {
+    this.api.checkadmin()
+    this.api.checkstaff()
     this.initForm()
   }
   initForm() {

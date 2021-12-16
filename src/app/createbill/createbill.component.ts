@@ -20,6 +20,9 @@ formArray:FormArray
   constructor( private http: HttpClient, private api:ApiService, private dialog : MatDialogRef<CreatebillComponent>) { }
 
   ngOnInit(): void {
+    this.getrole()
+    this.api.checkadmin()
+
     this.formGroup = new FormGroup({
       danhSachDat: new FormArray(this.array,[Validators.required]),
       diaChiGiaoHang: new FormControl("", [Validators.required]),
@@ -27,6 +30,17 @@ formArray:FormArray
       thanhToanOnline: new FormControl(false, [Validators.required]),
     });
     this.formArray=new FormArray(this.array)
+  }
+  getrole()
+  {
+    
+    var str=this.constructor.name
+    str=str.toLowerCase()
+    var a=str.search('component')
+    str=str.slice(0,a)
+    if(localStorage.getItem('role')=="admin" || localStorage.getItem('role')=="staff") localStorage.setItem('currentpage2',str)
+    else
+    localStorage.setItem('currentpage1',str)
   }
   createbill()
   {

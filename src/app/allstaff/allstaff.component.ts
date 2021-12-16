@@ -24,6 +24,7 @@ export class AllstaffComponent implements OnInit {
   array: any = []
   data: any
   arrayalluser: any = []
+  tmp:any
   checkfillImage; checkfillcarName; checkfillCarInformation; checkfillairBag; checkfillbody; checkfillcarLife; checkfillcolour; checkfillcompanyName; checkfillengineType; checkfillfrontBrake; checkfillfuelConsumption; checkfillgear; checkfilllongs; checkfillnumberOfSeats; checkfillorigin; checkfilloverallSize; checkfillprice; checkfillseat; checkfillstatus; checkfilltireParameters; checkfilltopSpeed; checkfillwattage; checkfillyearOfManufacture: boolean = false
 
   formGroup: FormGroup
@@ -42,11 +43,26 @@ export class AllstaffComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router,private api:ApiService) { }
 
   ngOnInit(): void {
+    
+    this.getrole()
+    this.api.checkuser()
+    this.api.checkstaff()
     this.api.checkRole()
     this.getstaff()
     this.initForm()
   }
+  getrole()
+  {
   
+   
+    var str=this.constructor.name
+    str=str.toLowerCase()
+    var a=str.search('component')
+    str=str.slice(0,a)
+    if(localStorage.getItem('role')=="customer" || localStorage.getItem('role')=="staff") localStorage.setItem('currentpage2',str)
+    else
+    localStorage.setItem('currentpage1',str)
+  }
   getstaff() {
     
   this.api.getstaff().subscribe(res=>{

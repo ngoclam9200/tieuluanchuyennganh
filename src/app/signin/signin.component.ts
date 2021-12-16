@@ -21,7 +21,8 @@ export class SigninComponent implements OnInit {
     private router:Router, private api:ApiService) { }
   
   ngOnInit() {
-    
+    // this.api.checkadmin()
+    // this.api.checkstaff()
     this.initForm();
     
   }

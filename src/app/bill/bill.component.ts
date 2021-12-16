@@ -24,9 +24,23 @@ p:number=1
 
 
   ngOnInit(): void {
+    this.getrole()
+    this.api.checkadmin()
+    this.api.checkRole()
     this.allbill()
+    // this.api.checkstaff()
   }
-
+  getrole()
+  {
+    
+    var str=this.constructor.name
+    str=str.toLowerCase()
+    var a=str.search('component')
+    str=str.slice(0,a)
+    if(localStorage.getItem('role')=="admin" || localStorage.getItem('role')=="staff") localStorage.setItem('currentpage2',str)
+    else
+    localStorage.setItem('currentpage1',str)
+  }
   allbill() {
    
 
@@ -167,6 +181,7 @@ p:number=1
     dialogConfig.width='600px';
     // dialogConfig.height='800px';
     dialogConfig.maxHeight='1000px'
+    dialogConfig.disableClose=false;
     
       
 
