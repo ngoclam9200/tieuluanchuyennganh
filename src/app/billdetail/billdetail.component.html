@@ -38,7 +38,7 @@
 
 					<h4  class="product-price">Quantity:{{data.soLuongDat}}    </h4>
 
-					<h4 class="product-offer">Price:{{data.tongTien}}</h4>
+					<h4 class="product-offer">Price:{{data.tongTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</h4>
                    
 
 					
@@ -74,7 +74,7 @@
 <p>Paid: {{daThanhToan}}</p>
 <p>Status:{{trangThaiGiaoHang}}</p>
 <p>Date order:{{ngayXuatDon}}</p>
-<p>Total:{{tongHoaDon}}</p>
+<p style="color: red;">Total: {{tongHoaDon.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</p>
 
 
 <button (click)="close()">Close</button>

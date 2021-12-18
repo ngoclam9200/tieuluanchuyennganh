@@ -47,6 +47,7 @@ export class SigninComponent implements OnInit {
 
   }
     loginProces(){
+      console.log(this.formGroup.value)
       
     if (this.formGroup.valid){
       
@@ -97,12 +98,7 @@ export class SigninComponent implements OnInit {
       }
       , error=>{
         
-        if( error.error.message == null)
-        {
-       
-        alert("Sai tài khoản hoặc mật khẩu");
-        }
-        else alert(error.error.message)
+         alert(error.error.message)
         
       });
      

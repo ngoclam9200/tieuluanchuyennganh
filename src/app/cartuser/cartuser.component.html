@@ -69,7 +69,7 @@
 
 				<span>Total Price</span>
 
-				<span> {{Tongtien}}</span>
+				<span>  {{Tongtien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}} </span>
 
 			</p>
 
@@ -79,7 +79,7 @@
 
 				<span>You Save</span>
 
-				<span> {{moneysave}} VND</span>
+				<span> {{moneysave.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</span>
 
 			</p>
 

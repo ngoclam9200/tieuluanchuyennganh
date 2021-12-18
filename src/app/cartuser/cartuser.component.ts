@@ -72,7 +72,9 @@ export class CartuserComponent implements OnInit {
      
        { 
         savemoney += this.data[i].giaTien -this.data[i].giaTien*(this.data[i].giamGia/100)
+        savemoney=savemoney*this.data[i].soLuongTrongGio
         totalmoney += this.data[i].giaTien
+        totalmoney=totalmoney*this.data[i].soLuongTrongGio
        
       
         
