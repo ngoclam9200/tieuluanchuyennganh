@@ -16,11 +16,11 @@ usenum:any=[]
   constructor(private http:HttpClient, private api:ApiService) { }
 
   ngOnInit(): void {
-    localStorage.clear()
+ 
 
-this.getrole()
-    this.api.checkadmin()
-    this.api.checkstaff()
+    // this.getrole()
+    // this.api.checkadmin()
+    // this.api.checkstaff()
     this.getcar()
   }
   getrole()

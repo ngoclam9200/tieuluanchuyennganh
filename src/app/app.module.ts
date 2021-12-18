@@ -98,10 +98,10 @@ import { ImagecomponentComponent } from './imagecomponent/imagecomponent.compone
     ReactiveFormsModule,
     
     RouterModule.forRoot([
-      { path: 'signin', component: SigninComponent },
+      { path: '', component: SigninComponent },
 
       { path: 'signup', component: SignupComponent },
-      { path: '', component: HomeComponent },
+      { path: 'home', component: HomeComponent },
       { path: 'home', component: HomeComponent },
       { path: 'aboutus', component: AboutusComponent },
      
