@@ -16,6 +16,7 @@ usenum:any=[]
   constructor(private http:HttpClient, private api:ApiService) { }
 
   ngOnInit(): void {
+    localStorage.clear()
 
 this.getrole()
     this.api.checkadmin()
