@@ -25,12 +25,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<div class="main">
 		<div class="main-w3l">
 
-			<h1 class="logo-w3">LTSHOP </h1>
+			
 			<div class="w3layouts-main">
 				<h2><span>Sign up now</span></h2>
 
 
-				<form [formGroup]="formGroup" (ngSubmit)="registerProces()">
+				<form [formGroup]="formGroup" >
 					<input placeholder=" Email" formControlName="email" type="email" required="">
 					<input placeholder=" Username" value="" formControlName="tenDangNhap" type="text">
 					<input placeholder="Full name" value="" formControlName="tenNguoiDung" name="Password" type="text"
@@ -44,11 +44,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						required="">
 					<input placeholder="Confirm Password" formControlName="xacNhanMatKhau" name="Password"
 						type="password" required="">
-					<input type="submit" value="Sign up" name="login">
+					<input (click)="registerProces()" type="submit" value="Sign up" name="login">
+					 <input [routerLink]='["/"]' type="submit" value="Sign in" name="login">
 
 				</form>
 
-				<h6><a [routerLink]='["/signin"]'>Sign in</a></h6>
+				
 			</div>
 
 		</div>

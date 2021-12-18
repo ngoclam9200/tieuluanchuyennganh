@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 .buttonstatus{
 	margin-left: 50px;
@@ -273,4 +274,7 @@ button:active{
 }
 
 
-
+.ngx-pagination {
+    margin-left: 100px;
+    margin-bottom: 1rem;
+}

@@ -134,7 +134,7 @@
   
 		<td> {{data.hoaDonId}}</td>
 		<td> {{data.tongHoaDon.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</td>
-		<td> {{data.ngayXuatDon}}</td>
+		<td> {{data.ngayXuatDon.slice(11,20)}} ---- {{data.ngayXuatDon.slice(0,10)}} </td>
 		<td> {{data.sdtNguoiNhan}}</td>
   
 		<td> {{data.diaChiGiaoHang}}</td>

@@ -43,11 +43,11 @@ export class AllstaffComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router,private api:ApiService) { }
 
   ngOnInit(): void {
-    
+    this.api.checkRole()
     this.getrole()
     this.api.checkuser()
     this.api.checkstaff()
-    this.api.checkRole()
+  
     this.getstaff()
     this.initForm()
   }

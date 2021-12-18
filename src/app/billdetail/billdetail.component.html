@@ -59,8 +59,10 @@
 
 
 </div>
-
-      <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+<div style="margin-left: 120px;" >
+	<pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+     
 
 </body>
 
@@ -69,12 +71,12 @@
 
 </html>
 
-<p>Address:{{diaChiGiaoHang}}</p>
+<p>Address  {{diaChiGiaoHang}}</p>
 <p>Phone number receiver: {{sdtNguoiNhan}}</p>
 <p>Paid: {{daThanhToan}}</p>
-<p>Status:{{trangThaiGiaoHang}}</p>
-<p>Date order:{{ngayXuatDon}}</p>
+<p>Status:  {{trangThaiGiaoHang}}</p>
+<p>Date order:  {{ngayXuatDon.slice(11,20)}} ---- {{ngayXuatDon.slice(0,10)}}</p>
 <p style="color: red;">Total: {{tongHoaDon.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</p>
 
 
-<button (click)="close()">Close</button>
+<button style="margin-left: 200px;" (click)="close()">Close</button>

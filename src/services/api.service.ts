@@ -45,13 +45,13 @@ export class ApiService {
   checkRole()
   {
     if (localStorage.getItem('currentUser') == null) {
-      this.router.navigate(['/signin']);
+      this.router.navigate(['/']);
       return
 
     }
      if(localStorage.getItem('role')==null)
      {
-      this.router.navigate(['/signin']);
+      this.router.navigate(['/']);
       return
      }
      
