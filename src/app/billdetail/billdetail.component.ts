@@ -22,9 +22,9 @@ diaChiGiaoHang;sdtNguoiNhan;trangThaiGiaoHang;daThanhToan;tongHoaDon;ngayXuatDon
   constructor(private http:HttpClient, private api:ApiService, private dialog : MatDialogRef<BilldetailComponent>) { }
 
   ngOnInit(): void {
-    this.getrole()
+    // this.getrole()
 
-    this.api.checkadmin()
+    // this.api.checkadmin()
     // this.api.checkstaff()
     this.billdetail( localStorage.getItem('hoaDonId'))
   }

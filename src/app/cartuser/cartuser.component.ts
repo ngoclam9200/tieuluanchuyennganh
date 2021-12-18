@@ -32,7 +32,13 @@ export class CartuserComponent implements OnInit {
     this.api.checkadmin()
     this.api.checkRole()
     this.currentData()
+    this.formGroup = new FormGroup({
+      sanPhamId: new FormArray(this.array,[Validators.required]),
+      soLuong: new FormControl("", [Validators.required]),
+     
+    });
   }
+
   getrole()
   {
     
@@ -62,15 +68,16 @@ export class CartuserComponent implements OnInit {
        this.data=this.data.data
        this.data=this.data[0]
        console.log(this.data)
-       this.soLuongSP=this.data.length
+       //this.soLuongSP=this.data.length
        var totalmoney=0
        var savemoney=0
+       this.soLuongSP=0
        if(this.data.length==0) this.noproduct=true
        else 
        {this.noproduct=false
        for(let i=0; i<this.data.length;i++)
      
-       { 
+       { this.soLuongSP += this.data[i].soLuongTrongGio
         savemoney += this.data[i].giaTien -this.data[i].giaTien*(this.data[i].giamGia/100)
         savemoney=savemoney*this.data[i].soLuongTrongGio
         totalmoney += this.data[i].giaTien
@@ -144,6 +151,80 @@ export class CartuserComponent implements OnInit {
 
      
 
+  }
+  increase(sanPhamId)
+  {
+    this.formGroup = new FormGroup({
+      sanPhamId: new FormControl(sanPhamId,[Validators.required]),
+      soLuong: new FormControl(1, [Validators.required]),
+     
+    });
+    let headers = new HttpHeaders();
+    var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    var token = currentUser.token; // your token
+     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
+     console.log(this.formGroup.value)
+
+
+
+    this.http.post(this.api.apiorder+`giamsoluongtronggiohang`,this.formGroup.value, { headers: headers }).subscribe(res => {
+      
+
+      this.currentData()
+
+
+    }, error=>{
+      Swal.fire({
+       
+        text: error.error.message,
+        icon: 'warning',
+       
+ 
+       })
+
+    
+   
+     
+      
+    });
+    
+  }
+  decrease(sanPhamId)
+  {
+    this.formGroup = new FormGroup({
+      sanPhamId: new FormControl(sanPhamId,[Validators.required]),
+      soLuong: new FormControl(-1, [Validators.required]),
+     
+    });
+    let headers = new HttpHeaders();
+    var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    var token = currentUser.token; // your token
+     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
+     console.log(this.formGroup.value)
+
+
+
+    this.http.post(this.api.apiorder+`giamsoluongtronggiohang`,this.formGroup.value, { headers: headers }).subscribe(res => {
+      
+
+      this.currentData()
+
+
+    }, error=>{
+      Swal.fire({
+       
+        text: error.error.message,
+        icon: 'warning',
+       
+ 
+       })
+
+    
+   
+     
+      
+    });
+    
   }
   taohoadon()
   {

@@ -414,18 +414,16 @@ this.getrole()
          
     
         }, error=>{
-          console.log(error.error.message)
-          if(error.error.message=="Bạn đã có 2 trong giỏ hàng. Không thể thêm vì sẽ vượt số lượng có sẵn của sản phẩm.")
-          {
+         
             Swal.fire({
        
-              text: "Bạn đã có 2 trong giỏ hàng. Không thể thêm vì sẽ vượt số lượng có sẵn của sản phẩm.",
+              text: error.error.message,
               icon: 'warning',
              
        
              })
 
-          }
+          
          
            
 

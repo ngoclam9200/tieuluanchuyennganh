@@ -23,7 +23,7 @@ staff=false
    
 
     localStorage.clear()
-    this.router.navigate(['/signin']);
+    this.router.navigate(['/']);
     
   }
 }

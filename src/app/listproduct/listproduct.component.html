@@ -39,8 +39,10 @@
                         <h1 style="text-align:left"><span style="color:cadetblue" class="rupees"> Discount:
                                 {{data.giamGia}}</span> </h1> <br />
                       
-                        <h1 style="text-align:left "><span style="color:cadetblue" class="rupees">  Residual amount
-                                :{{data.soLuongConLai}}</span> </h1> <br />
+                        <h1 style="text-align:left;color:cadetblue"  >  Residual amount:
+                            <span *ngIf="data.soLuongConLai!=0" style="color:cadetblue" class="rupees"> {{data.soLuongConLai}}</span> 
+                            <span *ngIf="data.soLuongConLai==0" style="color:cadetblue" class="rupees"> Hết hàng</span>
+                             </h1> <br />
 
                         <p><span class="rupees"> Price : {{data.giaTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}} </span></p>
 

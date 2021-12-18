@@ -246,7 +246,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of array">
+    <tr *ngFor="let data of array | paginate: { itemsPerPage: 8, currentPage: p }">
 
       <td> <img (click)="openimage(data.hinhAnh)" src="{{data.hinhAnh}}" width="100px" height="100px" alt=""> </td>
       <td> {{data.tenSP}}</td>
@@ -266,4 +266,8 @@
 
     </tr>
   </tbody>
+  
 </table>
+<div style="margin-left: 720px;margin-top: 900px;" >
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

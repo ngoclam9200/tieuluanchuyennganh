@@ -31,7 +31,7 @@ import { ListproducttypeComponent } from './listproducttype/listproducttype.comp
 import { SearchproductComponent } from './searchproduct/searchproduct.component';
 
 import { OrderadminComponent } from './orderadmin/orderadmin.component';
-import { ScheduleuserComponent } from './scheduleuser/scheduleuser.component';
+
 import { StatisticsComponent } from './statistics/statistics.component';
 import {CartuserComponent } from './cartuser/cartuser.component';
 import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
@@ -70,7 +70,7 @@ import { ImagecomponentComponent } from './imagecomponent/imagecomponent.compone
     SearchproductComponent,
    
     OrderadminComponent,
-    ScheduleuserComponent,
+   
     StatisticsComponent,
     CartuserComponent,
     NotfoundpageComponent,
@@ -120,7 +120,6 @@ import { ImagecomponentComponent } from './imagecomponent/imagecomponent.compone
       { path: 'productdetail', component: ProductdetailComponent },
       
       { path: 'orderadmin', component: OrderadminComponent },
-      { path: 'scheduleuser', component: ScheduleuserComponent },
       { path: 'statistics', component: StatisticsComponent },
       { path: 'layout', component: LayoutComponent },
       {path:'notfoundpage', component:NotfoundpageComponent},

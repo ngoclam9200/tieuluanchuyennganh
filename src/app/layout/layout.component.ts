@@ -33,10 +33,15 @@ export class LayoutComponent implements OnInit {
    
  
     localStorage.clear()
-    this.router.navigate(['/signin']);
+    this.router.navigate(['/']);
     return this.isLogin=false
   }
   currentnumberproductcart() {
+    if(localStorage.getItem('currentUser') !=null)
+    {
+     
+     
+    
 
 
 
@@ -64,6 +69,9 @@ export class LayoutComponent implements OnInit {
 
 
   }
+  
+}
+
 
 }
 

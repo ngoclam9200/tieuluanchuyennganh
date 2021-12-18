@@ -29,7 +29,7 @@
                     <div class="row">
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">{{tongDoanhThu}} </h3>
+                          <h5 class="mb-0">{{tongDoanhThu.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}} </h5>
                           
                         </div>
                       </div>
@@ -93,11 +93,11 @@
               <div *ngFor="let data of data" class="col-sm-4 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h5>{{data.tenSP}}</h5>
+                    <h5>{{data.tenSP.slice(0,23)}}...</h5>
                     <div class="row">
                       <div class="col-8 col-sm-12 col-xl-8 my-auto">
                         <div class="d-flex d-sm-block d-md-flex align-items-center">
-                          <img width="100px" height="100px" src="{{data.hinhAnh}}" alt=""> 
+                          <img width="180px" height="200px" src="{{data.hinhAnh}}" alt=""> 
                           <h2 style="font-size: 20px;" class="mb-0"></h2>
                           
                         </div>

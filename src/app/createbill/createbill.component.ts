@@ -17,11 +17,15 @@ array:any=[]
 tmp:any=[]
 arr:any
 formArray:FormArray
+diaChi:any
+sDT:any
+data:any=[]
   constructor( private http: HttpClient, private api:ApiService, private dialog : MatDialogRef<CreatebillComponent>) { }
 
   ngOnInit(): void {
     this.getrole()
     this.api.checkadmin()
+   
 
     this.formGroup = new FormGroup({
       danhSachDat: new FormArray(this.array,[Validators.required]),
@@ -30,6 +34,52 @@ formArray:FormArray
       thanhToanOnline: new FormControl(false, [Validators.required]),
     });
     this.formArray=new FormArray(this.array)
+    this.currentphoneaddress()
+  }
+  currentphoneaddress() {
+
+
+
+
+
+    let headers = new HttpHeaders();
+    var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    var token = currentUser.token; // your token
+    headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
+    this.http.get(this.api.apiuser+`xemthongtinnguoidung`, { headers: headers }).subscribe(res=>{
+      console.log(res)
+         this.data = res
+  
+        this.data = this.data.data
+    
+       this.diaChi = this.data[0].diaChi
+      
+      this.sDT = this.data[0].sDT
+      console.log(this.diaChi)
+      console.log(this.sDT)
+      this.formGroup.controls['sdtNguoiNhan'].setValue(this.data[0].sDT)
+      this.formGroup.controls['diaChiGiaoHang'].setValue(this.data[0].diaChi)
+      
+     
+      
+  
+    });
+ 
+   
+    
+    
+      
+
+
+
+
+
+
+
+
+   
+
+
   }
   getrole()
   {
@@ -56,6 +106,7 @@ formArray:FormArray
       this.tmp=res
       this.tmp=this.tmp.data[0]
       console.log(this.tmp)
+      
     
       for(let i=0 ;i<this.tmp.length;i++)
       { 

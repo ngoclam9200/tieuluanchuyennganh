@@ -18,12 +18,16 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 export class TurnoverComponent implements OnInit {
 
   constructor(private http:HttpClient, private api:ApiService) { }
-tongDoanhThu:any
-countUser:any
+tongDoanhThu:any=0
+countUser:any=0
 array:any=[]
 data:any=[]
-countproductsold:any
-countbillcancle:any
+datacancle:any=[]
+datauser:any=[]
+dataturnover:any=[]
+chitietHD:any=[]
+countproductsold:any=0
+countbillcancle:any=0
   ngOnInit(): void {
     this.getrole()
     this.api.checkuser()
@@ -55,19 +59,22 @@ countbillcancle:any
      var a={}
      this.http.get(this.api.apibill+`Xemhoadontheotrangthaiadmin/4` , { headers: headers }).subscribe(res => {
       console.log(res)
-      this.data=res
-      this.data=this.data.data
-      console.log(this.data)
+      this.dataturnover=res
+      this.dataturnover=this.dataturnover.data
+      console.log(this.dataturnover)
      
       var t=0
-      for(let i=0 ;i<this.data.length;i++)
-      t =t+this.data[i].tongHoaDon
+      for(let i=0 ;i<this.dataturnover.length;i++)
+      t =t+this.dataturnover[i].tongHoaDon
       this.tongDoanhThu=t
       var count=0
-      for(let i=0 ;i<this.data.length;i++)
+      for(let i=0 ;i<this.dataturnover.length;i++)
       {
-        
-        count=count+ this.data[i].chiTietHD.length
+        this.chitietHD=this.dataturnover[i].chiTietHD
+        for(let i=0 ;i<this.chitietHD.length;i++)
+      {
+        count=count+ this.chitietHD[i].soLuongDat
+      }
       }
       
       this.countproductsold=count
@@ -93,9 +100,9 @@ countbillcancle:any
      var a={}
      this.http.get(this.api.apibill+`Xemhoadontheotrangthaiadmin/5` , { headers: headers }).subscribe(res => {
       console.log(res)
-      this.data=res
-      this.data=this.data.data
-      this.countbillcancle=this.data.length
+      this.datacancle=res
+      this.datacancle=this.datacancle.data
+      this.countbillcancle=this.datacancle.length
      
      
       
@@ -117,9 +124,9 @@ countbillcancle:any
     
     this.api.getcustommer().subscribe(res=>{
       console.log(res)
-         this.data = res
+         this.datauser = res
   
-        this.array = this.data.data
+        this.array = this.datauser.data
         this.countUser=this.array.length
        
      

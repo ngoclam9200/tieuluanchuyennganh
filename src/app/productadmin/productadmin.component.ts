@@ -23,7 +23,7 @@ export class ProductadminComponent implements OnInit {
   a: any
   public arraycar = []
   idcar: any
-
+p:number=1
   newimage: boolean = false
   isSearch: boolean = false
   novalue: boolean = false
