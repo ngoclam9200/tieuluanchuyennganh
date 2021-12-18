@@ -31,7 +31,7 @@
             <div class="grid_1_of_4 images_1_of_4">
                 <a (click)="currentproduct(data.sanPhamId)"><img src="{{data.hinhAnh}}" alt="" width="264" height="175" /></a>
                 <br>
-                <span (click)="currentproduct(data.sanPhamId)" style="color:red;cursor: pointer;"> {{data.tenSP}} </span>
+                <span (click)="currentproduct(data.sanPhamId)" style="color:red;cursor: pointer;height:58px;"> {{data.tenSP.slice(0,30)}}... </span>
 
                 <div class="price-details">
 
