@@ -109,7 +109,7 @@ data:any=[]
       }
       return false;
     }
-    var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-="
+    var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\.~`-="
 
     var checkaddress = function (string) {
       for (let i = 0; i < specialChars.length; i++) {
@@ -134,93 +134,93 @@ data:any=[]
 
 
 
-    // this.http.get(this.api.apiorder+`xemgiohang`, { headers: headers }).subscribe(res => {
+    this.http.get(this.api.apiorder+`xemgiohang`, { headers: headers }).subscribe(res => {
      
-    //   this.tmp=res
-    //   this.tmp=this.tmp.data[0]
-    //   console.log(this.tmp)
+      this.tmp=res
+      this.tmp=this.tmp.data[0]
+      console.log(this.tmp)
       
     
-    //   for(let i=0 ;i<this.tmp.length;i++)
-    //   { 
-    //     var a={sanPhamId: this.tmp[i].sanPhamId, soLuongDat:this.tmp[i].soLuongTrongGio}
-    //     this.array.push(a)
+      for(let i=0 ;i<this.tmp.length;i++)
+      { 
+        var a={sanPhamId: this.tmp[i].sanPhamId, soLuongDat:this.tmp[i].soLuongTrongGio}
+        this.array.push(a)
 
-    //   }
-    //        this.formGroup = new FormGroup({
-    //      danhSachDat: new FormControl(this.formArray.controls),
+      }
+           this.formGroup = new FormGroup({
+         danhSachDat: new FormControl(this.formArray.controls),
       
-    //     diaChiGiaoHang: new FormControl(this.formGroup.controls['diaChiGiaoHang'].value, [Validators.required]),
-    //     sdtNguoiNhan: new FormControl(this.formGroup.controls['sdtNguoiNhan'].value, [Validators.required]),
-    //     thanhToanOnline: new FormControl(false, [Validators.required]),
+        diaChiGiaoHang: new FormControl(this.formGroup.controls['diaChiGiaoHang'].value, [Validators.required]),
+        sdtNguoiNhan: new FormControl(this.formGroup.controls['sdtNguoiNhan'].value, [Validators.required]),
+        thanhToanOnline: new FormControl(false, [Validators.required]),
        
-    //   });
+      });
       
-    //   if (this.formGroup.valid)
-    //   {
-    //     Swal.fire({
-    //       title: 'Are you sure?',
-    //       text: "Create bill!",
-    //       icon: 'warning',
-    //       showCancelButton: true,
-    //       confirmButtonColor: '#3085d6',
-    //       cancelButtonColor: '#d33',
-    //       confirmButtonText: 'Yes,create bill!'
-    //     }).then((result) => {
-    //       if (result.isConfirmed) {
-    //         this.http.post(this.api.apibill+`taohoadon` ,this.formGroup.value, { headers: headers }).subscribe(res => {
+      if (this.formGroup.valid)
+      {
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "Create bill!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes,create bill!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.http.post(this.api.apibill+`taohoadon` ,this.formGroup.value, { headers: headers }).subscribe(res => {
            
-    //           this.tmp=res
+              this.tmp=res
             
               
              
           
         
-    //        });
-    //        setTimeout(() => {
-    //          window.location.reload()
-    //        }, 3000);
+           });
+           setTimeout(() => {
+             window.location.reload()
+           }, 3000);
            
-    //         Swal.fire(
-    //           'Success!',
-    //           '',
-    //           'success'
+            Swal.fire(
+              'Success!',
+              '',
+              'success'
               
     
-    //         )
+            )
           
            
-    //       }
+          }
     
     
-    //     })
+        })
     
 
         
       
-    //   }
-    //   else 
-    //   alert("Please fill the form")
+      }
+      else 
+      alert("Please fill the form")
     
-    // });
-    //   console.log(this.array)
-    //  this.formArray.setValue(this.array)
+    });
+      console.log(this.array)
+     this.formArray.setValue(this.array)
 
-    //   console.log(this.formGroup.controls['sdtNguoiNhan'].value)
-    //    this.formGroup = new FormGroup({
-    //      danhSachDat: new FormControl(this.formArray.controls),
+      console.log(this.formGroup.controls['sdtNguoiNhan'].value)
+       this.formGroup = new FormGroup({
+         danhSachDat: new FormControl(this.formArray.controls),
       
-    //     diaChiGiaoHang: new FormControl(this.formGroup.controls['diaChiGiaoHang'].value, [Validators.required]),
-    //     sdtNguoiNhan: new FormControl(this.formGroup.controls['sdtNguoiNhan'].value, [Validators.required]),
-    //     thanhToanOnline: new FormControl(false, [Validators.required]),
+        diaChiGiaoHang: new FormControl(this.formGroup.controls['diaChiGiaoHang'].value, [Validators.required]),
+        sdtNguoiNhan: new FormControl(this.formGroup.controls['sdtNguoiNhan'].value, [Validators.required]),
+        thanhToanOnline: new FormControl(false, [Validators.required]),
        
-    //   });
+      });
  
-    //   console.log(this.formGroup.value)
+      console.log(this.formGroup.value)
      
-      // var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-      // var token = currentUser.token; // your token
-      //  headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
+      var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+      var token = currentUser.token; // your token
+       headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
       
       
 
