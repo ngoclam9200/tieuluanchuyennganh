@@ -88,8 +88,7 @@ postcontact()
       
 
     }, error=>{
-      console.log( error)
-      if( error.error.data == null)
+       if( error.error.data == null)
       {
      
       alert("Send email error");

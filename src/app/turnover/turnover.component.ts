@@ -58,10 +58,10 @@ countbillcancle:any=0
      headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
      var a={}
      this.http.get(this.api.apibill+`Xemhoadontheotrangthaiadmin/4` , { headers: headers }).subscribe(res => {
-      console.log(res)
+   
       this.dataturnover=res
       this.dataturnover=this.dataturnover.data
-      console.log(this.dataturnover)
+
      
       var t=0
       for(let i=0 ;i<this.dataturnover.length;i++)
@@ -99,7 +99,7 @@ countbillcancle:any=0
      headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
      var a={}
      this.http.get(this.api.apibill+`Xemhoadontheotrangthaiadmin/5` , { headers: headers }).subscribe(res => {
-      console.log(res)
+
       this.datacancle=res
       this.datacancle=this.datacancle.data
       this.countbillcancle=this.datacancle.length
@@ -123,7 +123,7 @@ countbillcancle:any=0
   getcountcustommer() {
     
     this.api.getcustommer().subscribe(res=>{
-      console.log(res)
+
          this.datauser = res
   
         this.array = this.datauser.data
@@ -148,7 +148,7 @@ countbillcancle:any=0
         
         this.data=res
         this.data=this.data.data
-        console.log(this.data)
+
      
        
        

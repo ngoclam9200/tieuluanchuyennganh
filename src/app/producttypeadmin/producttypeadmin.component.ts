@@ -19,11 +19,15 @@ import { ImagecomponentComponent } from '../imagecomponent/imagecomponent.compon
 export class ProducttypeadminComponent implements OnInit {
   data: any
   array: any = []
+  dataloaisp : any
+  arrayloaisp: any = []
   selectedFile: File;
   imagePreview: any = null;
   linkimage: String
   formGroup: FormGroup;
+  changeimage=false
   onFileSelected(event) {
+    this.changeimage=true
     this.selectedFile = event.target.files[0]
 
     const reader = new FileReader();
@@ -63,10 +67,13 @@ export class ProducttypeadminComponent implements OnInit {
   initForm() {
 
     this.formGroup = new FormGroup({
+      
       tenLoaiSP: new FormControl("", [Validators.required]),
       hinhAnh: new FormControl("", [Validators.required]),
 
+
     });
+   
 
   }
   getproducttype() {
@@ -107,7 +114,7 @@ export class ProducttypeadminComponent implements OnInit {
 
 
 const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
-    console.log(tenLoaiSP)
+
     if (this.imagePreview != null) {
       this.formGroup.setValue({
         hinhAnh: this.imagePreview,
@@ -115,7 +122,6 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
         
       });
     }
-    console.log(this.formGroup.value)
      if (this.formGroup.valid) {
       Swal.fire({
         title: 'Are you sure?',
@@ -144,7 +150,6 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
             }
 
           }, error => {
-            console.log(error)
   
             
              
@@ -248,6 +253,126 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
 
 
   
+  }
+  producttypeget(id) {
+    let headers = new HttpHeaders();
+    var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    var token = currentUser.token; // your token
+   
+
+
+
+    this.http.get(this.api.apiproducttype+`layLoaiSPById/`+id, { headers: headers }).subscribe(res => {
+      this.dataloaisp = res
+
+      this.arrayloaisp = this.dataloaisp.data
+      this.formGroup = new FormGroup({
+        loaiSanPhamId: new FormControl(this.arrayloaisp.loaiSanPhamId, [Validators.required]),
+        tenLoaiSP: new FormControl(this.arrayloaisp.tenLoaiSP, [Validators.required]),
+        hinhAnh: new FormControl(this.arrayloaisp.hinhAnh, [Validators.required]),
+  
+  
+      });
+   
+      this.imagePreview=this.formGroup.controls['hinhAnh'].value
+
+
+
+
+    });
+
+
+    if (this.imagePreview != null) {
+      this.formGroup.controls['hinhAnh'].setValue(this.imagePreview)
+
+    }
+    
+
+  }
+  updateproces()
+  {
+    this.formGroup.controls['hinhAnh'].setValue(this.imagePreview)
+    if (this.formGroup.valid) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "Update product information",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes,update it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+         
+          this.update(this.formGroup.value).subscribe((result) => {
+      
+
+            if (result)
+            {
+              Swal.fire(
+                'Success!',
+                '',
+                'success'
+    
+              )
+                setTimeout(() => {
+                  window.location.reload()
+                }, 3000);
+            }
+              
+
+
+
+
+
+          }, error => {
+    
+  
+            
+             
+              Swal.fire(
+                'Fail!',
+                error.error.message,
+                'error'
+                
+      
+              )
+            
+          });
+
+         
+        
+        }
+
+      })
+
+    }
+
+    else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Empty field....',
+        text: 'Please fill in this form ',
+
+      })
+      // this.Checkfill()
+
+    }
+
+
+
+
+  }
+  
+  update(data): Observable<any> {
+
+
+
+    let headers = new HttpHeaders();
+    var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    var token = currentUser.token; // your token
+    headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
+     return this.http.put(this.api.apiproducttype+`suaLoaiSP` , data, { headers: headers });
   }
 
 }

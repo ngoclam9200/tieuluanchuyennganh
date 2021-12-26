@@ -67,9 +67,7 @@ export class CartuserComponent implements OnInit {
        this.data = res
        this.data=this.data.data
        this.data=this.data[0]
-       console.log(this.data)
-       //this.soLuongSP=this.data.length
-       var totalmoney=0
+        var totalmoney=0
        var savemoney=0
        this.soLuongSP=0
        if(this.data.length==0) this.noproduct=true
@@ -124,8 +122,7 @@ export class CartuserComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.delete(this.api.apiorder+`xoasanphamtronggiohang/` + id, { headers: headers }).subscribe(res => {
-          console.log(res)
-          this.Tongtien=0
+           this.Tongtien=0
           this.moneysave=0
           
          
@@ -200,8 +197,7 @@ export class CartuserComponent implements OnInit {
     var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     var token = currentUser.token; // your token
      headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
-     console.log(this.formGroup.value)
-
+ 
 
 
     this.http.post(this.api.apiorder+`giamsoluongtronggiohang`,this.formGroup.value, { headers: headers }).subscribe(res => {

@@ -78,7 +78,7 @@ export class ProfileuserComponent implements OnInit {
     var token = currentUser.token; // your token
     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
     this.http.get(this.api.apiuser+`xemthongtinnguoidung`, { headers: headers }).subscribe(res=>{
-      console.log(res)
+
          this.data = res
   
         this.data = this.data.data
@@ -102,7 +102,7 @@ export class ProfileuserComponent implements OnInit {
         //     this.arrayalluser.push(this.array[i])
         // }
     });
-    console.log(this.formGroup.value)
+ 
    
     
     
@@ -177,7 +177,7 @@ export class ProfileuserComponent implements OnInit {
         alert(" thành công");
 
        },error =>{
-         console.log(error.error.message)
+ 
          
         if(error.error.message=="Mật khẩu mới tối thiểu 8 ký tự")
         alert("Mật khẩu mới tối thiểu 8 ký tự")

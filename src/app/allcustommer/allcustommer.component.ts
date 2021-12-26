@@ -28,7 +28,7 @@ export class AllcustommerComponent implements OnInit {
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.TABLE.nativeElement);
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    XLSX.writeFile(wb, 'AllUser' + today + '.xlsx');
+    XLSX.writeFile(wb, 'AllCustommer' + today + '.xlsx');
   }
   constructor(private http: HttpClient, private router: Router,private api:ApiService) { }
 
@@ -54,12 +54,10 @@ export class AllcustommerComponent implements OnInit {
   getcustommer() {
     
   this.api.getcustommer().subscribe(res=>{
-    console.log(res)
-       this.data = res
+        this.data = res
 
       this.array = this.data.data
-      console.log(this.array)
-   
+    
 
       // for (let i = 0; i < this.array.length; i++) {
       //   if (this.array[i].role == "USER")

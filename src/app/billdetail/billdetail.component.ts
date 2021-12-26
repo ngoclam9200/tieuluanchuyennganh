@@ -22,10 +22,7 @@ diaChiGiaoHang;sdtNguoiNhan;trangThaiGiaoHang;daThanhToan;tongHoaDon;ngayXuatDon
   constructor(private http:HttpClient, private api:ApiService, private dialog : MatDialogRef<BilldetailComponent>) { }
 
   ngOnInit(): void {
-    // this.getrole()
-
-    // this.api.checkadmin()
-    // this.api.checkstaff()
+    
     this.billdetail( localStorage.getItem('hoaDonId'))
   }
   getrole()
@@ -47,8 +44,7 @@ diaChiGiaoHang;sdtNguoiNhan;trangThaiGiaoHang;daThanhToan;tongHoaDon;ngayXuatDon
      headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
      var a={}
      this.http.get(this.api.apibill+`xemchitiethoadon/` +id, { headers: headers }).subscribe(res => {
-      console.log(res)
-      this.data=res
+       this.data=res
       this.alldata=res
       this.data=this.data.data
       this.data=this.data[0].chiTietHD

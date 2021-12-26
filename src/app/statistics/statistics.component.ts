@@ -99,7 +99,7 @@ export class StatisticsComponent implements OnInit {
 
       this.data = res
       this.array = this.data.data
-      console.log(this.array)
+    
       for(let i=0 ;i<this.array.length;i++)
       {
       this.arraymonth.push(this.array[i].thang)
@@ -163,18 +163,25 @@ export class StatisticsComponent implements OnInit {
             this.http.get(this.api.apibill + `thongketrangthaidonhang`, { headers: headers }).subscribe(res => {
 
           this.data = res
-          console.log(res)
+     
           this.array = this.data.data
-          console.log(this.array)
+   
           for(let i=0 ;i<this.array.length;i++)
           this.arraynumberofstatusbill.push(this.array[i].soLuongHoaDon)
           
         
           
           var a=[1,1,2,4]
-          console.log(a)
-          this.newarraystatus=["Wait for confirming ", "Delevering", "Delevered", "Cancel"]
-          this.arraybackgroundcolor=["#ccaa22","#00bfbf","#20bc6b","#bf0000"]
+       
+          if(this.arraynumberofstatusbill.length==1)
+          this.newarraystatus=["Wait for confirming "]
+          if(this.arraynumberofstatusbill.length==2)
+          this.newarraystatus=["Wait for confirming ", "Delevering"]
+          if(this.arraynumberofstatusbill.length==3)
+          this.newarraystatus=["Wait for confirming ", "Delevering", "Delevered"]
+         else  this.newarraystatus=["Wait for confirming ", "Delevering", "Delevered", "Cancel"]
+        
+           this.arraybackgroundcolor=["red","green","pink","yellow"]
           const myChart = new Chart("myChartcompany", {
       
             type: 'pie',

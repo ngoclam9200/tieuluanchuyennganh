@@ -59,8 +59,7 @@ p:number=1
        this.data = res
        this.data=this.data.data
      
-       console.log(this.data)
-      
+       
        if(this.data,length==0) this.nobill=false
        else 
        {this.nobill=false
@@ -99,8 +98,7 @@ p:number=1
        this.data = res
        this.data=this.data.data
      
-       console.log(this.data)
-      
+       
        if(this.data,length==0) this.nobill=false
        else 
        {this.nobill=false
@@ -145,8 +143,7 @@ p:number=1
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.put(this.api.apibill+`nguoidunghuydonhang/` +id,a, { headers: headers }).subscribe(res => {
-          console.log(res)
-          this.statusorder(1)
+           this.statusorder(1)
           
          
       

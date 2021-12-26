@@ -48,7 +48,7 @@ export class SigninComponent implements OnInit {
 
   }
     loginProces(){
-      console.log(this.formGroup.value)
+
       
     if (this.formGroup.valid){
       
@@ -56,7 +56,7 @@ export class SigninComponent implements OnInit {
       this.login(this.formGroup.value).subscribe((result) =>{
 
          this.data=result
-         console.log(this.data)
+ 
     
          this.role=this.getDecodedAccessToken(this.data.data)
          

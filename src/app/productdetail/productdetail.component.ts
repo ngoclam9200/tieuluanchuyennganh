@@ -72,8 +72,7 @@ this.getrole()
     this.http.get(this.api.apiproduct+`laySanPhamById/` + this.idproduct, { headers: headers }).subscribe(res => {
     
       this.data = res
-      console.log(this.data)
-
+ 
       this.hinhAnh = this.data.data.hinhAnh
       this.tenSP = this.data.data.tenSP
       this.giamGia = this.data.data.giamGia
@@ -143,7 +142,7 @@ this.getrole()
     this.http.get(this.api.apiproduct+`laySanPhamById/` + this.idproduct, { headers: headers }).subscribe(res => {
     
       this.data = res
-      console.log(this.data)
+ 
 
     
 
@@ -153,7 +152,7 @@ this.getrole()
         
   
         this.tmparray = this.datarelate.data
-        console.log(this.tmparray)
+ 
         for (let i = 0; i < this.tmparray.length; i++) {
        if(this.tmparray[i].sanPhamId != localStorage.getItem('idproduct'))
           this.arrayrelate.push(this.tmparray[i])
@@ -206,7 +205,7 @@ this.getrole()
    
      
       
-      console.log(localStorage.getItem('idproducttype'))
+ 
       localStorage.setItem('isproducttype', 'true')
       localStorage.setItem('isproduct', 'false')
       this.router.navigate(['/searchproduct']);
@@ -344,7 +343,7 @@ this.getrole()
   }
   increasing()
   { let soluong= this.formGroup.controls['soLuong'].value
-  console.log(this.soLuongConLai)
+ 
   
     soluong=soluong+1
     if(soluong>this.soLuongConLai) {
@@ -361,7 +360,7 @@ this.getrole()
       sanPhamId: new FormControl(localStorage.getItem('idproduct'), [Validators.required]),
       soLuong: new FormControl(soluong,[ Validators.required])
     }); 
-    console.log(this.formGroup.controls['soLuong'].value)
+ 
 
 
  
@@ -376,7 +375,7 @@ this.getrole()
       sanPhamId: new FormControl(localStorage.getItem('idproduct'), [Validators.required]),
       soLuong: new FormControl(soluong,[ Validators.required])
     }); 
-    console.log(this.formGroup.controls['soLuong'].value)
+  
 
 
   }
@@ -405,7 +404,6 @@ this.getrole()
       if (result.isConfirmed) {
         this.http.post(this.api.apiorder+`themspvaogiohang`,this.formGroup.value, { headers: headers }).subscribe(res => {
 
-          console.log(res)
          window.location.reload()
          
          

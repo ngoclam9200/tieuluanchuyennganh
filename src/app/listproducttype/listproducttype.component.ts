@@ -49,8 +49,7 @@ isLogin=false
 
       this.array = this.data.data
  
-      console.log(this.array)
-
+ 
 
 
     });

@@ -66,8 +66,7 @@ export class ListproductComponent implements OnInit {
 
 
     this.http.get(this.api.apiproduct+`laydanhsachSP`, { headers: headers }).subscribe(res => {
-      console.log(res)
-    this.data = res
+     this.data = res
 
       this.array = this.data.data
       
@@ -115,8 +114,7 @@ export class ListproductComponent implements OnInit {
 
 
     this.http.get(this.api.apiproduct+`timkiemsanphamtheoten/`+ this.formGroupSearch.controls['textSearch'].value, { headers: headers }).subscribe(res => {
-      console.log(res)
-    this.data = res
+     this.data = res
 
       this.array = this.data.data
       

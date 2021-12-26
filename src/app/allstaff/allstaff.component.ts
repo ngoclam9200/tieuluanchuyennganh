@@ -66,12 +66,10 @@ export class AllstaffComponent implements OnInit {
   getstaff() {
     
   this.api.getstaff().subscribe(res=>{
-    console.log(res)
-       this.data = res
+        this.data = res
 
       this.array = this.data.data
-      console.log(this.array)
-   
+    
 
       
   })
@@ -109,8 +107,7 @@ export class AllstaffComponent implements OnInit {
     var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     var token = currentUser.token; // your token
      headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
-    console.log(data)
-     return this.http.post(this.api.apiuser+`dangkyNhanVien`, data, {headers:headers});
+      return this.http.post(this.api.apiuser+`dangkyNhanVien`, data, {headers:headers});
      
   }
   registerProces() {
@@ -166,8 +163,7 @@ export class AllstaffComponent implements OnInit {
 
 
         }, error => {
-          console.log(error)
-
+ 
           
            
             Swal.fire(
@@ -219,12 +215,10 @@ export class AllstaffComponent implements OnInit {
   {
 
     this.api.getstaff().subscribe(res=>{
-      console.log(res)
-         this.data = res
+          this.data = res
   
         this.array = this.data.data
-        console.log(this.array)
-        for(let i=0;i<this.array.length;i++)
+         for(let i=0;i<this.array.length;i++)
         {
           if(this.array[i].nguoiDungId==id)
           {
@@ -238,8 +232,7 @@ export class AllstaffComponent implements OnInit {
             
             
           });
-          console.log(this.formGroupchangeinfo.value)
-          return
+           return
           }
         }
   

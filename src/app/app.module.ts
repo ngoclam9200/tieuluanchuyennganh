@@ -19,7 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ProfileuserComponent } from './profileuser/profileuser.component';
-import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import {SendemailresetpasswordComponent } from './sendemailresetpassword/sendemailresetpassword.component';
 import { LayoutadminComponent } from './layoutadmin/layoutadmin.component';
 import { AllstaffComponent } from './allstaff/allstaff.component';
 
@@ -43,6 +43,7 @@ import { BilldetailComponent } from './billdetail/billdetail.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TurnoverComponent } from './turnover/turnover.component';
 import { ImagecomponentComponent } from './imagecomponent/imagecomponent.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 
@@ -57,7 +58,7 @@ import { ImagecomponentComponent } from './imagecomponent/imagecomponent.compone
     AboutusComponent,
     ContactusComponent,
     ProfileuserComponent,
-    ResetpasswordComponent,
+    SendemailresetpasswordComponent,
     LayoutadminComponent,
     AllstaffComponent,
     CreatebillComponent,
@@ -79,6 +80,7 @@ import { ImagecomponentComponent } from './imagecomponent/imagecomponent.compone
     BilldetailComponent,
     TurnoverComponent,
     ImagecomponentComponent,
+    ResetpasswordComponent,
    
 
 
@@ -113,7 +115,7 @@ import { ImagecomponentComponent } from './imagecomponent/imagecomponent.compone
       { path: 'contactus', component: ContactusComponent },
       { path: 'profileuser', component: ProfileuserComponent },
       { path: 'layoutadmin', component: LayoutadminComponent },
-      { path: 'resetpassword', component: ResetpasswordComponent },
+      { path: 'sendemailresetpassword', component:SendemailresetpasswordComponent },
       { path: 'searchproduct', component: SearchproductComponent },
       { path: 'cartuser', component: CartuserComponent },
       { path: 'listproduct', component: ListproductComponent },
@@ -125,6 +127,7 @@ import { ImagecomponentComponent } from './imagecomponent/imagecomponent.compone
       {path:'notfoundpage', component:NotfoundpageComponent},
       {path:'bill', component:BillComponent},
       {path:'turnover', component:TurnoverComponent},
+      {path:'resetpassword', component:ResetpasswordComponent},
 
     ]),
     

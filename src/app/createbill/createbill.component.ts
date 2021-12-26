@@ -47,17 +47,14 @@ data:any=[]
     var token = currentUser.token; // your token
     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
     this.http.get(this.api.apiuser+`xemthongtinnguoidung`, { headers: headers }).subscribe(res=>{
-      console.log(res)
-         this.data = res
+          this.data = res
   
         this.data = this.data.data
     
        this.diaChi = this.data[0].diaChi
       
       this.sDT = this.data[0].sDT
-      console.log(this.diaChi)
-      console.log(this.sDT)
-      this.formGroup.controls['sdtNguoiNhan'].setValue(this.data[0].sDT)
+       this.formGroup.controls['sdtNguoiNhan'].setValue(this.data[0].sDT)
       this.formGroup.controls['diaChiGiaoHang'].setValue(this.data[0].diaChi)
       
      
@@ -138,8 +135,7 @@ data:any=[]
      
       this.tmp=res
       this.tmp=this.tmp.data[0]
-      console.log(this.tmp)
-      
+       
     
       for(let i=0 ;i<this.tmp.length;i++)
       { 
@@ -203,11 +199,9 @@ data:any=[]
       alert("Please fill the form")
     
     });
-      console.log(this.array)
-     this.formArray.setValue(this.array)
+      this.formArray.setValue(this.array)
 
-      console.log(this.formGroup.controls['sdtNguoiNhan'].value)
-       this.formGroup = new FormGroup({
+        this.formGroup = new FormGroup({
          danhSachDat: new FormControl(this.formArray.controls),
       
         diaChiGiaoHang: new FormControl(this.formGroup.controls['diaChiGiaoHang'].value, [Validators.required]),
@@ -216,8 +210,7 @@ data:any=[]
        
       });
  
-      console.log(this.formGroup.value)
-     
+      
       var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
       var token = currentUser.token; // your token
        headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);

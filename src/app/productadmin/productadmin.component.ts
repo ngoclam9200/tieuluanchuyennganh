@@ -38,8 +38,7 @@ p:number=1
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = reader.result;
-      console.log(this.imagePreview)
-     };
+      };
     reader.readAsDataURL(this.selectedFile);
   }
   formGroupProduct: FormGroup
@@ -97,8 +96,7 @@ p:number=1
        this.data = res
 
       this.arrayproducttype = this.data.data
-      console.log(this.arrayproducttype)
-      
+       
  
 
 
@@ -124,8 +122,7 @@ p:number=1
        this.data = res
 
       this.array = this.data.data
-      console.log(this.array)
- 
+  
 
 
 
@@ -168,8 +165,7 @@ p:number=1
         confirmButtonText: 'Yes,create it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          console.log(this.formGroupProduct.value)
-          this.create(this.formGroupProduct.value).subscribe((result) => {
+           this.create(this.formGroupProduct.value).subscribe((result) => {
 
             if (result) {
               Swal.fire(
@@ -294,8 +290,7 @@ p:number=1
     this.http.get(this.api.apiproduct+`laySanPhamById/` + id, { headers: headers }).subscribe(res => {
 
       this.data = res
-      console.log(this.data)
-    
+     
      
       this.formGroupProduct = this.formBuilder.group({
        
@@ -358,8 +353,7 @@ p:number=1
 
 
           }, error => {
-            console.log(error)
-  
+   
             
              
               Swal.fire(
@@ -407,15 +401,13 @@ p:number=1
      return this.http.put(this.api.apiproduct+`suaSP` , data, { headers: headers });
   }
   changenewimage() {
-    console.log(this.imagePreview)
- 
+  
   
    
       this.newimage = true
 
     
-    console.log(this.newimage)
-  }
+   }
   searchCar() {
     if (this.formGroupSearch.valid) {
       let headers = new HttpHeaders();
@@ -449,18 +441,16 @@ p:number=1
 
 
 
-    this.http.get(this.api.apicar+`all`).subscribe(res => {
+    this.http.get(this.api.apiproduct+`laydanhsachSP`).subscribe(res => {
        this.data = res
 
       this.array = this.data.data
-      var templateToExcel: any = [["Name Car", "Company Name", "colour", "Car life", "Origin",
-        "body", "Number of seat", "year of manufacture", "longs", "Overall size", "fuel", "Top speed",
-        "air bag", "seat", "engine type", "tire parametter", "frontbrake", "wattage", "gear", "status", "price", "Car information "]]
+       var templateToExcel: any = [["ID Sản phẩm", "Tên sản phẩm", "Giá tiền", "Giảm giá", "Số lượng còn lại",
+        "Số lượng đã bán", "Mô tả"]]
       for (let i = 0; i < this.array.length; i++) {
 
-        templateToExcel.push([this.array[i].carName, this.array[i].companyName, this.array[i].colour, this.array[i].carLife, this.array[i].origin,
-        this.array[i].body, this.array[i].numberOfSeats, this.array[i].yearOfManufacture, this.array[i].longs, this.array[i].overallSize, this.array[i].fuelConsumption, this.array[i].topSpeed,
-        this.array[i].airBag, this.array[i].seat, this.array[i].engineType, this.array[i].tireParameters, this.array[i].frontBrake, this.array[i].wattage, this.array[i].gear, this.array[i].status, this.array[i].price, this.array[i].CarInformation])
+        templateToExcel.push([this.array[i].sanPhamId, this.array[i].tenSP, this.array[i].giaTien, this.array[i].giamGia, this.array[i].soLuongConLai,
+        this.array[i].soLuongDaBan, this.array[i].moTa])
 
 
 

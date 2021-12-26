@@ -15,14 +15,14 @@ export class ApiService {
  
  
   apiabout="https://carshop985.herokuapp.com/api/about/"
-  apiuser="https://localhost:44371/api/Users/"
-  apicar="https://carshop985.herokuapp.com/api/car/"
-  apiproduct="https://localhost:44371/api/SanPham/"
-  apiproducttype="https://localhost:44371/api/LoaiSanPham/"
-  apicompany="https://carshop985.herokuapp.com/api/company/"
-  apischedule="https://carshop985.herokuapp.com/api/schedule/"
-  apiorder="https://localhost:44371/api/GioHang/"
-  apibill="https://localhost:44371/api/HoaDon/"
+  apiuser="https://webbanhangapitienlam.azurewebsites.net/api/Users/"
+ 
+  apiproduct="https://webbanhangapitienlam.azurewebsites.net/api/SanPham/"
+  apiproducttype="https://webbanhangapitienlam.azurewebsites.net/api/LoaiSanPham/"
+ 
+ 
+  apiorder="https://webbanhangapitienlam.azurewebsites.net/api/GioHang/"
+  apibill="https://webbanhangapitienlam.azurewebsites.net/api/HoaDon/"
 
   getstaff() {
     

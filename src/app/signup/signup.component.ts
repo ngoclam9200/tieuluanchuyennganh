@@ -45,9 +45,7 @@ export class SignupComponent implements OnInit {
 
       })
     };
-    // let headers = new HttpHeaders();
-    // headers = headers.set('Access-Control-Allow-Origin', '*').set('Content-Type', 'application/json')
-    console.log(data)
+
     return this.http.post(this.api.apiuser + `dangky`, data, httpOptions);
 
   }

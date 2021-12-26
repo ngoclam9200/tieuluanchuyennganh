@@ -119,11 +119,9 @@ export class OrderadminComponent implements OnInit {
   
       this.http.get(this.api.apibill+`Xemhoadontheotrangthaiadmin/`+id, { headers: headers }).subscribe(res => {
          this.data = res
-         console.log(res)
-         this.data=this.data.data
+          this.data=this.data.data
        
-         console.log(this.data)
-        
+         
          if(this.data.length==0) this.nobill=true
          else 
          {
@@ -185,8 +183,7 @@ export class OrderadminComponent implements OnInit {
     if (result.isConfirmed) {
       this.http.put(this.api.apibill+`capnhattrangthaidonAdmin/`,{"hoaDonId":id,"trangThaiGiaoHangId":status}, { headers: headers }).subscribe(res => {
      
-        console.log(res)
-        this.bill(localStorage.getItem('hoaDonId'))
+         this.bill(localStorage.getItem('hoaDonId'))
        
    
      }, error=>{

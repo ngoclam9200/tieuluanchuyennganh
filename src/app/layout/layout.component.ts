@@ -24,8 +24,7 @@ export class LayoutComponent implements OnInit {
     if(localStorage.getItem('currentUser') !=null)
     {
       this.isLogin=true
-      console.log(this.isLogin)
-      this.username=localStorage.getItem('userName')
+       this.username=localStorage.getItem('userName')
      
     }
   }
