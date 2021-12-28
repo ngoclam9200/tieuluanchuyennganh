@@ -18,10 +18,10 @@
       <div><i class="fas fa-clock"></i>{{myDate | date:'long'}} </div>
     </div>
     <div class="contact-form">
-      <h2>Contact Us</h2>
+      <h2>Liên hệ với chúng tôi</h2>
       <form [formGroup]="formGroup" (ngSubmit)="postcontact()" class="contact" action="" method="post">
-        <input formControlName="name" type="text" name="name" class="text-box" placeholder="Your Name" required>
-        <input formControlName="email" type="email" name="email" class="text-box" placeholder="Your Email" required>
+        <input formControlName="name" type="text" name="name" class="text-box" placeholder="Tên của bạn" required>
+        <input formControlName="email" type="email" name="email" class="text-box" placeholder="Email của bạn" required>
         <textarea formControlName="body" ng-model="myTextarea"></textarea>
         <input type="submit" name="submit" class="send-btn" value="Send">
       </form>

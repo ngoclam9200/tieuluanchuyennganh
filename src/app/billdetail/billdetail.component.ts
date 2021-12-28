@@ -58,6 +58,7 @@ diaChiGiaoHang;sdtNguoiNhan;trangThaiGiaoHang;daThanhToan;tongHoaDon;ngayXuatDon
       if(this.trangThaiGiaoHang=="1") this.trangThaiGiaoHang="Chờ xác nhận"
       if(this.trangThaiGiaoHang=="3") this.trangThaiGiaoHang="Đang giao"
       if(this.trangThaiGiaoHang=="4") this.trangThaiGiaoHang="Đã giao"
+
       if(this.trangThaiGiaoHang=="5") this.trangThaiGiaoHang="Đã hủy"
       this.ngayXuatDon=this.alldata[0].ngayXuatDon
       
