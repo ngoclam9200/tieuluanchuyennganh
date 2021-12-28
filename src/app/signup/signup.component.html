@@ -27,25 +27,25 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 			
 			<div class="w3layouts-main">
-				<h2><span>Sign up now</span></h2>
+				<h2><span>Đăng kí </span></h2>
 
 
 				<form [formGroup]="formGroup" >
 					<input placeholder=" Email" formControlName="email" type="email" required="">
-					<input placeholder=" Username" value="" formControlName="tenDangNhap" type="text">
-					<input placeholder="Full name" value="" formControlName="tenNguoiDung" name="Password" type="text"
+					<input placeholder=" Tên đăng nhập" value="" formControlName="tenDangNhap" type="text">
+					<input placeholder="Tên người dùng" value="" formControlName="tenNguoiDung" name="Password" type="text"
 						required="">
-					<input placeholder="Address" value="" formControlName="diaChi" name="address" type="text"
+					<input placeholder="Địa chỉ" value="" formControlName="diaChi" name="address" type="text"
 						required="">
-					<input placeholder="Phone number" value="" formControlName="sDT" name="phoneNumber"
+					<input placeholder="Số điện thoại" value="" formControlName="sDT" name="phoneNumber"
 						type="text" required="ádsdas">
 
-					<input placeholder="Password" formControlName="matKhau" name="Password" type="password"
+					<input placeholder="Mật khẩu" formControlName="matKhau" name="Password" type="password"
 						required="">
-					<input placeholder="Confirm Password" formControlName="xacNhanMatKhau" name="Password"
+					<input placeholder="Xác nhận mật khẩu" formControlName="xacNhanMatKhau" name="Password"
 						type="password" required="">
-					<input (click)="registerProces()" type="submit" value="Sign up" name="login">
-					 <input [routerLink]='["/"]' type="submit" value="Sign in" name="login">
+					<input (click)="registerProces()" type="submit" value="Đăng kí" name="login">
+					 <input [routerLink]='["/"]' type="submit" value="Đăng nhập" name="login">
 
 				</form>
 

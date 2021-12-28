@@ -53,12 +53,12 @@ diaChiGiaoHang;sdtNguoiNhan;trangThaiGiaoHang;daThanhToan;tongHoaDon;ngayXuatDon
       this.diaChiGiaoHang=this.alldata[0].diaChiGiaoHang
       this.sdtNguoiNhan=this.alldata[0].sdtNguoiNhan
       this.daThanhToan=this.alldata[0].daThanhToan
-      if(this.daThanhToan==false) this.daThanhToan="No"
+      if(this.daThanhToan==false) this.daThanhToan="Chưa"
       this.trangThaiGiaoHang=this.alldata[0].trangThaiGiaoHangId
-      if(this.trangThaiGiaoHang=="1") this.trangThaiGiaoHang="Wait for confirming"
-      if(this.trangThaiGiaoHang=="3") this.trangThaiGiaoHang="Delevering"
-      if(this.trangThaiGiaoHang=="4") this.trangThaiGiaoHang="Receivered"
-      if(this.trangThaiGiaoHang=="5") this.trangThaiGiaoHang="Canceled"
+      if(this.trangThaiGiaoHang=="1") this.trangThaiGiaoHang="Chờ xác nhận"
+      if(this.trangThaiGiaoHang=="3") this.trangThaiGiaoHang="Đang giao"
+      if(this.trangThaiGiaoHang=="4") this.trangThaiGiaoHang="Đã nhận"
+      if(this.trangThaiGiaoHang=="5") this.trangThaiGiaoHang="Đã hủy"
       this.ngayXuatDon=this.alldata[0].ngayXuatDon
       
       

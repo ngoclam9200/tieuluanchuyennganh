@@ -4,7 +4,7 @@
 
 <head>
 
-	<title>Shopping Cart</title>
+	<title>Giỏ hàng</title>
 	
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -19,8 +19,8 @@
 
 <div class="container">
 
-	<h1>Shopping Cart</h1>
-	<h2  *ngIf="noproduct" style="margin-left: 600px;">No product in cart</h2>
+	<h1>Giỏ hàng</h1>
+	<h2  *ngIf="noproduct" style="margin-left: 600px;">Không có sản phẩm trong giỏ hàng</h2>
 
 	<div class="cart">
 
@@ -35,13 +35,13 @@
 					<h3 class="product-name">{{data.tenSP}} </h3>
 				
 
-					<h4 style="color: red;"  class="product-price">Price:    <del *ngIf="data.giamGia!=0">{{data.giaTien.toLocaleString()}}  </del>&#160;    {{((data.giaTien)-data.giaTien*data.giamGia/100).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</h4>
+					<h4 style="color: red;"  class="product-price">Giá:    <del *ngIf="data.giamGia!=0">{{data.giaTien.toLocaleString()}}  </del>&#160;    {{((data.giaTien)-data.giaTien*data.giamGia/100).toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</h4>
 
-					<h4 class="product-offer">Discount:-{{data.giamGia}}%</h4>
+					<h4 class="product-offer">Giảm giá:-{{data.giamGia}}%</h4>
 				
-					<p>Remaining quantity: {{data.soLuongConLai}} </p>
+					<p>Số lượng còn lại: {{data.soLuongConLai}} </p>
 					<form [formGroup]="formGroup">
-						<p class="product-quantity">Qnt:
+						<p class="product-quantity">Số lượng:
 							<button (click)="decrease(data.sanPhamId)" style="border-radius:10px;background-color:#007bff;color: white;width: 40px;height: 25px;" class="soluong"> -</button>
 							 <input formControlname="soLuong" style="border-radius:10px;" disabled value="{{data.soLuongTrongGio}}" name="">
 							 <button  (click)="increase(data.sanPhamId)" style="border-radius:10px;background-color:#007bff;color: white;width: 40px;height: 25px;" class="soluong"> +</button>
@@ -53,7 +53,7 @@
 
 						<i class="fa fa-trash" aria-hidden="true"></i>
 
-						<span class="remove">Remove</span>
+						<span class="remove">Xóa khỏi giỏ hàng</span>
 
 					</p>
 
@@ -68,7 +68,7 @@
 		<div *ngIf="!noproduct" class="cart-total">
             <p>
 
-				<span>Number of Items</span>
+				<span>Số lượng sản phẩm</span>
 
 				<span>{{soLuongSP}}</span>
 
@@ -76,7 +76,7 @@
 
 			<p>
 
-				<span>Total Price</span>
+				<span>Tổng tiền</span>
 
 				<span>  {{Tongtien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}} </span>
 
@@ -86,13 +86,13 @@
 
 			<p>
 
-				<span>You Save</span>
+				<span>Phải trả</span>
 
 				<span> {{moneysave.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</span>
 
 			</p>
 
-			<a    (click)="taohoadon()">Proceed to Checkout</a>
+			<a    (click)="taohoadon()">Đặt hàng</a>
 
 		</div>
 

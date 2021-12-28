@@ -19,10 +19,10 @@
 
   
     <form [formGroup]="formGroupSearch">
-        <button (click)="allproduct()" style="margin-left: 50px; width: 80px; height: 30px; background-color: #007bff;border-radius: 8px ;">All product</button>
+        <button (click)="allproduct()" style="margin-left: 50px; width: 150px; height: 30px; background-color: #007bff;border-radius: 8px ;">Tất cả sản phẩm</button>
         <input formControlName="textSearch" style="margin-left: 400px; width: 500px; height: 30px;" type="text">
         <button (click)="searchproduct()"
-            style="height: 35px; background-color: #007bff;margin: 10px;border-radius: 8px ;cursor: pointer;">Search</button>
+            style="height: 35px; background-color: #007bff;margin: 10px;border-radius: 8px ;cursor: pointer;">Tìm kiếm</button>
     </form>
 
     <div class="section group">
@@ -36,15 +36,15 @@
                 <div class="price-details">
 
                     <div class="price-number">
-                        <h1 style="text-align:left"><span style="color:cadetblue" class="rupees"> Discount:
+                        <h1 style="text-align:left"><span style="color:cadetblue" class="rupees"> Giảm giá:
                                 {{data.giamGia}}</span> </h1> <br />
                       
-                        <h1 style="text-align:left;color:cadetblue"  >  Residual amount:
+                        <h1 style="text-align:left;color:cadetblue"  > Số lượng còn lại:
                             <span *ngIf="data.soLuongConLai!=0" style="color:cadetblue" class="rupees"> {{data.soLuongConLai}}</span> 
                             <span *ngIf="data.soLuongConLai==0" style="color:cadetblue" class="rupees"> Hết hàng</span>
                              </h1> <br />
 
-                        <p><span class="rupees"> Price : {{data.giaTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}} </span></p>
+                        <p><span class="rupees"> Giá : {{data.giaTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}} </span></p>
 
 
                     </div>
