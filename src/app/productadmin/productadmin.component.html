@@ -1,9 +1,9 @@
 <app-layoutadmin></app-layoutadmin>
 <link rel="stylesheet" type="text/css">
 <div class="newproduct">
-  Create New Product <button onclick="document.getElementById('id01').style.display='block'"
-    style="width:auto;">Create</button>
-  Download all product <button id="a2" (click)="download()" >Download</button>
+  Thêm sản phẩm <button onclick="document.getElementById('id01').style.display='block'"
+    style="width:auto;">Thêm</button>
+  Tải danh sách sản phẩm <button id="a2" (click)="download()" >Tải xuống</button>
 </div>
 <div class="download">
 
@@ -12,23 +12,23 @@
 
 <div>
   <form [formGroup]="formGroupSearch">
-    <input formControlName="search" class="inputsearch" placeholder="Enter the name of the product you want to find"
+    <input formControlName="search" class="inputsearch" placeholder="Nhập tên sản phẩm muốn tìm"
       type="text" name="" id="">
   </form>
 
 </div>
 <div>
-  <button (click)="searchCar()" class="btnsearch">Search</button>
+  <button (click)="searchCar()" class="btnsearch">Tìm kiếm</button>
 </div>
 <div>
-  <button *ngIf="isSearch" class="btnallcar" (click)="getproduct()">All product</button>
+  <button *ngIf="isSearch" class="btnallcar" (click)="getproduct()">Tất cả sản phẩm</button>
 </div>
 
 <body>
 
   <div id="id01" class="modal">
     <div class="newproduct">
-      <h3 style="color:white;">Create New Product </h3>
+      <h3 style="color:white;">Thêm sản phẩm </h3>
     </div>
     <app-layoutadmin></app-layoutadmin>
     <form [formGroup]="formGroupProduct">
@@ -37,13 +37,13 @@
           <a (click)="cancleupdate()" style="margin-left:550px;color: red;font-size: 30px;cursor: pointer;"
             for="psw"><b>X</b> </a> <br>
 
-          <label for="psw"><b>Name product</b></label>
+          <label for="psw"><b>Tên sản phẩm</b></label>
           <small style="color: red;"
             *ngIf="(formGroupProduct.controls['tenSP'].invalid && formGroupProduct.controls['tenSP'].touched)  || checkfilltenSP  ">
-            *Name product is required</small>
+            *Tên sản phẩm là bắt buộc</small>
           <input formControlName="tenSP" type="text" required>
 
-          <label for="psw"><b>Product type</b></label>
+          <label for="psw"><b>Loại sản phẩm</b></label>
 
           <select formControlName="loaiSanPhamId" style="width: 100%;
            padding: 15px;
@@ -56,47 +56,47 @@
 
 
           </select>
-          <label for="psw-repeat"><b>Price</b></label>
+          <label for="psw-repeat"><b>Giá</b></label>
           <small style="color: red;"
             *ngIf="(formGroupProduct.controls['giaTien'].invalid && formGroupProduct.controls['giaTien'].touched) || checkfillgiaTien  ">
-            *Price is required</small>
+            *Giá là bắt buộc</small>
 
           <input formControlName="giaTien" type="number" value="" name="psw-repeat" required>
          
-          <label for="email"><b>Discount</b></label>
+          <label for="email"><b>Giảm giá</b></label>
           <small style="color: red;"
             *ngIf="(formGroupProduct.controls['giamGia'].invalid && formGroupProduct.controls['giamGia'].touched ) || checkfillgiamGia ">
-            *Discount is required</small>
+            *Giảm giá là bắt buộc</small>
 
           <input formControlName="giamGia" type="number" value="" name="email" required>
         
 
          
-          <label for="psw"><b>Number of product</b></label>
+          <label for="psw"><b>Số lượng sản phẩm</b></label>
           <small style="color: red;"
             *ngIf="(formGroupProduct.controls['soLuongConLai'].invalid && formGroupProduct.controls['soLuongConLai'].touched) || checkfillsoLuongConLai ">
-            *Number of product is required</small>
+            *Số lượng sản phẩm là bắt buộc</small>
 
           <input type="number" formControlName="soLuongConLai" value="" name="psw" required>
           
-          <label for="psw"><b>Image</b></label>
-          <small style="color: red;" *ngIf=" checkfillhinhAnh"> *Image is required</small>
+          <label for="psw"><b>Hình ảnh</b></label>
+          <small style="color: red;" *ngIf=" checkfillhinhAnh"> *Hình ảnh là bắt buộc</small>
 
           <input type="file" (change)="onFileSelected($event)" name="psw" required> <br> <br>
 
 
-          <label for="email"><b>Product Information</b></label> <br>
+          <label for="email"><b>Mô tả sản phẩm</b></label> <br>
           <small style="color: red;"
             *ngIf="(formGroupProduct.controls['moTa'].invalid && formGroupProduct.controls['moTa'].touched ) || checkfillmoTa ">
-            *Product information is required</small>
+            *Mô tả sản phẩm là bắt buộc</small>
 
           <textarea ng-model="myTextarea" formControlName="moTa" type="text" value=""
             placeholder="" style="width:580px;height:200px" required> </textarea>
 
           <div class="clearfix">
             <button type="button" onclick="document.getElementById('id01').style.display='none'"
-              class="cancelbtn">Cancel</button>
-            <button type="submit" (click)="Createproduct()" class="signupbtn">Create</button>
+              class="cancelbtn">Hủy</button>
+            <button type="submit" (click)="Createproduct()" class="signupbtn">Thêm</button>
           </div>
         </div>
       </div>
@@ -126,7 +126,7 @@
 
   <div id="id02" class="modal">
     <div class="newproduct">
-      <h3 style="color:white;">Update my product </h3>
+      <h3 style="color:white;">Cập nhật sản phẩm </h3>
 
     </div>
     <app-layoutadmin></app-layoutadmin>
@@ -135,13 +135,13 @@
         <div class="container">
           <a (click)="cancleupdate()" style="margin-left:450px;color: red;font-size: 30px;cursor: pointer;"
             for="psw"><b>X</b> </a> <br>
-            <label for="psw"><b>Name product</b></label>
+            <label for="psw"><b>Tên sản phẩm</b></label>
             <small style="color: red;"
               *ngIf="(formGroupProduct.controls['tenSP'].invalid && formGroupProduct.controls['tenSP'].touched)  || checkfilltenSP  ">
-              *Name product is required</small>
+              *Tên sản phẩm là bắt buộc</small>
             <input formControlName="tenSP" type="text" required>
   
-            <label for="psw"><b>Product type</b></label>
+            <label for="psw"><b>Loại sản phẩm</b></label>
   
             <select formControlName="loaiSanPhamId" style="width: 100%;
              padding: 15px;
@@ -154,38 +154,38 @@
   
   
             </select>
-            <label for="psw-repeat"><b>Price</b></label>
+            <label for="psw-repeat"><b>Giá</b></label>
             <small style="color: red;"
               *ngIf="(formGroupProduct.controls['giaTien'].invalid && formGroupProduct.controls['giaTien'].touched) || checkfillgiaTien  ">
-              *Price is required</small>
+              *Giá là bắt buộc</small>
   
             <input formControlName="giaTien" type="text" value="" name="psw-repeat" required>
            
-            <label for="email"><b>Discount</b></label>
+            <label for="email"><b>Giảm giá</b></label>
             <small style="color: red;"
               *ngIf="(formGroupProduct.controls['giamGia'].invalid && formGroupProduct.controls['giamGia'].touched ) || checkfillgiamGia ">
-              *Discount is required</small>
+              *Giảm giá là bắt buộc</small>
   
             <input formControlName="giamGia" type="text" value="" name="email" required>
           
   
            
-            <label for="psw"><b>Number of product</b></label>
+            <label for="psw"><b>Số lượng sản phẩm</b></label>
             <small style="color: red;"
               *ngIf="(formGroupProduct.controls['soLuongConLai'].invalid && formGroupProduct.controls['soLuongConLai'].touched) || checkfillsoLuongConLai  ">
-              *Number of product is required</small>
+              *Số lượng sản phẩm là bắt buộc</small>
   
             <input type="text" formControlName="soLuongConLai" value="" name="psw" required>
             
           
   
-          <label for="psw"><b>Image current </b></label>
+          <label for="psw"><b>Hình ảnh </b></label>
           <br>
-          <small style="color: red;" *ngIf=" checkfillhinhAnh"> *Image is required</small>
+          <small style="color: red;" *ngIf=" checkfillhinhAnh"> *Hình ảnh là bắt buộc</small>
           <img *ngIf="!newimage" src="{{Image}}" width="100px" height="100px" alt=""> <br>
           <img *ngIf="newimage" src="{{imagePreview}}" width="100px" height="100px" alt=""> <br>
           <button class="updateimg" id="files" (click)="changenewimage()"
-            onclick="document.getElementById('file').click(); return false">Update image</button>
+            onclick="document.getElementById('file').click(); return false">Cập nhật hình ảnh</button>
 
 
 
@@ -194,18 +194,18 @@
           <br> <br>
 
 
-          <label for="email"><b>Product Information</b></label> <br>
+          <label for="email"><b>Mô tả sản phẩm</b></label> <br>
           <small style="color: red;"
             *ngIf="(formGroupProduct.controls['moTa'].invalid && formGroupProduct.controls['moTa'].touched ) || checkfillmoTa ">
-            * is required</small>
+            *Mô tả sản phẩm là bắt buộc</small>
 
           <textarea ng-model="myTextarea" formControlName="moTa" type="text" value=""
             placeholder="Enter Email" style="width:580px;height:100px" required> </textarea>
 
           <div class="clearfix">
             <button type="button" onclick="document.getElementById('id02').style.display='none' "
-              class="cancelbtn">Cancel</button>
-            <button type="submit" (click)="Updateproduct()" class="signupbtn">Change</button>
+              class="cancelbtn">Hủy</button>
+            <button type="submit" (click)="Updateproduct()" class="signupbtn">Cập nhật</button>
           </div>
         </div>
       </div>
@@ -228,19 +228,19 @@
   </script>
 
 </body>
-<div style="font-size: 15px;" class="contain" *ngIf="novalue">No cars found</div>
+<div style="font-size: 15px;" class="contain" *ngIf="novalue">Không tìm thấy sản phẩm</div>
 <table *ngIf="!novalue" class="contain" border="1">
   <thead>
     <tr>
-      <th style="text-align: center">Image</th>
-      <th style="text-align: center">Name product</th>
-      <th style="text-align: center">Price</th>
-      <th style="text-align: center">Discount</th>
+      <th style="text-align: center">Hình ảnh</th>
+      <th style="text-align: center">Tên sản phẩm</th>
+      <th style="text-align: center">Giá</th>
+      <th style="text-align: center">Giảm giá</th>
   
-      <th style="text-align: center">Number of product</th>
+      <th style="text-align: center">Số lượng sản phẩm</th>
       
-      <th style="text-align: center">Details&Edit</th>
-      <th style="text-align: center">Delete</th>
+      <th style="text-align: center">Chi tiết và chỉnh sửa</th>
+      <th style="text-align: center">Xóa</th>
 
 
     </tr>

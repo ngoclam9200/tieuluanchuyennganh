@@ -1,6 +1,6 @@
 <app-layoutadmin></app-layoutadmin>
-<div style="margin-left: 300px;font-size: 30px;">List order</div><br>
-<button *ngIf="!nobill" (click)="ExportTOExcel()"  style="margin-left: 300px;background-color: #82C0E7;">Download xlsx</button> <br>
+<div style="margin-left: 300px;font-size: 30px;">Danh sách đơn hàng</div><br>
+<button *ngIf="!nobill" (click)="ExportTOExcel()"  style="margin-left: 300px;background-color: #82C0E7;">Tải file excel</button> <br>
 <br>
 <button id="color1" (click)="bill(1)" style="margin-left: 300px;" onclick="{
 
@@ -9,7 +9,7 @@
      document.getElementById('color4').style.backgroundColor='#82C0E7';
      document.getElementById('color5').style.backgroundColor='#82C0E7';
 
-}" >Wait for confirming </button>
+}" >Đơn chờ xác nhận</button>
 <button id="color3" (click)="bill(3)" style="margin-left: 200px;" onclick="{
 
     document.getElementById('color1').style.backgroundColor='#82C0E7';
@@ -17,7 +17,7 @@
     document.getElementById('color4').style.backgroundColor='#82C0E7';
     document.getElementById('color5').style.backgroundColor='#82C0E7';
 
-}" >Delivering </button>
+}" >Đơn đang giao </button>
 <button  id="color4"(click)="bill(4)" style="margin-left: 200px;"  onclick="{
 
     document.getElementById('color1').style.backgroundColor='#82C0E7';
@@ -25,7 +25,7 @@
     document.getElementById('color4').style.backgroundColor='green';
     document.getElementById('color5').style.backgroundColor='#82C0E7';
 
-}" >Delivered </button>
+}" >Đơn đã giao </button>
 <button id="color5" (click)="bill(5)" style="margin-left: 200px;" onclick="{
 
     document.getElementById('color1').style.backgroundColor='#82C0E7';
@@ -33,21 +33,21 @@
     document.getElementById('color4').style.backgroundColor='#82C0E7';
     document.getElementById('color5').style.backgroundColor='green';
 
-}" >Cancelled </button>
-<div style="margin-left: 800px;margin-top: 50px;font-size: 30px;" *ngIf="nobill" >No bill</div>
+}" >Đơn đã hủy </button>
+<div style="margin-left: 800px;margin-top: 50px;font-size: 30px;" *ngIf="nobill" >Không có hóa đơn</div>
 <table *ngIf="!nobill" border="1" class="styled-table" #TABLE #table>
     <thead>
         <tr>
-            <th>Total money</th>
-            <th>Date of creating bill</th>
-            <th>Delivery address</th>
-            <th>Paid</th>
-            <th>Name user</th>
-            <th>Status</th>
-            <th>Bill details</th>
-            <th *ngIf="!delevered "  >Confirm </th>
+            <th>Tổng tiền</th>
+            <th>Ngày tạo hóa đơn</th>
+            <th>Địa chỉ giao hàng</th>
+            <th>Đã thanh toán</th>
+            <th>Tên khách hàng</th>
+            <th>Trạng thái đơn</th>
+            <th>Chi tiết hóa đơn</th>
+            <th *ngIf="!delevered "  >Xác nhận đơn</th>
          
-            <th *ngIf="!delevered " >Cancel</th>
+            <th *ngIf="!delevered " >Hủy đơn</th>
            
         </tr>
     </thead>

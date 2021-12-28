@@ -4,7 +4,7 @@
 	
 <head>
 
-	<title>Shopping Cart</title>
+	<title>Giỏ hàng</title>
 	
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -36,9 +36,9 @@
 
 					<h3 class="product-name"> {{data.tenSP}} </h3>
 
-					<h4  class="product-price">Quantity:{{data.soLuongDat}}    </h4>
+					<h4  class="product-price">Số lượng đặt: {{data.soLuongDat}}    </h4>
 
-					<h4 class="product-offer">Price:{{data.tongTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</h4>
+					<h4 class="product-offer">Giá: {{data.tongTien.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</h4>
                    
 
 					
@@ -71,12 +71,12 @@
 
 </html>
 
-<p>Address  {{diaChiGiaoHang}}</p>
-<p>Phone number receiver: {{sdtNguoiNhan}}</p>
-<p>Paid: {{daThanhToan}}</p>
-<p>Status:  {{trangThaiGiaoHang}}</p>
-<p>Date order:  {{ngayXuatDon.slice(11,20)}} ---- {{ngayXuatDon.slice(0,10)}}</p>
-<p style="color: red;">Total: {{tongHoaDon.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</p>
+<p>Địa chỉ:  {{diaChiGiaoHang}}</p>
+<p>Số điện thoại nhận hàng: {{sdtNguoiNhan}}</p>
+<p>Đã thanh toán: {{daThanhToan}}</p>
+<p>Trạng thái giao hàng:  {{trangThaiGiaoHang}}</p>
+<p>Ngày đặt hàng:  {{ngayXuatDon.slice(11,20)}} ---- {{ngayXuatDon.slice(0,10)}}</p>
+<p style="color: red;">Tổng hóa đơn: {{tongHoaDon.toLocaleString('it-IT', { style: 'currency', currency: 'VND' })}}</p>
 
 
 <button style="margin-left: 200px;" (click)="close()">Close</button>

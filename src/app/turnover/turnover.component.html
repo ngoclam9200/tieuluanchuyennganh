@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>Tổng quát</title>
    
     <link rel="shortcut icon" href="assets/images/favicon.png" />
   </head>
@@ -21,7 +21,7 @@
         <div class="main-panel">
           <div class="content-wrapper">
          
-           Statictis
+           Số liệu thống kê
             <div class="row">
               <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
                 <div class="card">
@@ -35,7 +35,7 @@
                       </div>
                       
                     </div>
-                    <h6 class="text-muted font-weight-normal">Turnover</h6>
+                    <h6 class="text-muted font-weight-normal">Doanh thu</h6>
                   </div>
                 </div>
               </div>
@@ -51,7 +51,7 @@
                       </div>
                     
                     </div>
-                    <h6 class="text-muted font-weight-normal">Count User</h6>
+                    <h6 class="text-muted font-weight-normal">Số lượng người dùng</h6>
                   </div>
                 </div>
               </div>
@@ -67,7 +67,7 @@
                       </div>
                       
                     </div>
-                    <h6 class="text-muted font-weight-normal">Number of products sold</h6>
+                    <h6 class="text-muted font-weight-normal">Số lượng sản phẩm đã bán</h6>
                   </div>
                 </div>
               </div>
@@ -83,12 +83,12 @@
                       </div>
                      
                     </div>
-                    <h6 class="text-muted font-weight-normal">Cancled bill</h6>
+                    <h6 class="text-muted font-weight-normal">Số đơn đã hủy</h6>
                   </div>
                 </div>
               </div>
             </div>
-          Top best - selling product 
+          Top sản phẩm bán chạy 
             <div  class="row">
               <div *ngFor="let data of data" class="col-sm-4 grid-margin">
                 <div class="card">
@@ -102,7 +102,7 @@
                           
                         </div>
                         <br>
-                        <h6 class="text-muted font-weight-normal">Sold: {{data.soLuongDaBan}} </h6>
+                        <h6 class="text-muted font-weight-normal">Đã bán: {{data.soLuongDaBan}} </h6>
                       </div>
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                         <i class="icon-lg mdi mdi-codepen text-primary ml-auto"></i>

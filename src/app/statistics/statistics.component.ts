@@ -115,7 +115,7 @@ export class StatisticsComponent implements OnInit {
 
           labels: this.arraymonth,
           datasets: [{
-            label: 'Revenue per month of ' + localStorage.getItem('year'),
+            label: 'Danh thu theo tháng của năm ' + localStorage.getItem('year'),
 
             data: this.arraynumberofbills,
 
@@ -129,7 +129,7 @@ export class StatisticsComponent implements OnInit {
           plugins: {
             title: {
               display: true,
-              text: 'Revenue per month',
+              text: 'Doanh thu các tháng',
               align: 'center',
 
               position: 'bottom'
@@ -174,12 +174,12 @@ export class StatisticsComponent implements OnInit {
           var a=[1,1,2,4]
        
           if(this.arraynumberofstatusbill.length==1)
-          this.newarraystatus=["Wait for confirming "]
+          this.newarraystatus=["Đơn chờ xác nhận"]
           if(this.arraynumberofstatusbill.length==2)
-          this.newarraystatus=["Wait for confirming ", "Delevering"]
+          this.newarraystatus=["Đơn chờ xác nhận", "Đơn đang giao"]
           if(this.arraynumberofstatusbill.length==3)
-          this.newarraystatus=["Wait for confirming ", "Delevering", "Delevered"]
-         else  this.newarraystatus=["Wait for confirming ", "Delevering", "Delevered", "Cancel"]
+          this.newarraystatus=["Đơn chờ xác nhận", "Đơn đang giao", "Đơn đã giao"]
+         else  this.newarraystatus=["Đơn chờ xác nhận", "Đơn đang giao", "Đơn đã giao", "Đơn đã hủy"]
         
            this.arraybackgroundcolor=["red","green","pink","yellow"]
           const myChart = new Chart("myChartcompany", {
@@ -203,7 +203,7 @@ export class StatisticsComponent implements OnInit {
               plugins: {
                 title: {
                   display: true,
-                  text: 'Number of bills by status',
+                  text: 'Biểu đồ trạng thái đơn hàng',
                   align: 'center',
       
                   position: 'bottom'

@@ -3,8 +3,8 @@
 
 
 <div class="newproduct">
-  Create new product type <button onclick="document.getElementById('id01').style.display='block'"
-    style="width:auto;">Create</button> <br>
+  Thêm loại sản phẩm <button onclick="document.getElementById('id01').style.display='block'"
+    style="width:auto;">Thêm</button> <br>
 </div>
 
 <body>
@@ -17,20 +17,20 @@
     <form class="modal-content" [formGroup]="formGroup" >
       <div class="container">
         <a (click)="cancle()" style="color: red;float: right;font-size: 35px;cursor: pointer;">X</a> <br> <br>
-        <h1>Create product type</h1>
-        <p>Please fill in this form .</p>
+        <h1>Thêm loại sản phẩm</h1>
+        <p>Vui lòng nhập đủ thông tin.</p>
 
         <hr>
-        <label for="psw"><b>Name product type</b></label>
-        <input formControlName="tenLoaiSP" type="text" value="" placeholder="Enter name" name="psw" required>
-        <label for="psw"><b>Logo</b></label>
+        <label for="psw"><b>Tên loại sản phẩm</b></label>
+        <input formControlName="tenLoaiSP" type="text" value="" placeholder="Nhập tên loại sản phẩm" name="psw" required>
+        <label for="psw"><b>Hình ảnh</b></label>
         <br><br>
-        <input type="file" (change)="onFileSelected($event)" value="" placeholder="Enter full name" name="psw" required>
+        <input type="file" (change)="onFileSelected($event)" value="" placeholder="Chọn hình ảnh" name="psw" required>
         <br><br>
         <div class="clearfix">
           <button type="button" onclick="document.getElementById('id01').style.display='none'"
-            class="cancelbtn">Cancel</button>
-          <button (click)="createProducttype()" type="submit" class="signupbtn">Create</button>
+            class="cancelbtn">Hủy</button>
+          <button (click)="createProducttype()" type="submit" class="signupbtn">Thêm</button>
         </div>
       </div>
     </form>
@@ -59,23 +59,23 @@
     <form class="modal-content" [formGroup]="formGroup" >
       <div class="container">
         <a (click)="cancle()" style="color: red;float: right;font-size: 35px;cursor: pointer;">X</a> <br> <br>
-        <h1>Update product type</h1>
-        <p>Please fill in this form .</p>
+        <h1>Cập nhật loại sản phẩm</h1>
+        <p>Vui lòng nhập đủ thông tin.</p>
 
         <hr>
-        <label for="psw"><b>Name product type</b></label>
-        <input formControlName="tenLoaiSP" type="text" value="" placeholder="Enter name" name="psw" required>
+        <label for="psw"><b>Tên loại sản phẩm</b></label>
+        <input formControlName="tenLoaiSP" type="text" value="" placeholder="Nhập tên loại sản phẩm" name="psw" required>
         <!-- <label for="psw"><b>Logo</b></label> -->
-        <label *ngIf="!changeimage" for=""><b> Current Image</b> </label> <br>
-        <label *ngIf="changeimage"  for=""><b> New Image</b> </label> <br>
+        <label *ngIf="!changeimage" for=""><b> Hình ảnh hiện tại</b> </label> <br>
+        <label *ngIf="changeimage"  for=""><b> Hình ảnh mới</b> </label> <br>
         <img width="300px" height="200px" src="{{imagePreview}}" alt="">
         <br><br>
         <input type="file" (change)="onFileSelected($event)" value=""  name="psw" required>
         <br><br>
         <div class="clearfix">
           <button type="button" onclick="document.getElementById('id02').style.display='none'"
-            class="cancelbtn">Cancel</button>
-          <button (click)="updateproces()" type="submit" class="signupbtn">Update</button>
+            class="cancelbtn">Hủy</button>
+          <button (click)="updateproces()" type="submit" class="signupbtn">Cập nhật</button>
         </div>
       </div>
     </form>
@@ -98,10 +98,10 @@
 <table class="contain" border="1">
   <thead>
     <tr>
-      <th style="text-align: center">Image</th>
-      <th style="text-align: center">Name product type</th>
-      <th style="text-align: center">Edit</th>
-      <th style="text-align: center">Delete</th>
+      <th style="text-align: center">Hình ảnh</th>
+      <th style="text-align: center">Tên loại sản phẩm</th>
+      <th style="text-align: center">Chỉnh sửa</th>
+      <th style="text-align: center">Xóa</th>
 
 
 
