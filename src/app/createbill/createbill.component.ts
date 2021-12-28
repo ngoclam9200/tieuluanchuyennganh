@@ -106,7 +106,7 @@ data:any=[]
       }
       return false;
     }
-    var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\.~`-="
+    var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\~`-="
 
     var checkaddress = function (string) {
       for (let i = 0; i < specialChars.length; i++) {
