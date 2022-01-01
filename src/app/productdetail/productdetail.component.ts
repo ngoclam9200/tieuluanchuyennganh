@@ -391,15 +391,16 @@ this.getrole()
     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
     
     Swal.fire({
-      title: 'you order this product',
-      text: "Are you want to order",
+      title: 'Thêm sản phẩm vào giỏ hàng',
+      text: "Bạn muốn đặt sản phẩm",
       icon: 'warning',
       showCancelButton: true,
       width: 500,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
 
-      confirmButtonText: 'Yes,order it!'
+      confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.post(this.api.apiorder+`themspvaogiohang`,this.formGroup.value, { headers: headers }).subscribe(res => {

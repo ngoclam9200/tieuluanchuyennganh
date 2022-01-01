@@ -132,13 +132,14 @@ export class AllstaffComponent implements OnInit {
     {
      
     Swal.fire({
-      title: 'Are you sure?',
-      text: "Create new staff",
+      title: 'Xác nhận?',
+      text: "Thêm nhân viên mới",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes,create it!'
+      confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
     }).then((result) => {
       if (result.isConfirmed) {
         this.register(this.formGroup.value).subscribe((result) => {
@@ -148,7 +149,7 @@ export class AllstaffComponent implements OnInit {
           {
             setTimeout(() => {
               Swal.fire(
-                'Success!',
+                'Thành công!',
                 '',
                 'success'
                 
@@ -247,13 +248,14 @@ export class AllstaffComponent implements OnInit {
     if(this.formGroupchangeinfo.valid)
     {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "Change employee information",
+      title: 'Xác nhận?',
+      text: "Cập nhật thông tin nhân viên",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes,update it!'
+      confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
     }).then((result) => {
       if (result.isConfirmed) {
       
@@ -321,13 +323,14 @@ export class AllstaffComponent implements OnInit {
     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
  
     Swal.fire({
-      title: 'Are you sure?',
-      text: "Delete this staff",
+      title: 'Xác nhận?',
+      text: "Xóa nhân viên này",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes,delete it!'
+      confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.delete(this.api.apiuser+`xoaNguoiDung/` + id, { headers: headers }).subscribe(res => {

@@ -156,13 +156,14 @@ p:number=1
  
     if (this.formGroupProduct.valid) {
       Swal.fire({
-        title: 'Are you sure?',
-        text: "Create new product",
+        title: 'Xác nhận?',
+        text: "Thêm mới sản phẩm",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes,create it!'
+        confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
       }).then((result) => {
         if (result.isConfirmed) {
            this.create(this.formGroupProduct.value).subscribe((result) => {
@@ -245,13 +246,14 @@ p:number=1
     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
  
     Swal.fire({
-      title: 'Are you sure?',
-      text: "Delete this product",
+      title: 'Xác nhận?',
+      text: "Xóa sản phẩm này",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes,delete it!'
+      confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.delete(this.api.apiproduct+`deleteSP/` + id, { headers: headers }).subscribe(res => {
@@ -321,13 +323,14 @@ p:number=1
     }
      if (this.formGroupProduct.valid) {
       Swal.fire({
-        title: 'Are you sure?',
-        text: "Update product information",
+        title: 'Xác nhận?',
+        text: "Cập nhật thông tin sản phẩm",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes,update it!'
+        confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
       }).then((result) => {
         if (result.isConfirmed) {
          

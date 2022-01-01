@@ -124,13 +124,14 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
     }
      if (this.formGroup.valid) {
       Swal.fire({
-        title: 'Are you sure?',
-        text: " Create new product type",
+        title: 'Xác nhận?',
+        text: "Thêm mới loại sản phẩm",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes,create it!'
+        confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
       }).then((result) => {
         if (result.isConfirmed) {
           this.create(this.formGroup.value).subscribe((result) => {
@@ -194,13 +195,14 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
  
     Swal.fire({
-      title: 'Are you sure?',
-      text: "Delete this product type",
+      title: 'Xác nhận?',
+      text: "Xóa loại sản phẩm này",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes,delete it!'
+      confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.delete(this.api.apiproducttype+`deleteLoaiSP/` + id, { headers: headers }).subscribe(res => {
@@ -294,13 +296,14 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
     this.formGroup.controls['hinhAnh'].setValue(this.imagePreview)
     if (this.formGroup.valid) {
       Swal.fire({
-        title: 'Are you sure?',
-        text: "Update product information",
+        title: 'Xác nhận?',
+        text: "Cập nhật thông tin loại sản phẩm",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes,update it!'
+        confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
       }).then((result) => {
         if (result.isConfirmed) {
          

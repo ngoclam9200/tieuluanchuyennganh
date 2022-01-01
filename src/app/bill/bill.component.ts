@@ -133,13 +133,14 @@ p:number=1
      headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
      var a={}
      Swal.fire({
-      title: 'Are you sure?',
-      text: "Remove bill!",
+      title: 'Xác nhận?',
+      text: "Hủy đơn!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes,remove bill!'
+      confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
     }).then((result) => {
       if (result.isConfirmed) {
         this.http.put(this.api.apibill+`nguoidunghuydonhang/` +id,a, { headers: headers }).subscribe(res => {

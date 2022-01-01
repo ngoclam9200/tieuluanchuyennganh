@@ -155,13 +155,14 @@ data:any=[]
       if (this.formGroup.valid)
       {
         Swal.fire({
-          title: 'Are you sure?',
-          text: "Create bill!",
+          title: 'Xác nhận?',
+          text: "Tạo hóa đơn!",
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes,create bill!'
+          confirmButtonText: 'đồng ý',
+          cancelButtonText: 'hủy',
         }).then((result) => {
           if (result.isConfirmed) {
             this.http.post(this.api.apibill+`taohoadon` ,this.formGroup.value, { headers: headers }).subscribe(res => {

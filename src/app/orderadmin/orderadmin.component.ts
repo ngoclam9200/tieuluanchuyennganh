@@ -164,21 +164,22 @@ export class OrderadminComponent implements OnInit {
  updatestatus(id,status)
  {
    var text
-   if(status==5) text="Delete"
-   if(status==3 || status==4) text="Confirm"
+   if(status==5) text="Hủy"
+   if(status==3 || status==4) text="Xác nhận"
 
   let headers = new HttpHeaders();
   var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
   var token = currentUser.token; // your token
    headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
    Swal.fire({
-    title: 'Are you sure?',
-    text: text+ " this bill",
+    title: 'Xác nhận?',
+    text: text+ " đơn này",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes,'+text+' it!'
+    confirmButtonText: 'đồng ý',
+      cancelButtonText: 'hủy',
   }).then((result) => {
     if (result.isConfirmed) {
       this.http.put(this.api.apibill+`capnhattrangthaidonAdmin/`,{"hoaDonId":id,"trangThaiGiaoHangId":status}, { headers: headers }).subscribe(res => {
