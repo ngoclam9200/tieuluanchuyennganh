@@ -3,7 +3,8 @@
     <input formControlName="sdtNguoiNhan" style="margin:10px 30px; width:500px; height:30px" type="text" placeholder=" Enter Phone number receiver"> <br>
     <label style="margin:10px 30px; height:30px">Địa chỉ người nhận </label>
     <input formControlName="diaChiGiaoHang" style="margin:10px 30px; width:500px; height:30px" type="text" placeholder=" Enter Addresss"> <br>
-    <button  (click)="createbill()" style="margin-left:200px;background-color: tomato;width: 100px;height: 30px;border-radius: 10px;">Đặt hàng</button>
+    <button *ngIf="!checkthanhtoan" (click)="createbill()" style="margin-left:100px;background-color: tomato;width: 200px;height: 30px;border-radius: 10px;">Thanh toán khi nhận hàng</button>
+    <button *ngIf="checkthanhtoan"  (click)="createbillpaypal()" style="margin-left:100px;background-color: tomato;width: 200px;height: 30px;border-radius: 10px;">Thanh toán Paypal</button>
     <button  (click)="close()" style="margin-left:20px;background-color: tomato;width: 70px;height: 30px;border-radius: 10px;">Hủy</button>
 
   </form>

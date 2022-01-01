@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/services/api.service';
 import { FormGroup } from '@angular/forms';
 import { FormControl, Validators , FormArray} from '@angular/forms';
@@ -18,25 +18,41 @@ import { CreatebillComponent } from '../createbill/createbill.component';
 
 export class CartuserComponent implements OnInit {
   array: any = []
+  arraypaypal: any = []
   data; iduser: any
   arraydata: any = []
   soLuongSP:any
   Tongtien:any
   moneysave:any
   formGroup: FormGroup;
+  formGroupPaypal: FormGroup;
   noproduct=true
-  constructor(private http: HttpClient, private router: Router, private api:ApiService, private dialog : MatDialog) { }
+  formArray:FormArray
+  tmp:any=[]
+  paymentId:any
+  PayerID:any
+  constructor(private http: HttpClient, private router: Router, private api:ApiService, private dialog : MatDialog,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getrole()
     this.api.checkadmin()
     this.api.checkRole()
+    this.getpaymentId()
     this.currentData()
+    
     this.formGroup = new FormGroup({
       sanPhamId: new FormArray(this.array,[Validators.required]),
       soLuong: new FormControl("", [Validators.required]),
      
     });
+    this.formGroupPaypal = new FormGroup({
+      danhSachDat: new FormArray(this.arraypaypal,[Validators.required]),
+     
+      urlRedirect: new FormControl("http://localhost:4200/cartuser", [Validators.required]),
+    });
+    this.formArray=new FormArray(this.arraypaypal)
+ 
+  
   }
 
   getrole()
@@ -226,7 +242,7 @@ export class CartuserComponent implements OnInit {
   taohoadon()
   {
     
-    
+    localStorage.setItem('paypal',"false")
    
 
     const dialogConfig = new MatDialogConfig();
@@ -242,5 +258,96 @@ export class CartuserComponent implements OnInit {
 
 
   
+  }
+  taohoadonpaypal()
+  {
+    
+    
+   localStorage.setItem('paypal',"true")
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width='600px';
+    
+      
+
+    this.dialog.open(CreatebillComponent, dialogConfig);
+      
+
+
+  
+  }
+  paypal()
+  { 
+    
+
+  }
+  getpaymentId()
+  {
+    this.route.queryParams
+    .subscribe(params => {
+    
+      this.paymentId = params.paymentId;
+      this.PayerID=params.PayerID;
+      console.log(this.paymentId)
+      if(this.paymentId!=null)
+      {
+        let headers = new HttpHeaders();
+    var currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    var token = currentUser.token; // your token
+     headers = headers.set('Access-Control-Allow-Origin', '*').set('Authorization', `Bearer ${token}`);
+     this.http.get(this.api.apiorder+`xemgiohang`, { headers: headers }).subscribe(res => {
+     
+      this.tmp=res
+      this.tmp=this.tmp.data[0]
+       
+    
+      for(let i=0 ;i<this.tmp.length;i++)
+      { 
+        var a={sanPhamId: this.tmp[i].sanPhamId, soLuongDat:this.tmp[i].soLuongTrongGio}
+        this.arraypaypal.push(a)
+
+      }
+           this.formGroupPaypal = new FormGroup({
+         danhSachDat: new FormControl(this.formArray.controls),
+         diaChiGiaoHang: new FormControl(localStorage.getItem('diaChiGiaoHang'), [Validators.required]),
+         sdtNguoiNhan: new FormControl(localStorage.getItem('sdt'), [Validators.required]),
+         paymentId: new FormControl(this.paymentId, [Validators.required]),
+         payerID: new FormControl(this.PayerID, [Validators.required]),
+       
+      });
+      console.log(this.formGroupPaypal.value)
+      if (this.formGroupPaypal.valid)
+      {
+        
+            this.http.post(this.api.apibill+`CheckoutPaypal` ,this.formGroupPaypal.value, { headers: headers }).subscribe(res => {
+           
+              console.log(res)
+          window.location.reload()
+            
+              
+             
+          
+        
+           });
+          
+    
+    
+        
+    
+
+        
+      
+      }
+      
+    
+    });
+     
+      }
+      
+    }
+  );
   }
 }
