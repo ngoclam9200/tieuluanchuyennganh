@@ -34,9 +34,9 @@ export class CartuserComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, private api:ApiService, private dialog : MatDialog,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getrole()
-    this.api.checkadmin()
-    this.api.checkRole()
+    // this.getrole()
+    // this.api.checkadmin()
+    // this.api.checkRole()
     this.getpaymentId()
     this.currentData()
     
