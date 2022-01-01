@@ -54,7 +54,7 @@ checkthanhtoan=true
     this.formGroupPayPal = new FormGroup({
       danhSachDat: new FormArray(this.arrayPayPal,[Validators.required]),
 
-      urlRedirect: new FormControl("http://localhost:4200/cartuser", [Validators.required]),
+      urlRedirect: new FormControl("https://webdogiadung.netlify.app/cartuser", [Validators.required]),
     });
     this.formArrayPayPal=new FormArray(this.arrayPayPal)
     this.currentphoneaddress()
@@ -304,7 +304,7 @@ checkthanhtoan=true
          danhSachDat: new FormControl(this.formArrayPayPal.controls),
       
       
-         urlRedirect: new FormControl("http://localhost:4200/cartuser", [Validators.required]),
+         urlRedirect: new FormControl("https://webdogiadung.netlify.app/cartuser", [Validators.required]),
        
       });
       console.log(this.formGroupPayPal.value)
