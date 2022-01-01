@@ -308,7 +308,7 @@ checkthanhtoan=true
        
       });
       console.log(this.formGroupPayPal.value)
-      if (this.formGroupPayPal.valid)
+      if (this.formGroupPayPal.valid &&this.formGroup.valid)
       {
         
             this.http.post(this.api.apibill+`ThanhToanPayPal` ,this.formGroupPayPal.value, { headers: headers }).subscribe(res => {
@@ -326,6 +326,7 @@ checkthanhtoan=true
           
         
            });
+
           
     
     
@@ -335,6 +336,7 @@ checkthanhtoan=true
         
       
       }
+      else alert("Bạn chưa điền đủ thông tin")
       
     
     });
