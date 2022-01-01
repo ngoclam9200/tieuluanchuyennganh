@@ -33,8 +33,8 @@ export class ProductdetailComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, private api:ApiService, private dialog:MatDialog) { }
   isLogin: boolean = false
   ngOnInit(): void {
-this.getrole()
-    this.api.checkadmin()
+// this.getrole()
+//     this.api.checkadmin()
     // this.api.checkstaff()
     
     this.currentproduct()
