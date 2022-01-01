@@ -66,7 +66,7 @@ export class SigninComponent implements OnInit {
             
    
            if(result.message=="Đăng nhập thành công" && this.role.vaiTro=="customer")
-           {
+           { alert(result.message)
             localStorage.setItem('userName',this.formGroup.controls['tenDangNhap'].value)
 
             localStorage.setItem('currentUser',JSON.stringify( {token:this.data.data}) );
@@ -75,7 +75,7 @@ export class SigninComponent implements OnInit {
             this.router.navigate(['/listproduct']);
            }
            if(result.message=="Đăng nhập thành công" && this.role.vaiTro=="admin")
-           {
+           { alert(result.message)
             localStorage.setItem('userName',this.formGroup.controls['tenDangNhap'].value)
 
             localStorage.setItem('currentUser',JSON.stringify( {token:this.data.data}) );
@@ -84,7 +84,7 @@ export class SigninComponent implements OnInit {
             this.router.navigate(['/allstaff']);
            }
            if(result.message=="Đăng nhập thành công" && this.role.vaiTro=="staff")
-           {
+           {  alert(result.message)
             localStorage.setItem('userName',this.formGroup.controls['tenDangNhap'].value)
 
             localStorage.setItem('currentUser',JSON.stringify( {token:this.data.data}) );
