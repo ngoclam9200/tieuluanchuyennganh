@@ -179,7 +179,7 @@ const tenLoaiSP=this.formGroup.controls['tenLoaiSP'].value
       Swal.fire({
         icon: 'error',
         title: 'Empty field....',
-        text: 'Please fill in this form ',
+        text: 'Vui lòng điền đầy đủ thông tin',
 
       })
     }
