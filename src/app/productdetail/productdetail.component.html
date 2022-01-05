@@ -100,12 +100,12 @@
             </div>
             <div class="section group">
 
-                <div *ngFor="let data of arrayrelate" class="grid_1_of_4 images_1_of_4">
-                    <a ><img width="100px" height="100px" src="{{data.hinhAnh}}" alt="" /></a>
+                <div style="cursor: pointer;" *ngFor="let data of arrayrelate" (click)=" currentrelateproduct(data.sanPhamId)" class="grid_1_of_4 images_1_of_4">
+                    <a  ><img width="100px" height="100px" src="{{data.hinhAnh}}" alt="" /></a>
 
 
 
-                    <div class="price-details">
+                    <div  class="price-details">
 
                         <div class="price-number">
 

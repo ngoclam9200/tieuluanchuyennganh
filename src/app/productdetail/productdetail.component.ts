@@ -225,114 +225,7 @@ export class ProductdetailComponent implements OnInit {
 
     
   }
-  // comparecar() {
-   
-  //   this.iddetail = localStorage.getItem('idcardetail')
-  //   if (localStorage.getItem('arraycomparecar') == null || localStorage.getItem('arraycomparecar') == "") {
-  //     localStorage.setItem('arraycomparecar', this.iddetail);
-
-  //     this.router.navigate(['/carcomparison']);
-
-  //   }
-  //   else {
-  //     this.idcar = localStorage.getItem('arraycomparecar')
-  //     if (this.idcar.length > 96) {
-  //       Swal.fire({
-  //         title: 'comparison list cannot be more than 4 cars ',
-  //         text: "you need to delete?",
-  //         icon: 'warning',
-  //         showCancelButton: true,
-  //         confirmButtonColor: '#3085d6',
-  //         cancelButtonColor: '#d33',
-  //         confirmButtonText: 'Yes'
-  //       }).then((result) => {
-  //         if (result.isConfirmed) {
-
-
-
-
-  //           this.router.navigate(['/carcomparison']);
-
-
-  //         }
-
-  //       })
-
-  //     }
-  //     else {
-
-  //       var existing = localStorage.getItem('arraycomparecar');
-  //       this.idcar = localStorage.getItem('arraycomparecar')
-  //       var i = 0
-  //       var length = this.idcar //74
-  //       var start = 0
-  //       var numberstring = Math.floor(length.length / 24)
-
-  //       while (i < numberstring) {
-
-  //         var t = this.idcar.indexOf(",")
-
-  //         if (t == -1) this.arrayid.push(this.idcar)
-  //         else this.arrayid.push(this.idcar.slice(start, t))
-
-  //         this.idcar = this.idcar.slice(t + 1, this.idcar.length)
-
-
-  //         i++;
-    
-
-  //       }
-  //       for (let i = 0; i < this.arrayid.length; i++) {
-  //         if (this.arrayid[i] == this.iddetail) {
-  //           Swal.fire({
-  //             title: 'This vehicle already exists in the comparison list ',
-  //             text: "Do you want to go to the comparison page?",
-  //             icon: 'warning',
-  //             showCancelButton: true,
-  //             confirmButtonColor: '#3085d6',
-  //             cancelButtonColor: '#d33',
-  //             confirmButtonText: 'Yes'
-  //           }).then((result) => {
-  //             if (result.isConfirmed) {
-
-
-
-
-  //               this.router.navigate(['/carcomparison']);
-
-
-  //             }
-
-  //           })
-
-  //           return
-  //         }
-  //       }
-
-  //       var data
-  //       this.iddetail = localStorage.getItem('arraycomparecar')
-  //       data = existing ? existing.split(',') : [];
-
-
-  //       data.push(this.iddetail);
-
-
-  //       localStorage.setItem('arraycomparecar', data.toString());
-
-
-  //       this.router.navigate(['/carcomparison']);
-  //     }
-
-
-
-
-  //   }
-
-
-
-
-
-  // }
+ 
   initForm(){
     
     this.formGroup= new FormGroup({
@@ -471,5 +364,11 @@ export class ProductdetailComponent implements OnInit {
 
 
   
+  }
+  currentrelateproduct(id) {
+ 
+    localStorage.setItem('idproduct', id)
+ window.location.reload()
+
   }
 }

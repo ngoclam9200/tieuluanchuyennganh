@@ -308,7 +308,8 @@ checkthanhtoan=true
        
       });
       console.log(this.formGroupPayPal.value)
-      if (this.formGroupPayPal.valid &&this.formGroup.valid)
+      console.log(this.formGroup.value)
+      if (this.formGroupPayPal.valid)
       {
         
             this.http.post(this.api.apibill+`ThanhToanPayPal` ,this.formGroupPayPal.value, { headers: headers }).subscribe(res => {
