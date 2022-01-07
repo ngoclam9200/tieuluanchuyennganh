@@ -39,7 +39,7 @@ data:any
      
       
       email: new FormControl("", [Validators.required]),
-      url:new FormControl("http://localhost:4200/resetpassword", [Validators.required]),
+      url:new FormControl("https://webdogiadung.netlify.app/resetpassword", [Validators.required]),
      
     }); 
     

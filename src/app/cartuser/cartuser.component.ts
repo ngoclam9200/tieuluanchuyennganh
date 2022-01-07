@@ -48,7 +48,7 @@ export class CartuserComponent implements OnInit {
     this.formGroupPaypal = new FormGroup({
       danhSachDat: new FormArray(this.arraypaypal,[Validators.required]),
      
-      urlRedirect: new FormControl("http://localhost:4200/cartuser", [Validators.required]),
+      urlRedirect: new FormControl("https://webdogiadung.netlify.app/cartuser", [Validators.required]),
     });
     this.formArray=new FormArray(this.arraypaypal)
  
